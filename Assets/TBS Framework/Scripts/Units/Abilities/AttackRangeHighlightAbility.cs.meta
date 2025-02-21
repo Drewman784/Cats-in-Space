@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 191c517e72f4f6144b52a5eed6ff2582
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Scripts/Units/Abilities/AttackRangeHighlightAbility.cs
+  uploadId: 706676

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ee0486bb9ccf4c844aff9c46db40c8ad
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example5/Prefabs/HOMMHex.prefab
+  uploadId: 706676

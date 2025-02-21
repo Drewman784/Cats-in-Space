@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f30399c7924ea864faca85d275cf4bed
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Editor/GridGenerators/RectangularHexGridGenerator.cs
+  uploadId: 706676

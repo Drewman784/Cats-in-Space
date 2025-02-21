@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5da4406f26142484291048ee8e0e8803
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example4/Prefabs/Units/Bandit.prefab
+  uploadId: 706676

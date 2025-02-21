@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c0ef0a400811b5b48bda35084ce2ea1b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Scripts/Pathfinding/DataStructs/SortedListPriorityQueue.cs
+  uploadId: 706676

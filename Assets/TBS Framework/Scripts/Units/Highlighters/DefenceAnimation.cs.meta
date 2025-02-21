@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 48c681edbf6adf84e8d73bad5c3e9f3d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Scripts/Units/Highlighters/DefenceAnimation.cs
+  uploadId: 706676

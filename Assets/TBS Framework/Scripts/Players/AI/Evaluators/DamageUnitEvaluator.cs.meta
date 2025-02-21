@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e670818dd25bba646a670419ba4af2b1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Scripts/Players/AI/Evaluators/DamageUnitEvaluator.cs
+  uploadId: 706676

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d7821cb545dd4fb48bc8af25a5c834e8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example5/Scripts/SpellCastingAbility.cs
+  uploadId: 706676

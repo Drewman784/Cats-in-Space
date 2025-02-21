@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 72baaeb50a54e3f41942c99c7c30c0c2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Scripts/Players/AI/Actions/AIAction.cs
+  uploadId: 706676

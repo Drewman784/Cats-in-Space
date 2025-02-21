@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7e625b2e8b3890943aa2e1903a69f484
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Tutorial/Scripts/SampleSquare.cs
+  uploadId: 706676

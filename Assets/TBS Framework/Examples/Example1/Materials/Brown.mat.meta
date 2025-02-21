@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 25f7fe1fc5c0fd543946b1414a35dcf1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example1/Materials/Brown.mat
+  uploadId: 706676

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: cbf5ddd285b43c74e879ed57ff2a89f3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example5/Scripts/HPUpdate.cs
+  uploadId: 706676

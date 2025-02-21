@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 29187c95959baff4a974157b402f5c04
+timeCreated: 1496435121
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Scripts/Units/UnitStates/UnitStateMarkedAsReachableEnemy.cs
+  uploadId: 706676

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 810225cdfe2f7ef4dae2412009491dd4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example1/MediumAttackBuff.asset
+  uploadId: 706676

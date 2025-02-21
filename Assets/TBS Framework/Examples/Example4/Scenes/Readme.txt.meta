@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c6c1bb6164eae5644899e7f272c84c80
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example4/Scenes/Readme.txt
+  uploadId: 706676

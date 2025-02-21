@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d55fdc226ae8b554c8f5c2e359b6632d
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example5/Prefabs/Units/HOMMUnitContinentalTurtleRukkha.prefab
+  uploadId: 706676

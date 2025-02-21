@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7dbd6885a714c3e468b8424c3cf0fe6f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example5/Prefabs/Units/HOMMUnitThanatos.prefab
+  uploadId: 706676

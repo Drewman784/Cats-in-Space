@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 369ef940e1065f34fb05f56f03f1e318
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Scripts/Units/Highlighters/RendererHighlighter.cs
+  uploadId: 706676

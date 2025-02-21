@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a6a8b0e0603d6ae4ba054aea26b95125
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Tutorial/Prefabs/Cells/SampleSquare.prefab
+  uploadId: 706676

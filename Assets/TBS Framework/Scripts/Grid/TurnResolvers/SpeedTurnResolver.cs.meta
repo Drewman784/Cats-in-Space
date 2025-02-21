@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ac445c563a5aecc46a42b59faeb50af9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Scripts/Grid/TurnResolvers/SpeedTurnResolver.cs
+  uploadId: 706676

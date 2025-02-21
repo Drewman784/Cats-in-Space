@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1e09d115edebbc2439e420ef2aa919ef
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example5/Prefabs/Units/HOMMUnitBabaWitch.prefab
+  uploadId: 706676

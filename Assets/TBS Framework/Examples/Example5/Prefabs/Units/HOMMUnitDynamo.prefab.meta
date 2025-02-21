@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 187c7170c47c892488d78a040992ede9
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example5/Prefabs/Units/HOMMUnitDynamo.prefab
+  uploadId: 706676

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5359d7ef1b354a04db21c2803ed953e8
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example4/Prefabs/Cells/colored_41 1.prefab
+  uploadId: 706676

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8724c577cc183f048a9f22c9c4985a47
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Tutorial/Prefabs/Units/Unit1.prefab
+  uploadId: 706676

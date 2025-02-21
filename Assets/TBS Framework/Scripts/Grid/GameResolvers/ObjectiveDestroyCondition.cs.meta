@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 56ce5926e1096aa46b8b1401b007b9f0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Scripts/Grid/GameResolvers/ObjectiveDestroyCondition.cs
+  uploadId: 706676

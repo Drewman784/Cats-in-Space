@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0a571e42d19be03498276c01b6045d4f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Tutorial/Materials/ObstacleMaterial.mat
+  uploadId: 706676

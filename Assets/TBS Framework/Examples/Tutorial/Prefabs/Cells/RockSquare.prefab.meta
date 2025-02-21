@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 407fff7a69c2d834996f82baa622405a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Tutorial/Prefabs/Cells/RockSquare.prefab
+  uploadId: 706676

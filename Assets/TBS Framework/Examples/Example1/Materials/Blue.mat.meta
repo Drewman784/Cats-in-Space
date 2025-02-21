@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 33c38e81eba0e6946b7c7e79b2e63f4e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example1/Materials/Blue.mat
+  uploadId: 706676

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: dfd8e861f94704b4baed9a4b31ad9bde
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example1/Prefabs/Units/Hero.prefab
+  uploadId: 706676

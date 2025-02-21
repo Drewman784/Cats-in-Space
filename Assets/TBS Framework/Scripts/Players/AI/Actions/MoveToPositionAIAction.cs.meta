@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d7ffd094df4e57348861d7eb9b03add2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Scripts/Players/AI/Actions/MoveToPositionAIAction.cs
+  uploadId: 706676

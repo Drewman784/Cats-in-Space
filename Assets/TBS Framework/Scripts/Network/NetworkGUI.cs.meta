@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 76a6ec2bfe9783d40a6a1e527f69b110
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Scripts/Network/NetworkGUI.cs
+  uploadId: 706676

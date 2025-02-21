@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fdff1aa3ab3c63e42a4f5c0060f80bc8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example5/Scripts/HOMMGameResolver.cs
+  uploadId: 706676

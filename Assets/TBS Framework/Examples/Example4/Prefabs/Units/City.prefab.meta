@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 99c84b9b8d919674cba56e188363f531
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example4/Prefabs/Units/City.prefab
+  uploadId: 706676

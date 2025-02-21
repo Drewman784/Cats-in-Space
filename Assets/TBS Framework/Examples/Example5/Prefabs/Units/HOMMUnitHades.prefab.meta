@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b6de8c4d94e13c34ab478a796a13e5fd
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example5/Prefabs/Units/HOMMUnitHades.prefab
+  uploadId: 706676

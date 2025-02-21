@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 066b1fd923d2a07488232a1f66febbc4
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50282
+  packageName: Turn Based Strategy Framework
+  packageVersion: 3.0.5
+  assetPath: Assets/TBS Framework/Examples/Example5/Scripts/com.crookedhead.tbsf.example5.asmdef
+  uploadId: 706676
