@@ -6,10 +6,12 @@ public class SampleUnit : Unit
 {
     //this code is borrowed from the tutorial in the documentation
     public Color LeadingColor;
+    public Vector3 Offset;
     public override void Initialize()
     {
         base.Initialize();
         GetComponentInChildren<Renderer>().material.color = LeadingColor;
+        transform.localPosition += Offset;
     }
 
     public override void MarkAsFriendly()

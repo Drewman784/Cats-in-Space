@@ -236,6 +236,7 @@ MonoBehaviour:
   actionPoints: 1
   PlayerNumber: 0
   LeadingColor: {r: 1, g: 0.4392157, b: 0, a: 1}
+  Offset: {x: 0, y: 0, z: -0.1}
 --- !u!114 &1897762967887046441
 MonoBehaviour:
   m_ObjectHideFlags: 0
