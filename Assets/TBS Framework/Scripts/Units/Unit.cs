@@ -199,6 +199,7 @@ namespace TbsFramework.Units
             {
                 UnitHighlighted.Invoke(this, EventArgs.Empty);
             }
+            Debug.Log("mouse over!!");
         }
         public virtual void OnMouseExit()
         {
@@ -206,6 +207,7 @@ namespace TbsFramework.Units
             {
                 UnitDehighlighted.Invoke(this, EventArgs.Empty);
             }
+            Debug.Log("mouse exit!!");
         }
 
         /// <summary>

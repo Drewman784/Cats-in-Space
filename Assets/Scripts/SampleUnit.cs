@@ -1,5 +1,6 @@
 using TbsFramework.Units;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SampleUnit : Unit
 {
@@ -35,4 +36,9 @@ public class SampleUnit : Unit
     {
         GetComponentInChildren<Renderer>().material.color = LeadingColor;
     }
+
+    public void OnMouseOver() {
+        Debug.Log("mouse over!!");
+    }
+
 }

@@ -17000,6 +17000,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2942209887627326140, guid: 916fdd90bca344090bd12deaf2a54201,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2942209887627326140, guid: 916fdd90bca344090bd12deaf2a54201,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7643478058889904232, guid: 916fdd90bca344090bd12deaf2a54201,
         type: 3}
       propertyPath: cell
