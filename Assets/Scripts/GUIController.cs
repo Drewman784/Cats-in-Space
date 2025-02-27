@@ -13,6 +13,7 @@ namespace TbsFramework.Gui
         public CellGrid CellGrid;
         public Button EndTurnButton;
         public Button RestartButton;
+        public Button ExitButton;
 
         void Awake()
         {
@@ -74,6 +75,10 @@ namespace TbsFramework.Gui
         public void RestartLevel()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().path);
+        }
+        public void ExitGame()
+        {
+            Application.Quit();
         }
     }
 }
