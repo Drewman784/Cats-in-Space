@@ -153,5 +153,11 @@ namespace TbsFramework.Cells
         {
             return OffsetCoord.ToString();
         }
+
+        public void RemoveAllUnits(){
+            CurrentUnits = new List<Unit>();
+            IsTaken = false;
+            Debug.Log("cell should be empty");
+        }
     }
 }

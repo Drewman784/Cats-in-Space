@@ -7,16 +7,19 @@ public class SampleUnit : Unit
     //this code is borrowed from the tutorial in the documentation
     public Color LeadingColor;
     public Vector3 Offset;
+    Color friendlyCustomColor;
     public override void Initialize()
     {
         base.Initialize();
         GetComponentInChildren<Renderer>().material.color = LeadingColor;
         transform.localPosition += Offset;
+        friendlyCustomColor = LeadingColor + new Color(0f,0f,0f,0.5f);
     }
 
     public override void MarkAsFriendly()
     {
-        GetComponentInChildren<Renderer>().material.color  = new Color (0.8f,1,0.8f);
+        //Debug.Log("Mark");
+        GetComponentInChildren<Renderer>().material.color  = friendlyCustomColor;
     }
 
     public override void MarkAsReachableEnemy()
@@ -36,11 +39,12 @@ public class SampleUnit : Unit
 
     public override void UnMark()
     {
+        //Debug.Log("Unmark");
         GetComponentInChildren<Renderer>().material.color = LeadingColor;
     }
 
     public void OnMouseOver() {
-        Debug.Log("mouse over!!");
+        //Debug.Log("mouse over!!");
     }
 
 }

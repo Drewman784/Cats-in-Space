@@ -199,7 +199,7 @@ namespace TbsFramework.Units
             {
                 UnitHighlighted.Invoke(this, EventArgs.Empty);
             }
-            Debug.Log("mouse over!!");
+            //Debug.Log("mouse over!!");
         }
         public virtual void OnMouseExit()
         {
@@ -207,7 +207,7 @@ namespace TbsFramework.Units
             {
                 UnitDehighlighted.Invoke(this, EventArgs.Empty);
             }
-            Debug.Log("mouse exit!!");
+            //Debug.Log("mouse exit!!");
         }
 
         /// <summary>
@@ -244,10 +244,14 @@ namespace TbsFramework.Units
         /// </summary>
         protected virtual void OnDestroyed()
         {
+            //Debug.Log("destroy unit");
             Cell.IsTaken = false;
             Cell.CurrentUnits.Remove(this);
+            Cell.RemoveAllUnits();
             MarkAsDestroyed();
             Destroy(gameObject);
+            this.enabled = false;
+
         }
 
         /// <summary>
@@ -596,6 +600,7 @@ namespace TbsFramework.Units
             #if UNITY_EDITOR
             if (Cell != null && !Application.isPlaying)
             {
+                //Debug.Log("deleted?");
                 Cell.IsTaken = false;
                 UnityEditor.EditorUtility.SetDirty(Cell);
                 UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
