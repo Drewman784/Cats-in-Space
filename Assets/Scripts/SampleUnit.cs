@@ -7,7 +7,10 @@ public class SampleUnit : Unit
     //this code is borrowed from the tutorial in the documentation
     public Color LeadingColor;
     public Vector3 Offset;
+    public string UnitName;
+    public bool isStructure;
     Color friendlyCustomColor;
+
     public override void Initialize()
     {
         base.Initialize();

@@ -3,8 +3,11 @@ using UnityEngine;
 
     public class Square_Script : Square
     {
-        // How big is the tile (16x16 w/Pixel per unit set to 10)
-        Vector3 dimensions = new Vector3(1.6f, 1.6f, 0f);
+    // How big is the tile (16x16 w/Pixel per unit set to 16)
+    Vector3 dimensions = new Vector3(1.6f, 1.6f, 6f);
+
+    public string TileType;
+    public int DefenseBoost;
 
     public override Vector3 GetCellDimensions()
         {
