@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2564884393972390801}
   - component: {fileID: 3224626418768278623}
   m_Layer: 0
-  m_Name: Rubble
+  m_Name: Cover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
-  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Color: {r: 0.37358293, g: 0.754717, b: 0.252759, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -155,9 +155,9 @@ MonoBehaviour:
   MarkAsHighlightedFn: []
   UnMarkFn: []
   IsTaken: 0
-  MovementCost: 2
-  TileType: Rubble
-  DefenseBoost: 3
+  MovementCost: 1
+  TileType: Cover
+  DefenseBoost: 2
 --- !u!114 &3224626418768278623
 MonoBehaviour:
   m_ObjectHideFlags: 0
