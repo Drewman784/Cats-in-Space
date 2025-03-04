@@ -1,11 +1,12 @@
 using Microsoft.Unity.VisualStudio.Editor;
 using TbsFramework.Units;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class SampleUnit : Unit
+public class SampleUnit : TbsFramework.Units.Unit
 {
     //this code is borrowed from the tutorial in the documentation
     public Color LeadingColor;
@@ -55,7 +56,6 @@ public class SampleUnit : Unit
     public override void MarkAsSelected()
     {
         GetComponentInChildren<Renderer>().material.color = Color.green;
-        selectionPanel.SetActive(true);
     }
 
     public override void OnUnitDeselected()
@@ -91,6 +91,28 @@ public class SampleUnit : Unit
     protected override void DefenceActionPerformed(){ //runs after unit has been attacked
         ShowHealth();
     }
+
+    private void OnMouseOver() {
+        selectionPanel.SetActive(true);
+        if(this.PlayerNumber!=0){
+            selectionPanel.transform.GetChild(1).gameObject.SetActive(false);
+            selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = Color.red; 
+        }
+        else{
+            selectionPanel.transform.GetChild(1).gameObject.SetActive(true);
+            selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(13f,133f,32f); 
+        }
+        selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints/(float)this.TotalHitPoints,1,1);
+    }
+
+    public override void OnMouseExit()
+    {
+        base.OnMouseExit();
+        selectionPanel.SetActive(false);
+    }
+
+
+
 
 
 }
