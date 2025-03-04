@@ -16,6 +16,13 @@ public class SampleUnit : Unit
 
     private GameObject healthBar;
     private GameObject actionMarker;
+    private GameObject selectionPanel;
+
+    [SerializeField]
+    public int Strength;
+    public int Int;
+    public int Morale;
+
 
     public override void Initialize()
     {
@@ -25,6 +32,8 @@ public class SampleUnit : Unit
         friendlyCustomColor = LeadingColor + new Color(0f,0f,0f,0.5f);
         healthBar = transform.GetChild(2).transform.GetChild(0).transform.GetChild(1).gameObject;
         actionMarker = transform.GetChild(2).transform.GetChild(1).gameObject;
+        selectionPanel = GameObject.Find("UnitSelected");
+        Debug.Log(selectionPanel);
         if(this.PlayerNumber!=0){
             UnityEngine.UI.Image hBar = healthBar.GetComponent<UnityEngine.UI.Image>();
             hBar.color = Color.red; 
@@ -46,6 +55,13 @@ public class SampleUnit : Unit
     public override void MarkAsSelected()
     {
         GetComponentInChildren<Renderer>().material.color = Color.green;
+        selectionPanel.SetActive(true);
+    }
+
+    public override void OnUnitDeselected()
+    {
+        base.OnUnitDeselected();
+        selectionPanel.SetActive(false);
     }
 
     public override void MarkAsFinished()
