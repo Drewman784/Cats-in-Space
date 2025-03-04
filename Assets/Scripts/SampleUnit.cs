@@ -14,6 +14,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     public string UnitName;
     public bool isStructure;
     Color friendlyCustomColor;
+    Color friendlyHealthColor = new Color32(13,133,32,255); 
 
     private GameObject healthBar;
     private GameObject actionMarker;
@@ -104,7 +105,7 @@ public class SampleUnit : TbsFramework.Units.Unit
         }
         else{
             selectionPanel.transform.GetChild(1).gameObject.SetActive(true);
-            selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(13f,133f,32f); 
+            selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = friendlyHealthColor; 
         }
         selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints/(float)this.TotalHitPoints,1,1);
     }
