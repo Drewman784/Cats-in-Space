@@ -23,6 +23,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     public int Strength;
     public int Int;
     public int Morale;
+    private bool selected;
 
 
     public override void Initialize()
@@ -35,6 +36,7 @@ public class SampleUnit : TbsFramework.Units.Unit
         actionMarker = transform.GetChild(2).transform.GetChild(1).gameObject;
         selectionPanel = GameObject.Find("UnitSelected");
         Debug.Log(selectionPanel);
+        selected = false;
         if(this.PlayerNumber!=0){
             UnityEngine.UI.Image hBar = healthBar.GetComponent<UnityEngine.UI.Image>();
             hBar.color = Color.red; 
@@ -56,12 +58,14 @@ public class SampleUnit : TbsFramework.Units.Unit
     public override void MarkAsSelected()
     {
         GetComponentInChildren<Renderer>().material.color = Color.green;
+        selected = true;
     }
 
     public override void OnUnitDeselected()
     {
         base.OnUnitDeselected();
         selectionPanel.SetActive(false);
+        selected = false;
     }
 
     public override void MarkAsFinished()
@@ -108,7 +112,8 @@ public class SampleUnit : TbsFramework.Units.Unit
     public override void OnMouseExit()
     {
         base.OnMouseExit();
-        selectionPanel.SetActive(false);
+        if(!selected)
+            selectionPanel.SetActive(false);
     }
 
 
