@@ -1,4 +1,5 @@
 //using Microsoft.Unity.VisualStudio.Editor;
+using System;
 using TbsFramework.Units;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -19,11 +20,6 @@ public class SampleUnit : TbsFramework.Units.Unit
     private GameObject healthBar;
     private GameObject actionMarker;
     private GameObject selectionPanel;
-
-    [SerializeField]
-    public int Strength;
-    public int Int;
-    public int Morale;
     private bool selected;
 
 
@@ -116,8 +112,6 @@ public class SampleUnit : TbsFramework.Units.Unit
         if(!selected)
             selectionPanel.SetActive(false);
     }
-
-
 
 
 

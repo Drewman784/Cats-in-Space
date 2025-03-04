@@ -19,7 +19,7 @@ namespace TbsFramework.Units.Abilities
         {
             if (CanPerform(cellGrid) && UnitReference.IsUnitAttackable(UnitToAttack, UnitReference.Cell))
             {
-                UnitReference.AttackHandler(UnitToAttack);
+                UnitReference.AttackHandler(UnitToAttack, "PHYSICAL");
                 yield return new WaitForSeconds(0.5f);
             }
             yield return null;

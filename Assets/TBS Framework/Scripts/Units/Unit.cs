@@ -121,6 +121,10 @@ namespace TbsFramework.Units
         public int AttackRange;
         public int AttackFactor;
         public int DefenceFactor;
+
+        public int Strength;
+        public int Int;
+        public int Morale;
         /// <summary>
         /// Determines how far on the grid the unit can move.
         /// </summary>
@@ -304,20 +308,41 @@ namespace TbsFramework.Units
         /// <summary>
         /// Method performs an attack on given unit.
         /// </summary>
-        public void AttackHandler(Unit unitToAttack)
+       /** public virtual void AttackHandler(Unit unitToAttack)
         {
             AttackAction attackAction = DealDamage(unitToAttack);
             MarkAsAttacking(unitToAttack);
             unitToAttack.DefendHandler(this, attackAction.Damage);
             AttackActionPerformed(attackAction.ActionCost);
+        }*/
+
+        public void AttackHandler(TbsFramework.Units.Unit unitToAttack, String attackType)
+        {
+            AttackAction attackAction = DealDamage(unitToAttack, attackType);
+            MarkAsAttacking(unitToAttack);
+            unitToAttack.DefendHandler(this, attackAction.Damage);
+            AttackActionPerformed(attackAction.ActionCost); 
         }
+
         /// <summary>
         /// Method for calculating damage and action points cost of attacking given unit
         /// </summary>
         /// <returns></returns>
-        protected virtual AttackAction DealDamage(Unit unitToAttack)
+        protected virtual AttackAction DealDamage(Unit unitToAttack, string attackType)
         {
-            return new AttackAction(AttackFactor, 1f);
+            switch(attackType){
+                case "PHYSICAL":
+                    return new AttackAction(AttackFactor, 1f);
+                case "PSIONIC":
+                    int dmg = unitToAttack.Morale - this.Morale;
+                    if((float)unitToAttack.Morale/(float)this.Morale >= 2){
+                        dmg = dmg * 3;
+                    }
+                    return new AttackAction(dmg, 1f);
+                default:
+                    return new AttackAction(AttackFactor, 1f);
+            }
+            //return new AttackAction(AttackFactor, 1f);
         }
         /// <summary>
         /// Method called after unit performed an attack.
@@ -370,7 +395,7 @@ namespace TbsFramework.Units
 
         public int DryAttack(Unit other)
         {
-            int damage = DealDamage(other).Damage;
+            int damage = DealDamage(other, "DRY").Damage;
             int realDamage = other.Defend(this, damage);
 
             return realDamage;
