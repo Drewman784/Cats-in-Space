@@ -9,7 +9,13 @@ EditorBuildSettings:
     path: Assets/TBS Framework/Examples/Example4/Scenes/SceneMultiplayer.unity
     guid: f6a3dcf614278f24ca872eae1e49660f
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5a0702829713654448f90184ac854701
+  - enabled: 1
     path: Assets/Scenes/TestingScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Level_One.unity
+    guid: ee76f29d28f1e944f93d31b1465c3e82
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

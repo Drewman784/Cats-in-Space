@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6254646226487826330}
   - component: {fileID: 273002598714723778}
   m_Layer: 0
-  m_Name: Hall_Tile
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0aa7527e756b9c44c9a49a98c74c3a81, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -108,8 +108,8 @@ MonoBehaviour:
   MarkAsHighlightedFn: []
   UnMarkFn: []
   IsTaken: 0
-  MovementCost: 1
-  TileType: Hall
+  MovementCost: 20000
+  TileType: Wall
   DefenseBoost: 0
 --- !u!114 &6254646226487826330
 MonoBehaviour:

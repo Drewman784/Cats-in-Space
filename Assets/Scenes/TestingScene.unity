@@ -14943,7 +14943,7 @@ GameObject:
   - component: {fileID: 1184349963}
   - component: {fileID: 1184349962}
   m_Layer: 5
-  m_Name: ExitGameButton
+  m_Name: MainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14995,7 +14995,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1536214122}
         m_TargetAssemblyTypeName: TbsFramework.Gui.GUIController, Assembly-CSharp
-        m_MethodName: ExitGame
+        m_MethodName: ExittoMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15794,7 +15794,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: EXIT GAME
+  m_Text: MAIN MENU
 --- !u!222 &1312016265
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18813,7 +18813,7 @@ MonoBehaviour:
   CellGrid: {fileID: 1098913026}
   EndTurnButton: {fileID: 1839214742}
   RestartButton: {fileID: 1729514426}
-  ExitButton: {fileID: 1184349962}
+  MainMenuButton: {fileID: 1184349962}
 --- !u!1001 &1540760362
 PrefabInstance:
   m_ObjectHideFlags: 0
