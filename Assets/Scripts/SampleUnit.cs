@@ -94,16 +94,18 @@ public class SampleUnit : TbsFramework.Units.Unit
     }
 
     private void OnMouseOver() {
-        selectionPanel.SetActive(true);
-        if(this.PlayerNumber!=0){
-            selectionPanel.transform.GetChild(1).gameObject.SetActive(false);
-            selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = Color.red; 
+        if(this.HitPoints>0){
+            selectionPanel.SetActive(true);
+            if(this.PlayerNumber!=0){
+                selectionPanel.transform.GetChild(1).gameObject.SetActive(false);
+                selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = Color.red; 
+            }
+            else{
+                selectionPanel.transform.GetChild(1).gameObject.SetActive(true);
+                selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = friendlyHealthColor; 
+            }
+            selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints/(float)this.TotalHitPoints,1,1);
         }
-        else{
-            selectionPanel.transform.GetChild(1).gameObject.SetActive(true);
-            selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = friendlyHealthColor; 
-        }
-        selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints/(float)this.TotalHitPoints,1,1);
     }
 
     public override void OnMouseExit()
@@ -113,6 +115,36 @@ public class SampleUnit : TbsFramework.Units.Unit
             selectionPanel.SetActive(false);
     }
 
+    public void NewAttackHandler(TbsFramework.Units.Unit unitToAttack, String attackType)
+    {
+        AttackAction attackAction = NewDealDamage(unitToAttack, attackType);
+        MarkAsAttacking(unitToAttack);
+        unitToAttack.DefendHandler(this, attackAction.Damage);
+        AttackActionPerformed(attackAction.ActionCost); 
+    }
+
+    public AttackAction NewDealDamage(TbsFramework.Units.Unit unitToAttack, String attackType){
+        switch(attackType){
+            case "PHYSICAL":
+                return new AttackAction(AttackFactor, 1f);
+            case "PSIONIC":
+                int dmg = unitToAttack.Morale - this.Morale;
+                if((float)unitToAttack.Morale/(float)this.Morale >= 2){
+                    dmg = dmg * 3;
+                }
+                return new AttackAction(dmg, 1f);
+            default:
+                return new AttackAction(AttackFactor, 1f);
+        }
+        //return new AttackAction(AttackFactor, 1f);
+    }
+
+    protected override void OnDestroyed()
+    {
+        selectionPanel.SetActive(false);
+        Debug.Log(selectionPanel + "selection panel gone?");
+        base.OnDestroyed();
+    }
 
 
 }

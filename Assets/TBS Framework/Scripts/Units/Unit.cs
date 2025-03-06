@@ -309,7 +309,7 @@ namespace TbsFramework.Units
         /// Method performs an attack on given unit.
         /// </summary>
 
-        public void AttackHandler(Unit unitToAttack)
+        public virtual void AttackHandler(Unit unitToAttack)
         {
             AttackAction attackAction = DealDamage(unitToAttack);
             MarkAsAttacking(unitToAttack);
