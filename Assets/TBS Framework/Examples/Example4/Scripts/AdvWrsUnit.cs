@@ -29,13 +29,13 @@ namespace TbsFramework.Example4
             return damage - (Cell as AdvWrsSquare).DefenceBoost;
         }
 
-        //protected override AttackAction DealDamage(Unit unitToAttack)
-        //{
-        //    var baseVal = base.DealDamage(unitToAttack);
-        //    var newDmg = TotalHitPoints == 0 ? 0 : (int)Mathf.Ceil(baseVal.Damage * ((float)HitPoints / TotalHitPoints));
-        //
-        //    return new AttackAction(newDmg, baseVal.ActionCost);
-        //}
+        protected override AttackAction DealDamage(Unit unitToAttack)
+        {
+            var baseVal = base.DealDamage(unitToAttack);
+            var newDmg = TotalHitPoints == 0 ? 0 : (int)Mathf.Ceil(baseVal.Damage * ((float)HitPoints / TotalHitPoints));
+
+            return new AttackAction(newDmg, baseVal.ActionCost);
+        }
 
         public override IEnumerator Move(Cell destinationCell, IList<Cell> path)
         {
