@@ -463,7 +463,7 @@ MonoBehaviour:
   Int: 0
   Morale: 0
   movementPoints: 5
-  MovementAnimationSpeed: 10
+  MovementAnimationSpeed: 2
   actionPoints: 1
   PlayerNumber: 0
   LeadingColor: {r: 1, g: 0.4392157, b: 0, a: 1}

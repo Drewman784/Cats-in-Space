@@ -139,7 +139,7 @@ MonoBehaviour:
   Int: 0
   Morale: 0
   movementPoints: 4
-  MovementAnimationSpeed: 10
+  MovementAnimationSpeed: 2
   actionPoints: 1
   PlayerNumber: 0
   LeadingColor: {r: 0.5176471, g: 0.16470589, b: 0.043137256, a: 1}
