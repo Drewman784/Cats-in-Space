@@ -2113,6 +2113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScrollSpeed: 1
   ScrollEdge: 0.05
+  cam: {fileID: 409019581}
 --- !u!20 &409019581
 Camera:
   m_ObjectHideFlags: 0

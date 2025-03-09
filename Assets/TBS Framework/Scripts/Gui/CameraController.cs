@@ -7,8 +7,23 @@ namespace TbsFramework.Gui
     /// </summary>
     public class CameraController : MonoBehaviour
     {
-        public float ScrollSpeed = 15;
-        public float ScrollEdge = 0.01f;
+        public float ScrollSpeed = 1;
+        public float ScrollEdge = 0.05f;
+
+        // Camera Zoom Script from: https://gist.github.com/bendux/3cb282d58a7c76103e303088a3905c8c
+        private float zoom;
+        private float zoomMultiplier = 4f;
+        private float minZoom = 0.5f;
+        private float maxZoom = 2f;
+        private float velocity = 0f;
+        private float smoothTime = 0.25f;
+
+        [SerializeField] private Camera cam;
+
+        private void Start()
+        {
+            zoom = cam.orthographicSize;
+        }
 
         void Update()
         {
@@ -28,6 +43,12 @@ namespace TbsFramework.Gui
             {
                 transform.Translate(transform.up * Time.deltaTime * -ScrollSpeed, Space.World);
             }
+
+            // Zoom
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            zoom -= scroll * zoomMultiplier;
+            zoom = Mathf.Clamp(zoom, minZoom, maxZoom);
+            cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, zoom, ref velocity, smoothTime);
         }
     }
 }
