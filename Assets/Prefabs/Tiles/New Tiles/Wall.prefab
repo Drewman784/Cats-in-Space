@@ -107,8 +107,8 @@ MonoBehaviour:
   MarkAsPathFn: []
   MarkAsHighlightedFn: []
   UnMarkFn: []
-  IsTaken: 0
-  MovementCost: 20000
+  IsTaken: 1
+  MovementCost: 1
   TileType: Wall
   DefenseBoost: 0
 --- !u!114 &6254646226487826330

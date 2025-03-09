@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using TbsFramework.Cells;
 
 public class SampleUnit : TbsFramework.Units.Unit
 {
@@ -138,6 +139,11 @@ public class SampleUnit : TbsFramework.Units.Unit
         }
         //return new AttackAction(AttackFactor, 1f);
     }
+
+    public override bool IsCellTraversable(Cell cell)
+        {
+            return base.IsCellTraversable(cell) || (cell.CurrentUnits.Count > 0 && !cell.CurrentUnits.Exists(u => !(u as SampleUnit).isStructure && u.PlayerNumber != PlayerNumber));
+        }
 
     protected override void OnDestroyed()
     {
