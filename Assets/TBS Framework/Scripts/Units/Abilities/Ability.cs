@@ -93,6 +93,7 @@ namespace TbsFramework.Units.Abilities
 
         public virtual bool IsSelectable(){ return false; } //CAL EDIT determines whether this shows up in the buttons
         public virtual string GetAbilityName(){return "error";} //CAL EDIT returns the name of the ability
+        public virtual void DoAction(CellGrid cellGrid){} //CAL EDIT manually call action
         /// <summary>
         /// Encapsulates the ability's parameters into a dictionary for network transmission.
         /// This method should be overridden to serialize the ability's data into a format

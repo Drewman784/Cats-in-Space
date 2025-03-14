@@ -1,22 +1,13 @@
 using UnityEngine;
+using TbsFramework.Cells;
+using TbsFramework.Grid;
+using TbsFramework.Grid.GridStates;
 
 namespace TbsFramework.Units.Abilities
 {
     public class SelectableAbility : Ability
     {
         private string AbilityName;
-
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
-
-         // Update is called once per frame
-        void Update()
-        {
-        
-        }
 
         public override bool IsSelectable()
         {
@@ -26,6 +17,20 @@ namespace TbsFramework.Units.Abilities
         public override string GetAbilityName(){
             //return AbilityName;
             return "Unnamed Ability";
+        }
+
+        public override bool CanPerform(CellGrid cellGrid)
+        {
+            if (UnitReference.ActionPoints <= 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override void DoAction(CellGrid cellGrid){
+            Debug.Log("CALLED");
+            StartCoroutine(HumanExecute(cellGrid));
         }
     }
 }

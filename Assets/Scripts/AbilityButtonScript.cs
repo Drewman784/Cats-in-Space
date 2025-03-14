@@ -24,6 +24,7 @@ public class AbilityButtonScript : MonoBehaviour
 
     public void CallAbility(){
         cG.cellGridState = new CellGridStateAbilitySelected(cG, unit, theAbility);
+        theAbility.DoAction(cG);
     }
 
     public void SetAbility(Ability toSet, Unit tUnit){

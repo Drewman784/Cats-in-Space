@@ -17,6 +17,9 @@ namespace TbsFramework.Units.Abilities
             if (CanPerform(cellGrid) )
             {
                 Debug.Log("TASK PERFORMED");
+                yield return new WaitForSeconds(0.5f);
+            } else{
+                Debug.LogError("task failed!");
             }
             yield return null;
         }
@@ -29,5 +32,20 @@ namespace TbsFramework.Units.Abilities
         {
             return "TestAbility!";
         }
+
+        public override IEnumerator Apply(CellGrid cellGrid, IDictionary<string, string> actionParams, bool isNetworkInvoked = false)
+        {
+            Debug.Log("hit here");
+            yield return StartCoroutine(RemoteExecute(cellGrid));
+        }
+        /*public override void OnUnitClicked(Unit unit, CellGrid cellGrid)
+        {
+            if (cellGrid.GetCurrentPlayerUnits().Contains(unit))
+            {
+                cellGrid.cellGridState = new CellGridStateAbilitySelected(cellGrid, unit, unit.GetComponents<Ability>().ToList());
+            }
+        }*/
+
+        
     }
 }

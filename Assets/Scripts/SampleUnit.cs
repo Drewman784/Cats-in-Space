@@ -33,7 +33,7 @@ public class SampleUnit : TbsFramework.Units.Unit
         healthBar = transform.GetChild(2).transform.GetChild(0).transform.GetChild(1).gameObject;
         actionMarker = transform.GetChild(2).transform.GetChild(1).gameObject;
         selectionPanel = GameObject.Find("UnitSelected");
-        Debug.Log(selectionPanel);
+        //Debug.Log(selectionPanel);
         selected = false;
         if(this.PlayerNumber!=0){
             UnityEngine.UI.Image hBar = healthBar.GetComponent<UnityEngine.UI.Image>();

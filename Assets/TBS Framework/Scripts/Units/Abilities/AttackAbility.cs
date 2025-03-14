@@ -17,6 +17,7 @@ namespace TbsFramework.Units.Abilities
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
+            Debug.Log("act");
             if (CanPerform(cellGrid) && UnitReference.IsUnitAttackable(UnitToAttack, UnitReference.Cell))
             {
                 // Cal Edit
@@ -35,6 +36,7 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnUnitClicked(Unit unit, CellGrid cellGrid)
         {
+            Debug.Log("unit clicked");
             if (UnitReference.IsUnitAttackable(unit, UnitReference.Cell))
             {
                 UnitToAttack = unit;
@@ -65,6 +67,7 @@ namespace TbsFramework.Units.Abilities
 
         public override bool CanPerform(CellGrid cellGrid)
         {
+            //Debug.Log("can perform");
             if (UnitReference.ActionPoints <= 0)
             {
                 return false;
@@ -86,6 +89,7 @@ namespace TbsFramework.Units.Abilities
 
         public override IEnumerator Apply(CellGrid cellGrid, IDictionary<string, string> actionParams, bool isNetworkInvoked = false)
         {
+            Debug.Log("apply");
             var targetID = int.Parse(actionParams["target_id"]);
             var target = cellGrid.Units.Find(u => u.UnitID == targetID);
 
