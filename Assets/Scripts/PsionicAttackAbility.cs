@@ -11,6 +11,7 @@ namespace TbsFramework.Units.Abilities
 {
     public class PsionicAttackAbility : AttackAbility
     {
+        //bool selectable = true;
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
             if (CanPerform(cellGrid) && UnitReference.IsUnitAttackable(UnitToAttack, UnitReference.Cell))
@@ -21,6 +22,10 @@ namespace TbsFramework.Units.Abilities
                 yield return new WaitForSeconds(0.5f);
             }
             yield return null;
+        }
+
+        public override bool IsSelectable(){
+            return true;
         }
     }
 }

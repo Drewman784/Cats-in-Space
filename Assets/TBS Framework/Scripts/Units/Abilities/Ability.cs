@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Codice.CM.Common;
 using TbsFramework.Cells;
 using TbsFramework.Grid;
 using TbsFramework.Grid.GridStates;
@@ -13,6 +14,8 @@ namespace TbsFramework.Units.Abilities
     {
         public int AbilityID { get; set; }
         public Unit UnitReference { get; internal set; }
+
+        //private bool selectable; //CAL EDIT determines whether ability shows up in buttons
 
         public event EventHandler<(bool isNetworkInvoked, IDictionary<string, string> actionParams)> AbilityUsed;
 
@@ -88,6 +91,8 @@ namespace TbsFramework.Units.Abilities
 
         public virtual bool CanPerform(CellGrid cellGrid) { return false; }
 
+        public virtual bool IsSelectable(){ return false; } //CAL EDIT determines whether this shows up in the buttons
+
         /// <summary>
         /// Encapsulates the ability's parameters into a dictionary for network transmission.
         /// This method should be overridden to serialize the ability's data into a format
@@ -109,4 +114,5 @@ namespace TbsFramework.Units.Abilities
         /// <exception cref="NotImplementedException">Throws an exception if the method is not implemented.</exception>
         public virtual IEnumerator Apply(CellGrid cellGrid, IDictionary<string, string> actionParams, bool isNetworkInvoked=true) { throw new NotImplementedException();  }
     }
+
 }
