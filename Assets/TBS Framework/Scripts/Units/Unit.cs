@@ -120,11 +120,13 @@ namespace TbsFramework.Units
         public int HitPoints;
         public int AttackRange;
         public int AttackFactor;
-        public int DefenceFactor;
+        public int DefenceFactor; //<-OLD
 
         public int Strength;
         public int Int;
         public int Morale;
+
+        public int NewDefense; //<-NEW
         /// <summary>
         /// Determines how far on the grid the unit can move.
         /// </summary>
