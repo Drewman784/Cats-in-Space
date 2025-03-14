@@ -28,5 +28,9 @@ namespace TbsFramework.Units.Abilities
         public override bool IsSelectable(){
             return true;
         }
+
+        public override string GetAbilityName(){
+            return "MeleeAttack";
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace TbsFramework.Units.Abilities
 {
     public class SelectAbility : Ability
     {
-        private List<Button> SelectButtons;
+        public List<Button> SelectButtons;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -50,21 +50,21 @@ namespace TbsFramework.Units.Abilities
                 if(a.IsSelectable()){
                     SelectAbilities.Add(a);
                 }
-                Debug.Log(a);
+                //Debug.Log(a);
             }
 
             int check = 0;
             Debug.Log("select abilities count: " + SelectAbilities.Count);
             for(int a = 0; a < SelectAbilities.Count; a++){
                 SelectButtons[a].gameObject.SetActive(true);
-                SelectButtons[a].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = SelectAbilities[a].ToString();
+                SelectButtons[a].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = SelectAbilities[a].GetAbilityName();
                 SelectButtons[a].gameObject.GetComponent<AbilityButtonScript>().SetAbility(SelectAbilities[a], cG);
                 check++;
             }
 
             if(SelectAbilities.Count < 3){
                 while(check<3){
-                    Debug.Log("inactive "+check);
+                    //Debug.Log("inactive "+check);
                     SelectButtons[check].gameObject.SetActive(false);
                     check++;
                 }

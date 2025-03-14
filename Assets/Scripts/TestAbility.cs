@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace TbsFramework.Units.Abilities
 {
-    public class TestAbility : Ability
+    public class TestAbility : SelectableAbility
     {
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
@@ -20,8 +20,14 @@ namespace TbsFramework.Units.Abilities
             }
             yield return null;
         }
-        public override bool IsSelectable(){
+
+        /*public override bool IsSelectable(){
             return true;
+        }*/
+
+        public override string GetAbilityName()
+        {
+            return "TestAbility!";
         }
     }
 }
