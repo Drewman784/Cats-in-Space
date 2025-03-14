@@ -17,6 +17,7 @@ namespace TbsFramework.Units.Abilities
             if (CanPerform(cellGrid) && UnitReference.IsUnitAttackable(UnitToAttack, UnitReference.Cell))
             {
                 // Cal Edit
+                Debug.Log("PsionicAttack");
                 UnitReference.GetComponent<SampleUnit>().NewAttackHandler(UnitToAttack.GetComponent<SampleUnit>(), "PSIONIC");
                 //UnitReference.AttackHandler(UnitToAttack);
                 yield return new WaitForSeconds(0.5f);
@@ -25,7 +26,18 @@ namespace TbsFramework.Units.Abilities
         }
 
         public override bool IsSelectable(){
-            return true;
+            //return true;
+            return false;
+        }
+
+        public override string GetAbilityName(){
+            return "PsionicAttack";
+        }
+
+        public override void DoAction(CellGrid cellGrid){
+            Debug.Log("CALLED");
+            StartCoroutine(HumanExecute(cellGrid));
+            //ActionCost();
         }
     }
 }

@@ -152,5 +152,13 @@ public class SampleUnit : TbsFramework.Units.Unit
         base.OnDestroyed();
     }
 
+    public void HealUnit(int amount){
+        this.HitPoints += amount;
+        if(this.HitPoints>this.TotalHitPoints){
+            this.HitPoints = this.TotalHitPoints;
+        }
+        ShowHealth();
+    }
+
 
 }

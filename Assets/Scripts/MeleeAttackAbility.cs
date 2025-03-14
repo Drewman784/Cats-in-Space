@@ -18,6 +18,7 @@ namespace TbsFramework.Units.Abilities
             if (CanPerform(cellGrid) && UnitReference.IsUnitAttackable(UnitToAttack, UnitReference.Cell))
             {
                 // Cal Edit
+                Debug.Log("MeleeAttack");
                 UnitReference.GetComponent<SampleUnit>().NewAttackHandler(UnitToAttack.GetComponent<SampleUnit>(), "PHYSICAL");
                 //UnitReference.AttackHandler(UnitToAttack);
                 yield return new WaitForSeconds(0.5f);
@@ -26,11 +27,18 @@ namespace TbsFramework.Units.Abilities
         }
 
         public override bool IsSelectable(){
-            return true;
+            //return true;
+            return false;
         }
 
         public override string GetAbilityName(){
             return "MeleeAttack";
+        }
+
+         public override void DoAction(CellGrid cellGrid){
+            Debug.Log("CALLED");
+            StartCoroutine(HumanExecute(cellGrid));
+            //ActionCost();
         }
     }
 }

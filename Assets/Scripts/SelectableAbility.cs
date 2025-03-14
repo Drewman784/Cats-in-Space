@@ -31,6 +31,12 @@ namespace TbsFramework.Units.Abilities
         public override void DoAction(CellGrid cellGrid){
             Debug.Log("CALLED");
             StartCoroutine(HumanExecute(cellGrid));
+            ActionCost();
+        }
+
+        public virtual void ActionCost(){
+            int actionCost = 1;
+            GetComponent<SampleUnit>().ActionPoints -= actionCost;
         }
     }
 }

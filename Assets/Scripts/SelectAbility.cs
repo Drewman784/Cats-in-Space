@@ -45,7 +45,7 @@ namespace TbsFramework.Units.Abilities
             List<Ability> SelectAbilities = new List<Ability>();
 
             Unit cG = GetComponent<Unit>();
-            Debug.Log("unit has "+cG.Abilities.Count + "abilities: ");
+            //Debug.Log("unit has "+cG.Abilities.Count + "abilities: ");
             foreach(Ability a in cG.Abilities){
                 if(a.IsSelectable()){
                     SelectAbilities.Add(a);
@@ -54,7 +54,7 @@ namespace TbsFramework.Units.Abilities
             }
 
             int check = 0;
-            Debug.Log("select abilities count: " + SelectAbilities.Count);
+            //Debug.Log("select abilities count: " + SelectAbilities.Count);
             for(int a = 0; a < SelectAbilities.Count; a++){
                 SelectButtons[a].gameObject.SetActive(true);
                 SelectButtons[a].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = SelectAbilities[a].GetAbilityName();
