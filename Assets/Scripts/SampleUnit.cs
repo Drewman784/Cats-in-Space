@@ -23,6 +23,11 @@ public class SampleUnit : TbsFramework.Units.Unit
     private GameObject selectionPanel;
     private bool selected;
 
+    protected override int Defend(TbsFramework.Units.Unit other, int damage)
+    {
+        return damage - (Cell as Tile_Script).DefenseBoost;
+    }
+
 
     public override void Initialize()
     {

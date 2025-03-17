@@ -1,7 +1,8 @@
 using TbsFramework.Cells;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-    public class Square_Script : Square
+public class Tile_Script : Square
     {
     // How big is the tile (16x16 w/Pixel per unit set to 16)
     Vector3 dimensions = new Vector3(2.6f, 2.6f, 6f);
