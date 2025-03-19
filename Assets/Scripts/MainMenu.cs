@@ -17,6 +17,8 @@ namespace TbsFramework.Gui
         public Button OptionsButton;
         public Button CreditButton;
 
+        public Button TempLevelTwo;
+
         public void Skirmish()
         {
             SceneManager.LoadScene("TestingScene");
@@ -24,6 +26,10 @@ namespace TbsFramework.Gui
         public void NewGame()
         {
             SceneManager.LoadScene("Level_One");
+        }
+        public void Temp_LevelTwo()
+        {
+            SceneManager.LoadScene("Level_Two");
         }
         public void ExitGame()
         {
