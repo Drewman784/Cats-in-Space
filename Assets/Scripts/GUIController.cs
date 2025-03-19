@@ -1,4 +1,6 @@
 ﻿using System;
+using TbsFramework.Cells;
+using TbsFramework.Example4;
 using TbsFramework.Grid;
 using TbsFramework.Grid.GridStates;
 using TbsFramework.Players;
@@ -15,6 +17,11 @@ namespace TbsFramework.Gui
         public Button RestartButton;
         public Button MainMenuButton;
 
+        public GameObject TerrainPanel;
+        public Text TerrainNameText;
+        public Text MovementCostText;
+        public Text DefenceBoostText;
+
         void Awake()
         {
             CellGrid.LevelLoading += OnLevelLoading;
@@ -22,14 +29,28 @@ namespace TbsFramework.Gui
             CellGrid.GameEnded += OnGameEnded;
             CellGrid.TurnEnded += OnTurnEnded;
             CellGrid.GameStarted += OnGameStarted;
+
+            TerrainPanel.SetActive(false);
         }
 
         private void OnGameStarted(object sender, EventArgs e)
         {
+            foreach (Transform cell in CellGrid.transform)
+            {
+                cell.GetComponent<Cell>().CellHighlighted += OnCellHighlighted;
+                cell.GetComponent<Cell>().CellDehighlighted += OnCellDehighlighted;
+            }
+
+
             if (EndTurnButton != null)
             {
                 EndTurnButton.interactable = CellGrid.CurrentPlayer is HumanPlayer;
             }
+        }
+
+        private void OnCellDehighlighted(object sender, EventArgs e)
+        {
+            TerrainPanel.SetActive(false);
         }
 
         private void OnTurnEnded(object sender, bool isNetworkInvoked)
@@ -38,6 +59,16 @@ namespace TbsFramework.Gui
             {
                 EndTurnButton.interactable = CellGrid.CurrentPlayer is HumanPlayer;
             }
+        }
+
+        private void OnCellHighlighted(object sender, EventArgs e)
+        {
+            var cell = sender as Tile_Script;
+            TerrainNameText.text = cell.TileType;
+            MovementCostText.text = string.Format("Mov cost: {0}", cell.MovementCost);
+            DefenceBoostText.text = string.Format("Def boost: {0}", cell.DefenseBoost);
+
+            TerrainPanel.SetActive(true);
         }
 
         private void OnGameEnded(object sender, GameEndedArgs e)

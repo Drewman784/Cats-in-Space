@@ -108,7 +108,7 @@ MonoBehaviour:
   MarkAsHighlightedFn: []
   UnMarkFn: []
   IsTaken: 0
-  MovementCost: 2
+  MovementCost: 1
   TileType: Cover
   DefenseBoost: 2
 --- !u!114 &6254646226487826330

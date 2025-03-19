@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1688430849232547484}
   - component: {fileID: 6254646226487826330}
   - component: {fileID: 273002598714723778}
+  - component: {fileID: 4761328134456340347}
+  - component: {fileID: -8836979928674059892}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -109,7 +111,7 @@ MonoBehaviour:
   UnMarkFn: []
   IsTaken: 0
   MovementCost: 1
-  TileType: Spawner
+  TileType: Hostile Doorway
   DefenseBoost: 0
 --- !u!114 &6254646226487826330
 MonoBehaviour:
@@ -172,3 +174,30 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.26, y: 0.26}
   m_EdgeRadius: 0
+--- !u!114 &4761328134456340347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700251412822703316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d8eb281e618b64eaaee291ecca337a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitsParent: {fileID: 3207013275633585823, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
+    type: 3}
+  CellsParent: {fileID: 2696706842619404702}
+--- !u!114 &-8836979928674059892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700251412822703316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0541884ca5d9af242a43e47be7d30a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

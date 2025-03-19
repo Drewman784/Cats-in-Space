@@ -3687,7 +3687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &635882803
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10972,6 +10972,10 @@ MonoBehaviour:
   EndTurnButton: {fileID: 1424287119}
   RestartButton: {fileID: 249414911}
   MainMenuButton: {fileID: 1175226638}
+  TerrainPanel: {fileID: 709956519}
+  TerrainNameText: {fileID: 589002370}
+  MovementCostText: {fileID: 106209816}
+  DefenceBoostText: {fileID: 931536224}
 --- !u!4 &1982646743
 Transform:
   m_ObjectHideFlags: 0

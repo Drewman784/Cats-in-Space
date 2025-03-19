@@ -109,7 +109,7 @@ MonoBehaviour:
   UnMarkFn: []
   IsTaken: 0
   MovementCost: 2
-  TileType: Cover
+  TileType: Rubble
   DefenseBoost: 2
 --- !u!114 &6254646226487826330
 MonoBehaviour:

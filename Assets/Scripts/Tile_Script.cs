@@ -34,5 +34,6 @@ public class Tile_Script : Square
         {
             GetComponent<Renderer>().material.color = Color.white;
         }
+        
     }
 

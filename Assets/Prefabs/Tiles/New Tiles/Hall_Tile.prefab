@@ -105,7 +105,8 @@ MonoBehaviour:
   _offsetCoord: {x: 0, y: 0}
   MarkAsReachableFn: []
   MarkAsPathFn: []
-  MarkAsHighlightedFn: []
+  MarkAsHighlightedFn:
+  - {fileID: 6254646226487826330}
   UnMarkFn: []
   IsTaken: 0
   MovementCost: 1

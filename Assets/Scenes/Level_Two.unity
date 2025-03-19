@@ -361,6 +361,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cda7467eb327954cad77596a82eab73, type: 3}
+--- !u!1 &45321690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5700251412822703316, guid: 27e3b4edf7ea77a4e8bdd4e1ac435cf5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1384053020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &100052159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3003,6 +3009,10 @@ MonoBehaviour:
   EndTurnButton: {fileID: 901269339}
   RestartButton: {fileID: 1942258776}
   MainMenuButton: {fileID: 1892631621}
+  TerrainPanel: {fileID: 1891162226}
+  TerrainNameText: {fileID: 691237958}
+  MovementCostText: {fileID: 4624953}
+  DefenceBoostText: {fileID: 995994241}
 --- !u!4 &547398859
 Transform:
   m_ObjectHideFlags: 0
@@ -5877,6 +5887,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1384053020}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1176089220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45321690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d8eb281e618b64eaaee291ecca337a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitsParent: {fileID: 3207013275633585823, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
+    type: 3}
+  CellsParent: {fileID: 3207013275633585823, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
+    type: 3}
 --- !u!1001 &1205232898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7102,7 +7128,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5700251412822703316, guid: 27e3b4edf7ea77a4e8bdd4e1ac435cf5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1176089220}
   m_SourcePrefab: {fileID: 100100000, guid: 27e3b4edf7ea77a4e8bdd4e1ac435cf5, type: 3}
 --- !u!1001 &1387176622
 PrefabInstance:
@@ -9326,10 +9356,10 @@ RectTransform:
   - {fileID: 995994240}
   m_Father: {fileID: 1359148822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.85, y: 0.55}
-  m_AnchorMax: {x: 0.99, y: 0.79}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.85, y: 0.437}
+  m_AnchorMax: {x: 0.99, y: 0.67600006}
+  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_SizeDelta: {x: 0, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1891162228
 MonoBehaviour:
@@ -9720,13 +9750,13 @@ Transform:
   - {fileID: 8030701}
   - {fileID: 524673436}
   - {fileID: 229230914}
-  - {fileID: 1176089219}
   - {fileID: 289097737}
   - {fileID: 522369393}
   - {fileID: 986419735}
   - {fileID: 617865870}
   - {fileID: 2024976691}
   - {fileID: 188501134}
+  - {fileID: 1176089219}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1914967475
