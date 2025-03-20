@@ -27,7 +27,7 @@ namespace TbsFramework.Grid.UnitGenerators
 
         private void Start()
         {
-            GetComponent<CellGrid>().TurnEnded += OnTurnEnded;
+            ///GetComponent<CellGrid>().TurnEnded += OnTurnEnded;
         }
 
         private void OnTurnEnded(object sender, bool isNetworkInvoked)
