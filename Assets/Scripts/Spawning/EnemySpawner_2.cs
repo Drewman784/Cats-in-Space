@@ -12,6 +12,36 @@ namespace TbsFramework.Grid.UnitGenerators
         public Transform UnitsParent;
         public Transform CellsParent;
 
+        public int TurnCounter;
+        //Specifies how many turns it takes to be spawned
+        public int AppliesToPlayerNo;
+        //Specifies the player unit being spawned
+        public bool isPositive;
+        //Specifies if the spawner is active
+
+        private int nEndTurns;
+        private int nTurn;
+
+        //public event EventHandler UnitSpawned;
+        //private Unit SpawnedUnit;
+
+        private void Start()
+        {
+            GetComponent<CellGrid>().TurnEnded += OnTurnEnded;
+        }
+
+        private void OnTurnEnded(object sender, bool isNetworkInvoked)
+        {
+            nEndTurns++;
+            var distinctPlayersAlive = (sender as CellGrid).Units.Select(u => u.PlayerNumber)
+                                                                 .Distinct()
+                                                                 .ToList().Count;
+            if (nEndTurns % distinctPlayersAlive == 0)
+            {
+                nTurn += 1;
+            }
+        }
+
         /// <summary>
         /// Returns units that are children of UnitsParent object.
         /// </summary>

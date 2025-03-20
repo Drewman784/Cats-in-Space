@@ -233,3 +233,6 @@ MonoBehaviour:
   UnitsParent: {fileID: 3207013275633585823, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
     type: 3}
   CellsParent: {fileID: 1040593173395505390}
+  TurnCounter: 2
+  AppliesToPlayerNo: 1
+  isPositive: 1
