@@ -3804,9 +3804,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 605999303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7205c460fd3fb31408c6cdbab6e50c7e, type: 3}
+  m_Script: {fileID: 11500000, guid: f361e4dc25c78a743a745390eaa5e634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextLevel: {fileID: 0}
   DestinationCell: {fileID: 1847568276}
   AnyPlayer: 0
   AppliesToPlayerNo: 0

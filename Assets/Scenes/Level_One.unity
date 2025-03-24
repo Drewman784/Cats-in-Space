@@ -1341,7 +1341,7 @@ GameObject:
   - component: {fileID: 291248965}
   - component: {fileID: 291248968}
   - component: {fileID: 291248967}
-  - component: {fileID: 291248966}
+  - component: {fileID: 291248970}
   m_Layer: 0
   m_Name: CellGrid
   m_TagString: Untagged
@@ -1364,18 +1364,6 @@ MonoBehaviour:
   Is2D: 1
   PlayersParent: {fileID: 2104270500}
   ShouldStartGameImmediately: 1
---- !u!114 &291248966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291248964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42089343e0f26844b930bb4058976d9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &291248967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,6 +1485,19 @@ Transform:
   - {fileID: 2068602209}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &291248970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291248964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047b6914bd2511242867eefb424b4a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextLevel: {fileID: 102900000, guid: 7d4b89cd173e7354f98b53e476ba0efd, type: 3}
 --- !u!1001 &310116819
 PrefabInstance:
   m_ObjectHideFlags: 0

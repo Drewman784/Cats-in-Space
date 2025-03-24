@@ -9742,9 +9742,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1914967469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42089343e0f26844b930bb4058976d9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 047b6914bd2511242867eefb424b4a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextLevel: {fileID: 102900000, guid: 9a60c6b9c6fd1554eba9dc4fa004224c, type: 3}
 --- !u!1 &1937641179
 GameObject:
   m_ObjectHideFlags: 0
