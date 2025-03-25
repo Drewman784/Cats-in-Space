@@ -6,7 +6,8 @@ namespace TbsFramework.Grid.GameResolvers
 {
     public class Cats_Domination : GameEndCondition
     {
-        public SceneAsset NextLevel;
+        //public SceneAsset NextLevel;
+        public string NextScene;
 
         public override GameResult CheckCondition(CellGrid cellGrid)
         {
@@ -18,7 +19,7 @@ namespace TbsFramework.Grid.GameResolvers
                                                   .ToList();
 
                 // Change the scene to the one listed in the inspector
-                SceneManager.LoadScene(NextLevel.name);
+                SceneManager.LoadScene(NextScene);
 
                 return new GameResult(true, playersAlive, playersDead);
             }

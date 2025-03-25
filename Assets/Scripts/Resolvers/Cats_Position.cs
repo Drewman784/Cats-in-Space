@@ -11,7 +11,8 @@ namespace TbsFramework.Grid.GameResolvers
     public class PositionCondition : GameEndCondition
     {
 
-        public SceneAsset NextLevel;
+        //public SceneAsset NextLevel;
+        public string NextScene;
 
         public Cell DestinationCell;
         [Tooltip("Specifies whether the condition applies to any player")]
@@ -30,7 +31,7 @@ namespace TbsFramework.Grid.GameResolvers
                                                      .ToList();
 
                 // Change the scene to the one listed in the inspector
-                SceneManager.LoadScene(NextLevel.name);
+                SceneManager.LoadScene(NextScene);
 
                 return new GameResult(true, winningPlayers, loosingPlayers);
             }
