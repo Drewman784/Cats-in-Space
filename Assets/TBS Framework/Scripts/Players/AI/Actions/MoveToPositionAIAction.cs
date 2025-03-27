@@ -101,8 +101,10 @@ namespace TbsFramework.Players.AI.Actions
             if (maxValue > currentCellVal)
             {
                 TopDestination = topCell;
+                UnityEngine.Debug.Log(name + "maybe worked! maxval:" + maxValue + " current val:"+ currentCellVal);
                 return true;
             }
+            UnityEngine.Debug.Log(name + "didn't work! maxval:" + maxValue + " current val:"+ currentCellVal);
 
             TopDestination = unit.Cell;
             return false;
