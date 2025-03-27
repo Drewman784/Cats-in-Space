@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 6518142885436984123}
   - component: {fileID: 8670385190792376222}
   - component: {fileID: 4663565282757212949}
-  - component: {fileID: 7101426774245545366}
+  - component: {fileID: 2026025259968197770}
   m_Layer: 0
   m_Name: Spawner_2
   m_TagString: Untagged
@@ -218,7 +218,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.26, y: 0.26}
   m_EdgeRadius: 0
---- !u!114 &7101426774245545366
+--- !u!114 &2026025259968197770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

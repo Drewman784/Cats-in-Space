@@ -11,18 +11,29 @@ namespace TbsFramework.Grid.GameResolvers
 
         public override GameResult CheckCondition(CellGrid cellGrid)
         {
-            var playersAlive = cellGrid.Units.Select(u => u.PlayerNumber).Distinct().ToList();
-            if (playersAlive.Count == 1)
+            var playerUnits = cellGrid.Units.Where(u => u.PlayerNumber == 0).ToList();
+            var enemyUnits = cellGrid.Units.Where(u => u.PlayerNumber != 0).ToList();
+
+            if (playerUnits.Count == 0)
             {
-                var playersDead = cellGrid.Players.Where(p => p.PlayerNumber != playersAlive[0])
-                                                  .Select(p => p.PlayerNumber)
-                                                  .ToList();
-
-                // Change the scene to the one listed in the inspector
-                SceneManager.LoadScene(NextScene);
-
-                return new GameResult(true, playersAlive, playersDead);
+                // Player has lost all units, restart the current level
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                return new GameResult(true, null, null);
             }
+            else if (enemyUnits.Count == 0)
+            {
+                // All enemy units are gone, load the next scene
+                if (!string.IsNullOrEmpty(NextScene))
+                {
+                    SceneManager.LoadScene(NextScene);
+                }
+                else
+                {
+                    //Debug.LogError("NextScene is not set. Cannot load the next scene.");
+                }
+                return new GameResult(true, null, null);
+            }
+
             return new GameResult(false, null, null);
         }
     }

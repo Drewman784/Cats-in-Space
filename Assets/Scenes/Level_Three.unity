@@ -3807,7 +3807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f361e4dc25c78a743a745390eaa5e634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextLevel: {fileID: 0}
+  NextScene: MainMenu
   DestinationCell: {fileID: 1847568276}
   AnyPlayer: 0
   AppliesToPlayerNo: 0

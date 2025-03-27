@@ -27,20 +27,59 @@ namespace TbsFramework.Grid.UnitGenerators
 
         private void Start()
         {
-            ///GetComponent<CellGrid>().TurnEnded += OnTurnEnded;
+            //GetComponent<CellGrid>().TurnEnded += OnTurnEnded;
         }
 
-        private void OnTurnEnded(object sender, bool isNetworkInvoked)
-        {
-            nEndTurns++;
-            var distinctPlayersAlive = (sender as CellGrid).Units.Select(u => u.PlayerNumber)
-                                                                 .Distinct()
-                                                                 .ToList().Count;
-            if (nEndTurns % distinctPlayersAlive == 0)
-            {
-                nTurn += 1;
-            }
-        }
+        //private void OnTurnEnded(object sender, bool isNetworkInvoked)
+        //{
+        //    nEndTurns++;
+        //    var distinctPlayersAlive = (sender as CellGrid).Units.Select(u => u.PlayerNumber)
+        //                                                         .Distinct()
+        //                                                         .ToList().Count;
+        //    if (nEndTurns % distinctPlayersAlive == 0)
+        //    {
+        //        nTurn++;
+        //        if (nTurn >= TurnCounter)
+        //        {
+        //            nTurn = 0; // Reset the turn counter every 2 turns
+        //        }
+        //    }
+        //    return nTurn >= TurnCounter;
+//
+        //public bool CanSpawn()
+        //{
+        //    return nTurn == TurnCounter;
+        //}
+
+        //private void Update()
+        //{
+        //    if (CanSpawn() && isPositive)
+        //    {
+        //    foreach (Transform cellTransform in CellsParent)
+        //    {
+        //        var cell = cellTransform.GetComponent<Cell>();
+        //        if (cell != null && cell.IsTaken == false)
+        //        {
+        //            if (UnitsParent.childCount > 0)
+        //            {
+        //                var unitInstance = Instantiate(UnitsParent.GetChild(0).gameObject, cell.transform.position, Quaternion.identity, UnitsParent);
+        //                var unit = unitInstance.GetComponent<Unit>();
+        //                if (unit != null)
+        //                {
+        //                    unit.PlayerNumber = AppliesToPlayerNo;
+        //                    cell.IsTaken = true;
+        //                    nTurn = 0; // Reset turn counter after spawning
+        //                    break;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                Debug.LogError("UnitsParent has no children to spawn.");
+        //            }
+        //        }
+        //    }
+        //    }
+        //}
 
         /// <summary>
         /// Returns units that are children of UnitsParent object.
@@ -69,3 +108,4 @@ namespace TbsFramework.Grid.UnitGenerators
         }
     }
 }
+

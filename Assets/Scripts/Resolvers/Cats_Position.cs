@@ -14,6 +14,9 @@ namespace TbsFramework.Grid.GameResolvers
         //public SceneAsset NextLevel;
         public string NextScene;
 
+        //var playerUnits = cellGrid.Units.Where(u => u.PlayerNumber == 0).ToList();
+        //var enemyUnits = cellGrid.Units.Where(u => u.PlayerNumber != 0).ToList();
+
         public Cell DestinationCell;
         [Tooltip("Specifies whether the condition applies to any player")]
         public bool AnyPlayer;
@@ -31,7 +34,18 @@ namespace TbsFramework.Grid.GameResolvers
                                                      .ToList();
 
                 // Change the scene to the one listed in the inspector
-                SceneManager.LoadScene(NextScene);
+                //SceneManager.LoadScene(NextScene);
+                
+                if (cellGrid.Units.All(u => u.PlayerNumber == AppliesToPlayerNo && u.HitPoints <= 0))
+                {
+                    // Reload the current scene if the player loses all their units
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }
+                else
+                {
+                    // Advance to the next scene if the player reaches the DestinationCell
+                    SceneManager.LoadScene(NextScene);
+                }
 
                 return new GameResult(true, winningPlayers, loosingPlayers);
             }
