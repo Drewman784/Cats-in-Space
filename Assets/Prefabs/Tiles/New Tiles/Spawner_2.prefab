@@ -230,9 +230,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d8eb281e618b64eaaee291ecca337a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitsParent: {fileID: 3207013275633585823, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
+  UnitsParent: {fileID: 1618641366615119007, guid: a7c51ad1d9810470e932c7c552c1ec07,
     type: 3}
-  CellsParent: {fileID: 1040593173395505390}
-  TurnCounter: 2
+  CellsParent: {fileID: 7892929842677992745}
+  TurnCounter: 1
   AppliesToPlayerNo: 1
   isPositive: 1
