@@ -19207,6 +19207,10 @@ MonoBehaviour:
   EndTurnButton: {fileID: 1839214742}
   RestartButton: {fileID: 1729514426}
   MainMenuButton: {fileID: 1184349962}
+  TerrainPanel: {fileID: 0}
+  TerrainNameText: {fileID: 0}
+  MovementCostText: {fileID: 0}
+  DefenceBoostText: {fileID: 0}
 --- !u!1001 &1540760362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20657,10 +20661,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2128818512}
   - {fileID: 1839214741}
   - {fileID: 1729514425}
   - {fileID: 1334274507}
-  - {fileID: 2128818512}
   - {fileID: 2113803116}
   - {fileID: 1184349965}
   m_Father: {fileID: 0}
