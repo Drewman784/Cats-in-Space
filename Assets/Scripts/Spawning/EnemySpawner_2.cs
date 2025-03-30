@@ -9,8 +9,8 @@ namespace TbsFramework.Grid.UnitGenerators
 {
     public class CustomUnitGenerator : MonoBehaviour
     {
-        public GameObject UnitsParent;
-        public GameObject CellsParent;
+        public Transform UnitsParent;
+        public Transform CellsParent;
 
         public event EventHandler UnitSpawned;
 
@@ -43,10 +43,10 @@ namespace TbsFramework.Grid.UnitGenerators
 
         private void SpawnUnit()
         {
-            // Implement the logic to spawn a unit here
-            // Example:
+            // Implement the logic to spawn a unit here  
+            // Example:  
             GameObject newUnit = new GameObject("Unit");
-            if (UnitsParent != null && UnitsParent.scene.IsValid())
+            if (UnitsParent != null)
             {
                 newUnit.transform.parent = UnitsParent.transform;
             }
