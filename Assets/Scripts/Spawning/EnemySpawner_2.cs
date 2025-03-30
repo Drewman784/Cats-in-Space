@@ -11,6 +11,7 @@ namespace TbsFramework.Grid.UnitGenerators
     {
         public Transform UnitsParent;
         public Transform CellsParent;
+        [SerializeField] GameObject UnitToSpawn;
 
         public event EventHandler UnitSpawned;
 
@@ -43,9 +44,11 @@ namespace TbsFramework.Grid.UnitGenerators
 
         private void SpawnUnit()
         {
+            Debug.Log("try to spawn");
             // Implement the logic to spawn a unit here  
             // Example:  
-            GameObject newUnit = new GameObject("Unit");
+            GameObject newUnit = Instantiate(UnitToSpawn);
+            isPositive = false;
             if (UnitsParent != null)
             {
                 newUnit.transform.parent = UnitsParent.transform;
