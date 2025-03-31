@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TbsFramework.Cells;
 using TbsFramework.Units;
+using TbsFramework.Units.Abilities;
 using UnityEngine;
 
 namespace TbsFramework.Grid.UnitGenerators
@@ -48,10 +49,15 @@ namespace TbsFramework.Grid.UnitGenerators
             // Implement the logic to spawn a unit here  
             // Example:  
             GameObject newUnit = Instantiate(UnitToSpawn);
+
             isPositive = false;
             if (UnitsParent != null)
             {
-                newUnit.transform.parent = UnitsParent.transform;
+                GetComponent<Tile_Script>().CurrentUnits.Add(newUnit.GetComponent<Unit>());
+                newUnit.GetComponent<Unit>().Cell = GetComponent<Tile_Script>();
+                newUnit.gameObject.transform.position = this.transform.position;
+                //newUnit.GetComponent<MoveAbility>().Act()
+                //newUnit.transform.parent = UnitsParent.transform;
             }
             else
             {
