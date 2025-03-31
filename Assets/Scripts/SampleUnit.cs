@@ -25,9 +25,24 @@ public class SampleUnit : TbsFramework.Units.Unit
     private GameObject selectionPanel;
     private bool selected;
 
+    private GameObject hitDisplay;
+    private bool hitDisplayed;
+    private float hitct;
+
     protected override int Defend(TbsFramework.Units.Unit other, int damage)
     {
         return damage - (Cell as Tile_Script).DefenseBoost;
+    }
+
+    public void Update()
+    {
+        if(hitDisplayed){
+            hitct+=Time.deltaTime;
+            if(hitct>2){
+                hitDisplayed = false;
+                hitDisplay.SetActive(false);
+            }
+        }
     }
 
 
@@ -42,6 +57,11 @@ public class SampleUnit : TbsFramework.Units.Unit
         selectionPanel = GameObject.Find("UnitSelected");
         //Debug.Log(selectionPanel);
         selected = false;
+
+        hitDisplayed = false;
+        hitDisplay = transform.GetChild(2).transform.GetChild(2).gameObject;
+        hitDisplay.SetActive(false);
+
         if(this.PlayerNumber!=0){
             UnityEngine.UI.Image hBar = healthBar.GetComponent<UnityEngine.UI.Image>();
             hBar.color = Color.red; 
@@ -177,8 +197,16 @@ public class SampleUnit : TbsFramework.Units.Unit
         ShowHealth();
     }
 
-    
+    /**public override void DefendHandler(TbsFramework.Units.Unit aggressor, int damage)
+    {
+        base.DefendHandler(aggressor, damage);
 
+        Debug.Log("marking!");
+        hitDisplayed = true;
+        hitDisplay.SetActive(true);
+        hitDisplay.GetComponent<TextMeshProUGUI>().text = "-" + damage;
+        hitct = 0;
+    }**/
 
 
 

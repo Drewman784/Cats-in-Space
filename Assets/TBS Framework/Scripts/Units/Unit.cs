@@ -368,7 +368,8 @@ namespace TbsFramework.Units
         /// </summary>
         /// <param name="aggressor">Unit that performed the attack</param>
         /// <param name="damage">Amount of damge that the attack caused</param>
-        public void DefendHandler(Unit aggressor, int damage)
+        /// CAL EDIT: MADE VIRTUAL
+        public virtual void DefendHandler(Unit aggressor, int damage)
         {
             MarkAsDefending(aggressor);
             int damageTaken = Defend(aggressor, damage);
