@@ -10,6 +10,7 @@ using TbsFramework.Players;
 using TbsFramework.Units;
 using TbsFramework.Units.Abilities;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TbsFramework.Grid
 {
@@ -95,12 +96,16 @@ namespace TbsFramework.Grid
         public List<Unit> Units { get; private set; }
         private Func<List<Unit>> PlayableUnits = () => new List<Unit>();
 
+        private GameObject enemyTurnAlert;//CAL EDIT
         private void Start()
         {
             if (ShouldStartGameImmediately)
             {
                 InitializeAndStart();
             }
+            //CAL EDIT
+            enemyTurnAlert = GameObject.Find("EnemyTurnAlert");
+            enemyTurnAlert.SetActive(false);
         }
 
         public void InitializeAndStart()
@@ -311,6 +316,16 @@ namespace TbsFramework.Grid
             PlayableUnits = transitionResult.PlayableUnits;
             CurrentPlayerNumber = transitionResult.NextPlayer.PlayerNumber;
 
+            //CAL EDIT - TURN CLARITY UI
+            if(CurrentPlayerNumber == 0){
+                enemyTurnAlert.SetActive(false);
+            } else{
+                enemyTurnAlert.SetActive(true);
+            }
+            GameObject.Find("EndTurnButton").GetComponent<Image>().color = Color.white;
+
+            
+
             if (TurnEnded != null)
                 TurnEnded.Invoke(this, isNetworkInvoked);
 
@@ -371,6 +386,20 @@ namespace TbsFramework.Grid
                 }
             }
             return GameFinished;
+        }
+
+        //CAL EDIT - Check if all player units cannot move
+        public void CheckUnitsFinished(){
+            bool allFinished = true;
+            foreach(Unit unit in Units){ 
+                //check for all player units & units that can move
+                if(unit.PlayerNumber==0 && unit.ActionPoints !=0){
+                    allFinished = false;
+                }
+            }
+            if(allFinished){
+                GameObject.Find("EndTurnButton").GetComponent<Image>().color = new Color32(252, 237, 139,255);
+            }
         }
     }
 }

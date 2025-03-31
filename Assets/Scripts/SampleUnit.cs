@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using TbsFramework.Cells;
+using TMPro;
+using TbsFramework.Grid;
 
 public class SampleUnit : TbsFramework.Units.Unit
 {
@@ -75,6 +77,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     {
         GetComponentInChildren<Renderer>().material.color = Color.gray;
         actionMarker.SetActive(false);
+        GameObject.Find("CellGrid").GetComponent<CellGrid>().CheckUnitsFinished();
     }
 
     public override void UnMark()
@@ -92,6 +95,10 @@ public class SampleUnit : TbsFramework.Units.Unit
         float barHealth = (float)this.HitPoints/(float)this.TotalHitPoints;
         healthBar.GetComponent<Transform>().localScale = new Vector3(barHealth,1,1);
         Debug.Log("hp:" + this.HitPoints + "%"+ this.TotalHitPoints+ " -> "+(barHealth));
+
+        if(selected){ //if selected, also update stats
+            OnMouseOver();
+        }
     }
 
 
@@ -99,10 +106,11 @@ public class SampleUnit : TbsFramework.Units.Unit
         ShowHealth();
     }
 
-    private void OnMouseOver() {
+    private void OnMouseOver() { // show the details window
         if(this.HitPoints>0){
             selectionPanel.SetActive(true);
-            if(this.PlayerNumber!=0){
+
+            if(this.PlayerNumber!=0){ // change healthbar color based on unit status
                 selectionPanel.transform.GetChild(1).gameObject.SetActive(false);
                 selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = Color.red; 
             }
@@ -110,7 +118,11 @@ public class SampleUnit : TbsFramework.Units.Unit
                 selectionPanel.transform.GetChild(1).gameObject.SetActive(true);
                 selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = friendlyHealthColor; 
             }
+            //modify health bar
             selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints/(float)this.TotalHitPoints,1,1);
+
+            selectionPanel.transform.GetChild(2).transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = this.HitPoints +"/"+ this.TotalHitPoints;
+
         }
     }
 
@@ -164,6 +176,10 @@ public class SampleUnit : TbsFramework.Units.Unit
         }
         ShowHealth();
     }
+
+    
+
+
 
 
 }
