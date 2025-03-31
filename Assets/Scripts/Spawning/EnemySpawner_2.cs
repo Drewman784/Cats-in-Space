@@ -4,6 +4,7 @@ using System.Linq;
 using TbsFramework.Cells;
 using TbsFramework.Units;
 using TbsFramework.Units.Abilities;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace TbsFramework.Grid.UnitGenerators
@@ -53,11 +54,15 @@ namespace TbsFramework.Grid.UnitGenerators
             isPositive = false;
             if (UnitsParent != null)
             {
-                GetComponent<Tile_Script>().CurrentUnits.Add(newUnit.GetComponent<Unit>());
-                newUnit.GetComponent<Unit>().Cell = GetComponent<Tile_Script>();
+                Units.Unit NUnit = newUnit.GetComponent<Units.Unit>();
+                GetComponent<Tile_Script>().CurrentUnits.Add(NUnit);
+                NUnit.Cell = GetComponent<Tile_Script>();
                 newUnit.gameObject.transform.position = this.transform.position;
                 //newUnit.GetComponent<MoveAbility>().Act()
-                //newUnit.transform.parent = UnitsParent.transform;
+                newUnit.gameObject.transform.parent = UnitsParent.transform;
+                NUnit.PlayerNumber = 1;
+                GameObject.Find("CellGrid").GetComponent<CellGrid>().Units.Add(NUnit);
+                NUnit.Initialize();
             }
             else
             {
