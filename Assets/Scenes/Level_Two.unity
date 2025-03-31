@@ -4840,6 +4840,11 @@ PrefabInstance:
       objectReference: {fileID: 1113798239}
     - target: {fileID: 2026025259968197770, guid: 05ca841106fdeeb48aee878996d3ad82,
         type: 3}
+      propertyPath: TurnCounter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026025259968197770, guid: 05ca841106fdeeb48aee878996d3ad82,
+        type: 3}
       propertyPath: UnitToSpawn
       value: 
       objectReference: {fileID: 1618641366615119007, guid: a7c51ad1d9810470e932c7c552c1ec07,

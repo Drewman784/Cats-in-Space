@@ -49,19 +49,28 @@ namespace TbsFramework.Grid.UnitGenerators
             Debug.Log("try to spawn");
             // Implement the logic to spawn a unit here  
             // Example:  
+
+            //create new unit
             GameObject newUnit = Instantiate(UnitToSpawn);
 
+            //mark spawn as complete
             isPositive = false;
+
             if (UnitsParent != null)
             {
                 Units.Unit NUnit = newUnit.GetComponent<Units.Unit>();
+
+                //add unit to cell and vice versa
                 GetComponent<Tile_Script>().CurrentUnits.Add(NUnit);
                 NUnit.Cell = GetComponent<Tile_Script>();
+
+                //move unit to spawner, parent unit to cells and add to CellGrid
                 newUnit.gameObject.transform.position = this.transform.position;
-                //newUnit.GetComponent<MoveAbility>().Act()
-                newUnit.gameObject.transform.parent = UnitsParent.transform;
-                NUnit.PlayerNumber = 1;
                 GameObject.Find("CellGrid").GetComponent<CellGrid>().Units.Add(NUnit);
+                newUnit.gameObject.transform.parent = UnitsParent.transform;
+
+                //add necessary info to unit
+                NUnit.PlayerNumber = 1;
                 NUnit.Initialize();
             }
             else
