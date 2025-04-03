@@ -23,6 +23,8 @@ namespace TbsFramework.Units.Abilities
                 // Cal Edit
                 //UnitReference.AttackHandler(UnitToAttack, "PHYSICAL");
                 UnitReference.AttackHandler(UnitToAttack);
+                //CAL EDIT
+                gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Shoot");
                 yield return new WaitForSeconds(0.5f);
             }
             yield return null;

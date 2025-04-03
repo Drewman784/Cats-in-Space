@@ -29,8 +29,11 @@ public class SampleUnit : TbsFramework.Units.Unit
     private bool hitDisplayed;
     private float hitct;
 
+    public Animator anim;
+
     protected override int Defend(TbsFramework.Units.Unit other, int damage)
     {
+        //other.GetComponent<SampleUnit>().anim.SetTrigger("Shoot");
         return damage - (Cell as Tile_Script).DefenseBoost;
     }
 
@@ -61,6 +64,8 @@ public class SampleUnit : TbsFramework.Units.Unit
         hitDisplayed = false;
         hitDisplay = transform.GetChild(2).transform.GetChild(2).gameObject;
         hitDisplay.SetActive(false);
+
+        anim = gameObject.transform.GetChild(1).GetComponent<Animator>();
 
         if(this.PlayerNumber!=0){
             UnityEngine.UI.Image hBar = healthBar.GetComponent<UnityEngine.UI.Image>();
@@ -97,6 +102,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     {
         GetComponentInChildren<Renderer>().material.color = Color.gray;
         actionMarker.SetActive(false);
+        //anim.SetBool("Walking", false);
         GameObject.Find("CellGrid").GetComponent<CellGrid>().CheckUnitsFinished();
     }
 
@@ -162,6 +168,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     }
 
     public AttackAction NewDealDamage(TbsFramework.Units.Unit unitToAttack, String attackType){
+        anim.SetTrigger("Shoot");
         switch(attackType){
             case "PHYSICAL":
                 return new AttackAction(AttackFactor, 1f);
@@ -207,7 +214,7 @@ public class SampleUnit : TbsFramework.Units.Unit
         hitDisplay.GetComponent<TextMeshProUGUI>().text = "-" + damage;
         hitct = 0;
     }**/
-
+    
 
 
 }

@@ -4,7 +4,8 @@ using System.Linq;
 using TbsFramework.Cells;
 using TbsFramework.Grid;
 using TbsFramework.Grid.GridStates;
- 
+using UnityEngine;
+
 namespace TbsFramework.Units.Abilities
 {
     public class MoveAbility : Ability
@@ -112,7 +113,9 @@ namespace TbsFramework.Units.Abilities
         {
             var actionDestination = cellGrid.Cells.Find(c => c.OffsetCoord.Equals(new UnityEngine.Vector2(float.Parse(actionParams["destination_x"]), float.Parse(actionParams["destination_y"]))));
             Destination = actionDestination;
+            //gameObject.transform.GetChild(1).GetComponent<Animator>().SetBool("Walking", true); //CAL EDIT
             yield return StartCoroutine(RemoteExecute(cellGrid));
+            //gameObject.transform.GetChild(1).GetComponent<Animator>().SetBool("Walking", false); //CAL EDIT
         }
     }
 }

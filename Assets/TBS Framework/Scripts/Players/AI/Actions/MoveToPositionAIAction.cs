@@ -149,6 +149,7 @@ namespace TbsFramework.Players.AI.Actions
         public override IEnumerator Execute(Player player, Unit unit, CellGrid cellGrid)
         {
             unit.GetComponent<MoveAbility>().Destination = TopDestination;
+            //unit.gameObject.transform.GetChild(1).GetComponent<Animator>().SetBool("Walking", true); //CAL EDIT
             yield return unit.GetComponent<MoveAbility>().AIExecute(cellGrid);
         }
         public override void CleanUp(Player player, Unit unit, CellGrid cellGrid)
