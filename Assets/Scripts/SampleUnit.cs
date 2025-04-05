@@ -9,6 +9,8 @@ using UnityEngine.UIElements;
 using TbsFramework.Cells;
 using TMPro;
 using TbsFramework.Grid;
+using System.Collections;
+using System.Collections.Generic;
 
 public class SampleUnit : TbsFramework.Units.Unit
 {
@@ -214,7 +216,13 @@ public class SampleUnit : TbsFramework.Units.Unit
         hitDisplay.GetComponent<TextMeshProUGUI>().text = "-" + damage;
         hitct = 0;
     }**/
-    
+
+    protected override IEnumerator MovementAnimation(IList<Cell> path)
+    {
+        anim.SetBool("Walking", true);
+        yield return base.MovementAnimation(path);
+        anim.SetBool("Walking", false);
+    }
 
 
 }
