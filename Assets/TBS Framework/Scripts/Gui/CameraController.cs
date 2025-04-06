@@ -44,6 +44,12 @@ namespace TbsFramework.Gui
                 transform.Translate(transform.up * Time.deltaTime * -ScrollSpeed, Space.World);
             }
 
+            // Clamp camera position
+            Vector3 clampedPosition = transform.position;
+            clampedPosition.x = Mathf.Clamp(clampedPosition.x, 0f, 3f);
+            clampedPosition.y = Mathf.Clamp(clampedPosition.y, 0f, 3f);
+            transform.position = clampedPosition;
+
             // Zoom
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             zoom -= scroll * zoomMultiplier;
