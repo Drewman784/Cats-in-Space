@@ -316,7 +316,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -518793544, guid: 2a50d32ce087b6b419d2aa1062c987c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -476,6 +476,9 @@ MonoBehaviour:
   Offset: {x: 0, y: 0, z: -0.1}
   UnitName: 
   isStructure: 0
+  anim: {fileID: 0}
+  deathPrefab: {fileID: 8226950135896146330, guid: 99fe4cdd8a51344b0b989d02d22c716d,
+    type: 3}
 --- !u!114 &5651850847755295071
 MonoBehaviour:
   m_ObjectHideFlags: 0

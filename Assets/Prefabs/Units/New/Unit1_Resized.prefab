@@ -685,6 +685,9 @@ MonoBehaviour:
   Offset: {x: 0, y: 0, z: -0.1}
   UnitName: 
   isStructure: 0
+  anim: {fileID: 0}
+  deathPrefab: {fileID: 6278049032967325689, guid: 580bb1dd722784ef3add1d376f5b2a85,
+    type: 3}
 --- !u!114 &6993382454142695426
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ using TMPro;
 using TbsFramework.Grid;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 
 public class SampleUnit : TbsFramework.Units.Unit
 {
@@ -32,6 +33,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     private float hitct;
 
     public Animator anim;
+    //[SerializeField] GameObject deathPrefab;
 
     protected override int Defend(TbsFramework.Units.Unit other, int damage)
     {
@@ -196,6 +198,20 @@ public class SampleUnit : TbsFramework.Units.Unit
     protected override void OnDestroyed()
     {
         selectionPanel.SetActive(false);
+        /*GameObject dPrefab = Instantiate(deathPrefab, this.transform);
+        dPrefab.transform.parent = this.transform.parent;
+        dPrefab.transform.localScale = transform.localScale;
+        dPrefab.transform.position = this.transform.position;
+        if(PlayerNumber!=0){
+            dPrefab.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        dPrefab.GetComponent<Animator>().SetTrigger("Dead");
+        Debug.Log(dPrefab);*/
+        GameObject spriter = transform.GetChild(1).gameObject;
+        spriter.transform.parent = this.Cell.transform;
+        spriter.transform.position = new Vector3(0,0.16f,0);
+        //spriter.transform.localScale = this.transform.localScale;
+        anim.SetTrigger("Dead");
         Debug.Log(selectionPanel + "selection panel gone?");
         base.OnDestroyed();
     }

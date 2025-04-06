@@ -28,7 +28,7 @@ namespace TbsFramework.Units.Abilities
                 List<Unit> toAdd = new List<Unit>();
                 //inRange = enemyUnits.FindAll(u => UnitReference.IsUnitAttackable(u, c));
                 if(cellRange !=null && inRange != null){ //check that unit isn't already added to inRange
-                    UnityEngine.Debug.Log("cellrange count="+cellRange.Count);
+                    //UnityEngine.Debug.Log("cellrange count="+cellRange.Count);
                     foreach (Unit ce in cellRange){
                         if(!inRange.Contains(ce)){
                            toAdd.Add(ce);
@@ -40,7 +40,7 @@ namespace TbsFramework.Units.Abilities
                     inRange.AddRange(toAdd);
                 }
             }
-            UnityEngine.Debug.Log("in range: "+inRange);
+            //UnityEngine.Debug.Log("in range: "+inRange);
             inRange.ForEach(u => u.MarkAsReachableEnemy()); //highlight
         }
 
