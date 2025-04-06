@@ -84,7 +84,8 @@ public class SampleUnit : TbsFramework.Units.Unit
 
     public override void MarkAsReachableEnemy()
     {
-        GetComponentInChildren<Renderer>().material.color = Color.red;
+        //GetComponentInChildren<Renderer>().material.color = Color.red;
+        this.Cell.GetComponent<Renderer>().material.color = Color.red;
     }
 
     public override void MarkAsSelected()
@@ -117,6 +118,7 @@ public class SampleUnit : TbsFramework.Units.Unit
                 actionMarker.SetActive(true);
             }
         }
+        this.Cell.GetComponent<Renderer>().material.color = Color.white;
     }
 
     public void ShowHealth(){ //updates healthbar
