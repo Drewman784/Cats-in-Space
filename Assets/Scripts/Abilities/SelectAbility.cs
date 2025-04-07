@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using TbsFramework.Grid;
 using TMPro;
 using UnityEditor;
+using UnityEditor.PackageManager.UI;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -60,6 +62,11 @@ namespace TbsFramework.Units.Abilities
                 SelectButtons[a].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = SelectAbilities[a].GetAbilityName();
                 SelectButtons[a].gameObject.GetComponent<AbilityButtonScript>().SetAbility(SelectAbilities[a], cG);
                 check++;
+                if(GetComponent<SampleUnit>().ActionPoints<1){
+                    SelectButtons[a].GetComponent<Image>().color = Color.grey;
+                } else{
+                    SelectButtons[a].GetComponent<Image>().color = Color.white;
+                }
             }
 
             if(SelectAbilities.Count < 3){

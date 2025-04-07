@@ -154,6 +154,7 @@ public class SampleUnit : TbsFramework.Units.Unit
             selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints/(float)this.TotalHitPoints,1,1);
 
             selectionPanel.transform.GetChild(2).transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = this.HitPoints +"/"+ this.TotalHitPoints;
+            selectionPanel.transform.GetChild(2).transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Atk: " + this.AttackFactor + " | " + "Range: " + this.AttackRange;
 
         }
     }

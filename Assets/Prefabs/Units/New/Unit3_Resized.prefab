@@ -574,6 +574,8 @@ GameObject:
   - component: {fileID: 6320635241540144255}
   - component: {fileID: 2068592331464419775}
   - component: {fileID: 1301878173137548868}
+  - component: {fileID: -6522960943153497951}
+  - component: {fileID: -4903475236721143099}
   m_Layer: 0
   m_Name: Unit3_Resized
   m_TagString: Untagged
@@ -686,8 +688,6 @@ MonoBehaviour:
   UnitName: 
   isStructure: 0
   anim: {fileID: 0}
-  deathPrefab: {fileID: 6278049032967325689, guid: 580bb1dd722784ef3add1d376f5b2a85,
-    type: 3}
 --- !u!114 &6993382454142695426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,6 +770,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-6522960943153497951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692192244507501568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e1d0b3621ba4f7d983c3ed7bb0ad2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectButtons: []
+--- !u!114 &-4903475236721143099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692192244507501568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7692a8c70ce14887bfd29ed9d79b00a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5987470499848512839
 GameObject:
   m_ObjectHideFlags: 0

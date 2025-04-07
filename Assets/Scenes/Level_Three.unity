@@ -3479,7 +3479,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -2, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &567529175
 MonoBehaviour:
@@ -3903,8 +3903,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.5}
-  m_SizeDelta: {x: 0, y: -1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &607848492
 MonoBehaviour:
@@ -4236,6 +4236,7 @@ GameObject:
   - component: {fileID: 716391376}
   - component: {fileID: 716391375}
   - component: {fileID: 716391374}
+  - component: {fileID: 716391377}
   m_Layer: 5
   m_Name: AbilityButton3
   m_TagString: Untagged
@@ -4306,7 +4307,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 716391375}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 716391377}
+        m_TargetAssemblyTypeName: AbilityButtonScript, Assembly-CSharp
+        m_MethodName: CallAbility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &716391375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4345,6 +4358,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716391372}
   m_CullTransparentMesh: 1
+--- !u!114 &716391377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716391372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4425eb94019f2458a9af1af0555af25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &717624485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4783,7 +4808,7 @@ GameObject:
   - component: {fileID: 828178789}
   - component: {fileID: 828178788}
   m_Layer: 5
-  m_Name: HealthText (1)
+  m_Name: StatText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6843,6 +6868,7 @@ GameObject:
   - component: {fileID: 1149015665}
   - component: {fileID: 1149015664}
   - component: {fileID: 1149015663}
+  - component: {fileID: 1149015666}
   m_Layer: 5
   m_Name: AbilityButton1
   m_TagString: Untagged
@@ -6913,7 +6939,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1149015664}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1149015666}
+        m_TargetAssemblyTypeName: AbilityButtonScript, Assembly-CSharp
+        m_MethodName: CallAbility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1149015664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6952,6 +6990,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149015661}
   m_CullTransparentMesh: 1
+--- !u!114 &1149015666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149015661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4425eb94019f2458a9af1af0555af25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1160674619
 GameObject:
   m_ObjectHideFlags: 0
@@ -12586,6 +12636,7 @@ GameObject:
   - component: {fileID: 1998720084}
   - component: {fileID: 1998720083}
   - component: {fileID: 1998720082}
+  - component: {fileID: 1998720085}
   m_Layer: 5
   m_Name: AbilityButton2
   m_TagString: Untagged
@@ -12656,7 +12707,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1998720083}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1998720085}
+        m_TargetAssemblyTypeName: AbilityButtonScript, Assembly-CSharp
+        m_MethodName: CallAbility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1998720083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12695,6 +12758,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998720080}
   m_CullTransparentMesh: 1
+--- !u!114 &1998720085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998720080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4425eb94019f2458a9af1af0555af25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2012568008
 PrefabInstance:
   m_ObjectHideFlags: 0
