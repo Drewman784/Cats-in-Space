@@ -81,6 +81,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2101748378460231874, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
         type: 3}
+      propertyPath: UnitName
+      value: Psionic
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101748378460231874, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
+        type: 3}
       propertyPath: HitPoints
       value: 8
       objectReference: {fileID: 0}

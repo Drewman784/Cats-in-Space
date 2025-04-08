@@ -71,6 +71,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2101748378460231874, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
         type: 3}
+      propertyPath: UnitName
+      value: Infantry
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101748378460231874, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
+        type: 3}
+      propertyPath: AttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: fed5c5e18bfc6cf4db08ffc0cab99d36, type: 3}
+    - target: {fileID: 2101748378460231874, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
+        type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 080769ae912ef3d46a1423013ce922a5, type: 3}
+    - target: {fileID: 2101748378460231874, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
+        type: 3}
       propertyPath: LeadingColor.b
       value: 1
       objectReference: {fileID: 0}
