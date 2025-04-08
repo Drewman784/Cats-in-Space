@@ -26,5 +26,14 @@ namespace TbsFramework.Units.Abilities
         {
             return "Self Heal";
         }
+
+        public override IEnumerator Apply(CellGrid cellGrid, IDictionary<string, string> actionParams, bool isNetworkInvoked)
+        {
+            yield return StartCoroutine(RemoteExecute(cellGrid));
+        }
+
+        public override void OnAbilitySelected(CellGrid cellGrid) { 
+            DoAction(cellGrid);
+        }
 }
 }

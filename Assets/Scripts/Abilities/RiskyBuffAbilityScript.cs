@@ -2,6 +2,7 @@ using UnityEngine;
 using TbsFramework.Grid;
 using System.Collections;
 using UnityEditor.UI;
+using System.Collections.Generic;
 
 namespace TbsFramework.Units.Abilities
 {
@@ -47,6 +48,15 @@ namespace TbsFramework.Units.Abilities
             }else{
                 return true;
             }
+        }
+
+        public override IEnumerator Apply(CellGrid cellGrid, IDictionary<string, string> actionParams, bool isNetworkInvoked)
+        {
+            yield return StartCoroutine(RemoteExecute(cellGrid));
+        }
+
+        public override void OnAbilitySelected(CellGrid cellGrid) { 
+            DoAction(cellGrid);
         }
 
         

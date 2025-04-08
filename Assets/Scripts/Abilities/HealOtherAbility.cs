@@ -1,21 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TbsFramework.Cells;
+using UnityEngine;
 using TbsFramework.Grid;
+using TbsFramework.Cells;
 using TbsFramework.Grid.GridStates;
 using TbsFramework.Units;
-using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
-namespace TbsFramework.HOMMExample
+namespace TbsFramework.Units.Abilities
 {
-    public class FireballSpell : SpellAbility
+    //this ability should heal allow the unit to heal another unit upon selection
+    //this script heavily references FireballSpell 
+    public class HealOtherAbility : SelectableAbility
     {
         public int Range;
         public int Damage;
-
         List<Cell> inRange;
         public Cell SelectedCell { get; set; }
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
+        {
+        
+        }
 
+        // Update is called once per frame
+        void Update()
+        {
+        
+        }
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
             Debug.Log("act called");
@@ -50,7 +61,7 @@ namespace TbsFramework.HOMMExample
         public override void OnCellSelected(Cell cell, CellGrid cellGrid)
         {
             Debug.Log("cell selected called");
-            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as HOMMUnit).IsHero)
+            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as  SampleUnit).PlayerNumber == 0)
             {
                 return;
             }
@@ -65,11 +76,9 @@ namespace TbsFramework.HOMMExample
                 }
             });
         }
-
         public override void OnCellDeselected(Cell cell, CellGrid cellGrid)
         {
-            Debug.Log("cell deselected called");
-            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as HOMMUnit).IsHero)
+            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as SampleUnit).PlayerNumber == 0)
             {
                 return;
             }
@@ -89,23 +98,9 @@ namespace TbsFramework.HOMMExample
                 }
             });
         }
-
-        public override void OnUnitHighlighted(Unit unit, CellGrid cellGrid)
-        {
-            Debug.Log("unit highlighted called");
-            OnCellSelected(unit.Cell, cellGrid);
-        }
-
-        public override void OnUnitDehighlighted(Unit unit, CellGrid cellGrid)
-        {
-            Debug.Log("unit deselected called");
-            OnCellDeselected(unit.Cell, cellGrid);
-        }
-
         public override void OnCellClicked(Cell cell, CellGrid cellGrid)
         {
-            Debug.Log("cell clicked called");
-            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as HOMMUnit).IsHero)
+            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as SampleUnit).PlayerNumber ==0)
             {
                 return;
             }
@@ -118,20 +113,17 @@ namespace TbsFramework.HOMMExample
 
         public override void OnUnitClicked(Unit unit, CellGrid cellGrid)
         {
-            Debug.Log("onunitclicked called");
             OnCellClicked(unit.Cell, cellGrid);
         }
 
         public override void OnTurnStart(CellGrid cellGrid)
         {
-            Debug.Log("turn start called");
             inRange = null;
             SelectedCell = null;
         }
 
         public override void CleanUp(CellGrid cellGrid)
         {
-            Debug.Log("cleanup called");
             base.CleanUp(cellGrid);
             OnCellDeselected(null, cellGrid);
 
@@ -151,15 +143,8 @@ namespace TbsFramework.HOMMExample
                 }
             });
         }
-
-        public override string GetDetails()
-        {
-            return string.Format("{0} Mana\n{1} Damage", ManaCost, Damage);
-        }
-
         public override IEnumerator Apply(CellGrid cellGrid, IDictionary<string, string> actionParams, bool isNetworkInvoked)
         {
-            Debug.Log("apply called");
             SelectedCell = cellGrid.Cells.Find(c => c.OffsetCoord.Equals(new UnityEngine.Vector2(float.Parse(actionParams["selected_cell_x"]), float.Parse(actionParams["selected_cell_y"]))));
             yield return StartCoroutine(RemoteExecute(cellGrid));
         }
@@ -172,6 +157,11 @@ namespace TbsFramework.HOMMExample
             actionParams.Add("selected_cell_y", SelectedCell.OffsetCoord.y.ToString());
 
             return actionParams;
+        }
+
+        public override string GetAbilityName()
+        {
+            return "Heal Other";
         }
     }
 }

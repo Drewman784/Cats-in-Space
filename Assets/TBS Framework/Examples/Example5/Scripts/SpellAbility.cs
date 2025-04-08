@@ -18,6 +18,7 @@ namespace TbsFramework.HOMMExample
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
+            Debug.Log("act called");
             UnitReference.GetComponent<SpellCastingAbility>().CurrentMana -= ManaCost;
             yield return null;
         }

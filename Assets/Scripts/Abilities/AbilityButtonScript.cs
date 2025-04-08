@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TbsFramework.Grid;
 using TbsFramework.Grid.GridStates;
 using TbsFramework.Units;
@@ -23,8 +24,9 @@ public class AbilityButtonScript : MonoBehaviour
     }
 
     public void CallAbility(){
-        cG.cellGridState = new CellGridStateAbilitySelected(cG, unit, theAbility);
-        theAbility.DoAction(cG);
+        //cG.cellGridState = new CellGridStateAbilitySelected(cG, unit, theAbility);
+        //theAbility.DoAction(cG);
+        cG.cellGridState = new CellGridStateAbilitySelected(cG, unit, new List<Ability>() { theAbility });
     }
 
     public void SetAbility(Ability toSet, Unit tUnit){

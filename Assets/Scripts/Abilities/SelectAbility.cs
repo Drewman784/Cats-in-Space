@@ -77,5 +77,16 @@ namespace TbsFramework.Units.Abilities
                 }
             }  
         }
+
+        public override bool CanPerform(CellGrid cellGrid)
+        {
+            if(UnitReference.ActionPoints>0){
+                return true;
+            } else{
+                return false;
+            }
+        }
+
+
     }
 }

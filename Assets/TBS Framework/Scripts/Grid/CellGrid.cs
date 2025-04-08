@@ -104,8 +104,8 @@ namespace TbsFramework.Grid
                 InitializeAndStart();
             }
             //CAL EDIT
-            enemyTurnAlert = GameObject.Find("EnemyTurnAlert");
-            enemyTurnAlert.SetActive(false);
+            //enemyTurnAlert = GameObject.Find("EnemyTurnAlert");
+            //enemyTurnAlert.SetActive(false);
         }
 
         public void InitializeAndStart()
