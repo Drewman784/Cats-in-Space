@@ -33,6 +33,9 @@ public class SampleUnit : TbsFramework.Units.Unit
     private float hitct;
 
     public Animator anim;
+
+    public AudioClip AttackSound; // Sound to play when attacking
+    private AudioSource audioSource; // Audio source component
     //[SerializeField] GameObject deathPrefab;
 
     protected override int Defend(TbsFramework.Units.Unit other, int damage)
@@ -241,6 +244,25 @@ public class SampleUnit : TbsFramework.Units.Unit
         anim.SetBool("Walking", true);
         yield return base.MovementAnimation(path);
         anim.SetBool("Walking", false);
+    }
+
+    // Attack sounds and such
+    public override void OnUnitSelected()
+    {
+        base.OnUnitSelected();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
+
+    protected override void AttackActionPerformed(float actionCost)
+    {
+        base.AttackActionPerformed(actionCost);
+        if (AttackSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(AttackSound);
+        }
     }
 
 
