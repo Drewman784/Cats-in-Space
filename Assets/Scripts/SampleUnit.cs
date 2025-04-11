@@ -93,6 +93,10 @@ public class SampleUnit : TbsFramework.Units.Unit
         this.Cell.GetComponent<Renderer>().material.color = Color.red;
     }
 
+    public void MarkAsReachableAlly(){
+         this.Cell.GetComponent<Renderer>().material.color = Color.blue;
+    }
+
     public override void MarkAsSelected()
     {
         GetComponentInChildren<Renderer>().material.color = Color.green;
@@ -129,7 +133,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     public void ShowHealth(){ //updates healthbar
         float barHealth = (float)this.HitPoints/(float)this.TotalHitPoints;
         healthBar.GetComponent<Transform>().localScale = new Vector3(barHealth,1,1);
-        Debug.Log("hp:" + this.HitPoints + "%"+ this.TotalHitPoints+ " -> "+(barHealth));
+        //Debug.Log("hp:" + this.HitPoints + "%"+ this.TotalHitPoints+ " -> "+(barHealth));
 
         if(selected){ //if selected, also update stats
             OnMouseOver();
@@ -221,6 +225,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     }
 
     public void HealUnit(int amount){
+        Debug.Log("heal for: " + amount);
         this.HitPoints += amount;
         if(this.HitPoints>this.TotalHitPoints){
             this.HitPoints = this.TotalHitPoints;

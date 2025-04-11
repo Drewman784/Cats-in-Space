@@ -42,7 +42,9 @@ namespace TbsFramework.Units.Abilities
                 {
                     foreach (Unit unit in new List<Unit>(cell.CurrentUnits))
                     {
-                        unit.DefendHandler(UnitReference, Damage);
+                        //unit.DefendHandler(UnitReference, Damage);
+                        unit.GetComponent<SampleUnit>().HealUnit(5);
+                        Debug.Log("heal other unit?");
                         if (unit != null)
                         {
                             tempUnit = unit;
@@ -52,7 +54,7 @@ namespace TbsFramework.Units.Abilities
 
                 if (tempUnit != null)
                 {
-                    UnitReference.MarkAsAttacking(tempUnit);
+                    //UnitReference.MarkAsAttacking(tempUnit);
                 }
             }
             yield return base.Act(cellGrid, false);
@@ -61,7 +63,7 @@ namespace TbsFramework.Units.Abilities
         public override void OnCellSelected(Cell cell, CellGrid cellGrid)
         {
             Debug.Log("cell selected called");
-            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as  SampleUnit).PlayerNumber == 0)
+            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as  SampleUnit).PlayerNumber == 1)
             {
                 return;
             }
@@ -72,35 +74,50 @@ namespace TbsFramework.Units.Abilities
                 c.MarkAsHighlighted();
                 if (c.CurrentUnits.Count > 0)
                 {
-                    c.CurrentUnits[0].MarkAsReachableEnemy();
+                    c.CurrentUnits[0].GetComponent<SampleUnit>().MarkAsReachableAlly();
+                    //c.CurrentUnits[0].MarkAsReachableEnemy();
                 }
             });
         }
         public override void OnCellDeselected(Cell cell, CellGrid cellGrid)
         {
-            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as SampleUnit).PlayerNumber == 0)
+            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as SampleUnit).PlayerNumber == 1)
             {
                 return;
             }
-            inRange.ForEach(c =>
-            {
-                c.UnMark();
-                if (c.CurrentUnits.Count > 0)
+            if(inRange!=null){
+                inRange.ForEach(c =>
                 {
-                    if (cellGrid.GetCurrentPlayerUnits().Contains(c.CurrentUnits[0]))
+                    c.UnMark();
+                    if (c.CurrentUnits.Count > 0)
                     {
-                        c.CurrentUnits[0].MarkAsFriendly();
+                        if (cellGrid.GetCurrentPlayerUnits().Contains(c.CurrentUnits[0]))
+                        {
+                          c.CurrentUnits[0].MarkAsFriendly();
+                        }
+                        else
+                        {
+                            c.CurrentUnits[0].UnMark();
+                        }
                     }
-                    else
-                    {
-                        c.CurrentUnits[0].UnMark();
-                    }
+                });
                 }
-            });
+        }
+
+        public override void OnUnitHighlighted(Unit unit, CellGrid cellGrid)
+        {
+            Debug.Log("unit highlighted called");
+            OnCellSelected(unit.Cell, cellGrid);
+        }
+
+        public override void OnUnitDehighlighted(Unit unit, CellGrid cellGrid)
+        {
+            Debug.Log("unit deselected called");
+            OnCellDeselected(unit.Cell, cellGrid);
         }
         public override void OnCellClicked(Cell cell, CellGrid cellGrid)
         {
-            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as SampleUnit).PlayerNumber ==0)
+            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as SampleUnit).PlayerNumber ==1)
             {
                 return;
             }

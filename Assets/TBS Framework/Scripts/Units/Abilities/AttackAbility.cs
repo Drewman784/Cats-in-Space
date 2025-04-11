@@ -58,6 +58,8 @@ namespace TbsFramework.Units.Abilities
 
         public override void CleanUp(CellGrid cellGrid)
         {
+            //Cal edit
+            if (cellGrid.cellGridState != null)
             inAttackRange.ForEach(u =>
             {
                 if (u != null)
