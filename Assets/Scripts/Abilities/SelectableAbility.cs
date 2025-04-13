@@ -43,6 +43,13 @@ namespace TbsFramework.Units.Abilities
             int actionCost = 1;
             GetComponent<SampleUnit>().ActionPoints -= actionCost;
             GetComponent<SampleUnit>().MarkAsFinished();
+            GetComponent<AttackAbility>().enabled = true;
+        }
+
+        public override void OnAbilityDeselected(CellGrid cellGrid)
+        {
+            base.OnAbilityDeselected(cellGrid);
+            GetComponent<AttackAbility>().enabled =true;
         }
     }
 }

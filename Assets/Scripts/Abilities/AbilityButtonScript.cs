@@ -31,9 +31,11 @@ public class AbilityButtonScript : MonoBehaviour
             theAbility.DoAction(cG);
             //Debug.Log("instant! " + theAbility);
         } else{
+            //Debug.Log("noninstant");
             cG.cellGridState = new CellGridStateAbilitySelected(cG, unit, new List<Ability>() { theAbility });
             theAbility.GetComponent<SelectableAbility>().selected = true;
         }
+        unit.GetComponent<AttackAbility>().enabled  = false;
 
     }
 

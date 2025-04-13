@@ -19,7 +19,7 @@ namespace TbsFramework.Units.Abilities
             {
                 // Cal Edit
                 Debug.Log("MeleeAttack");
-                UnitReference.GetComponent<SampleUnit>().NewAttackHandler(UnitToAttack.GetComponent<SampleUnit>(), "PHYSICAL");
+                UnitReference.GetComponent<SampleUnit>().NewAttackHandler(UnitToAttack.GetComponent<SampleUnit>(), "PHYSICAL", 0);
                 //UnitReference.AttackHandler(UnitToAttack);
                 yield return new WaitForSeconds(0.5f);
             }

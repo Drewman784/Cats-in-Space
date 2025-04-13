@@ -577,6 +577,7 @@ GameObject:
   - component: {fileID: 1301878173137548868}
   - component: {fileID: -6522960943153497951}
   - component: {fileID: 3775092575351886407}
+  - component: {fileID: 6438081647594378570}
   m_Layer: 0
   m_Name: Unit3_Resized
   m_TagString: Untagged
@@ -882,6 +883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectButtons: []
+  SelectAbilities: []
 --- !u!114 &3775092575351886407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,8 +896,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2196ca18383d8477fb2527afc1e442be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selected: 0
   Range: 0
   Damage: 0
+--- !u!114 &6438081647594378570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692192244507501568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7692a8c70ce14887bfd29ed9d79b00a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selected: 0
 --- !u!1 &5987470499848512839
 GameObject:
   m_ObjectHideFlags: 0

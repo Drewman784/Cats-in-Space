@@ -671,7 +671,7 @@ MonoBehaviour:
   UnitHighlighterAggregator: {fileID: 0}
   Obstructable: 1
   cell: {fileID: 0}
-  HitPoints: 10
+  HitPoints: 12
   AttackRange: 1
   AttackFactor: 5
   DefenceFactor: 0
@@ -881,6 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectButtons: []
+  SelectAbilities: []
 --- !u!1 &5987470499848512839
 GameObject:
   m_ObjectHideFlags: 0

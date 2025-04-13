@@ -27,7 +27,7 @@ namespace TbsFramework.Units.Abilities
             {
                 // Cal Edit
                 Debug.Log("Special Attack");
-                UnitReference.GetComponent<SampleUnit>().NewAttackHandler(UnitToAttack.GetComponent<SampleUnit>(), "MELEE");
+                UnitReference.GetComponent<SampleUnit>().NewAttackHandler(UnitToAttack.GetComponent<SampleUnit>(), "MELEE",0);
                 //UnitReference.AttackHandler(UnitToAttack);
                 Reset();
                 yield return new WaitForSeconds(0.5f);

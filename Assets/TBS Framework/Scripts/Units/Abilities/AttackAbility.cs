@@ -17,7 +17,7 @@ namespace TbsFramework.Units.Abilities
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
-            Debug.Log("act");
+            //Debug.Log("standard attack ability");
             if (CanPerform(cellGrid) && UnitReference.IsUnitAttackable(UnitToAttack, UnitReference.Cell))
             {
                 // Cal Edit

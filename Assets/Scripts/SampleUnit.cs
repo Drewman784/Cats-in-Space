@@ -173,19 +173,21 @@ public class SampleUnit : TbsFramework.Units.Unit
             selectionPanel.SetActive(false);
     }
 
-    public void NewAttackHandler(TbsFramework.Units.Unit unitToAttack, String attackType)
+    public void NewAttackHandler(TbsFramework.Units.Unit unitToAttack, String attackType, int addedDamage)
     {
-        AttackAction attackAction = NewDealDamage(unitToAttack, attackType);
+        AttackAction attackAction = NewDealDamage(unitToAttack, attackType, addedDamage);
         MarkAsAttacking(unitToAttack);
+        //Debug.Log("reached new attack handler - "+(attackAction.Damage + addedDamage));
         unitToAttack.DefendHandler(this, attackAction.Damage);
         AttackActionPerformed(attackAction.ActionCost); 
     }
 
-    public AttackAction NewDealDamage(TbsFramework.Units.Unit unitToAttack, String attackType){
+    public AttackAction NewDealDamage(TbsFramework.Units.Unit unitToAttack, String attackType, int addedDamage){
         anim.SetTrigger("Shoot");
+        int TempAttackFactor = AttackFactor+addedDamage;
         switch(attackType){
             case "PHYSICAL":
-                return new AttackAction(AttackFactor, 1f);
+                return new AttackAction(TempAttackFactor, 1f);
             case "PSIONIC":
                 int dmg = unitToAttack.Morale - this.Morale;
                 if((float)unitToAttack.Morale/(float)this.Morale >= 2){
@@ -193,7 +195,7 @@ public class SampleUnit : TbsFramework.Units.Unit
                 }
                 return new AttackAction(dmg, 1f);
             default:
-                return new AttackAction(AttackFactor, 1f);
+                return new AttackAction(TempAttackFactor, 1f);
         }
         //return new AttackAction(AttackFactor, 1f);
     }
