@@ -5,6 +5,7 @@ using TbsFramework.Grid.GridStates;
 using TbsFramework.Units;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 namespace TbsFramework.Units.Abilities
 {
@@ -30,7 +31,7 @@ namespace TbsFramework.Units.Abilities
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
             Debug.Log("act called");
-            if (CanPerform(cellGrid))
+            if (CanPerform(cellGrid) && this.selected)
             {
                 if (inRange == null)
                 {
@@ -43,7 +44,7 @@ namespace TbsFramework.Units.Abilities
                     foreach (Unit unit in new List<Unit>(cell.CurrentUnits))
                     {
                         //unit.DefendHandler(UnitReference, Damage);
-                        unit.GetComponent<SampleUnit>().HealUnit(5);
+                        unit.GetComponent<SampleUnit>().HealUnit(3);
                         Debug.Log("heal other unit?");
                         if (unit != null)
                         {
@@ -57,13 +58,16 @@ namespace TbsFramework.Units.Abilities
                     //UnitReference.MarkAsAttacking(tempUnit);
                 }
             }
+            ActionCost();
             yield return base.Act(cellGrid, false);
+            selected = false;
+
         }
 
         public override void OnCellSelected(Cell cell, CellGrid cellGrid)
         {
-            Debug.Log("cell selected called");
-            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as  SampleUnit).PlayerNumber == 1)
+            //Debug.Log("cell selected called");
+            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as  SampleUnit).PlayerNumber == 1 || !selected)
             {
                 return;
             }
@@ -81,7 +85,7 @@ namespace TbsFramework.Units.Abilities
         }
         public override void OnCellDeselected(Cell cell, CellGrid cellGrid)
         {
-            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as SampleUnit).PlayerNumber == 1)
+            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as SampleUnit).PlayerNumber == 1 || !selected)
             {
                 return;
             }
@@ -117,7 +121,7 @@ namespace TbsFramework.Units.Abilities
         }
         public override void OnCellClicked(Cell cell, CellGrid cellGrid)
         {
-            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as SampleUnit).PlayerNumber ==1)
+            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as SampleUnit).PlayerNumber ==1 || !selected)
             {
                 return;
             }
@@ -143,7 +147,7 @@ namespace TbsFramework.Units.Abilities
         {
             base.CleanUp(cellGrid);
             OnCellDeselected(null, cellGrid);
-
+            if(inRange != null){
             inRange.ForEach(c =>
             {
                 c.UnMark();
@@ -159,6 +163,8 @@ namespace TbsFramework.Units.Abilities
                     }
                 }
             });
+            }
+
         }
         public override IEnumerator Apply(CellGrid cellGrid, IDictionary<string, string> actionParams, bool isNetworkInvoked)
         {

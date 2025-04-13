@@ -8,10 +8,15 @@ namespace TbsFramework.Units.Abilities
     public class SelectableAbility : Ability
     {
         private string AbilityName;
+        public bool selected = false;
 
         public override bool IsSelectable()
         {
             return true;
+        }
+
+        public virtual bool IsInstant(){
+            return false;
         }
 
         public override string GetAbilityName(){
@@ -37,6 +42,7 @@ namespace TbsFramework.Units.Abilities
         public virtual void ActionCost(){
             int actionCost = 1;
             GetComponent<SampleUnit>().ActionPoints -= actionCost;
+            GetComponent<SampleUnit>().MarkAsFinished();
         }
     }
 }

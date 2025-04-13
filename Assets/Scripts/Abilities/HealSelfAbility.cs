@@ -14,7 +14,7 @@ namespace TbsFramework.Units.Abilities
             if (CanPerform(cellGrid) )
             {
                 Debug.Log("HEAL");
-                GetComponent<SampleUnit>().HealUnit(3);
+                GetComponent<SampleUnit>().HealUnit(4);
                 yield return new WaitForSeconds(0.5f);
             } else{
                 Debug.LogError("heal failed!");
@@ -33,7 +33,12 @@ namespace TbsFramework.Units.Abilities
         }
 
         public override void OnAbilitySelected(CellGrid cellGrid) { 
-            DoAction(cellGrid);
+            //DoAction(cellGrid);
         }
+
+        public override bool IsInstant()
+        {
+            return true;
+        }  
 }
 }

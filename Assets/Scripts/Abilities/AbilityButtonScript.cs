@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class AbilityButtonScript : MonoBehaviour
 {
-    private Ability theAbility;
+    private SelectableAbility theAbility;
     CellGrid cG;
     Unit unit;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,10 +26,18 @@ public class AbilityButtonScript : MonoBehaviour
     public void CallAbility(){
         //cG.cellGridState = new CellGridStateAbilitySelected(cG, unit, theAbility);
         //theAbility.DoAction(cG);
-        cG.cellGridState = new CellGridStateAbilitySelected(cG, unit, new List<Ability>() { theAbility });
+        //Debug.Log("button click!");
+        if(theAbility.IsInstant()){
+            theAbility.DoAction(cG);
+            //Debug.Log("instant! " + theAbility);
+        } else{
+            cG.cellGridState = new CellGridStateAbilitySelected(cG, unit, new List<Ability>() { theAbility });
+            theAbility.GetComponent<SelectableAbility>().selected = true;
+        }
+
     }
 
-    public void SetAbility(Ability toSet, Unit tUnit){
+    public void SetAbility(SelectableAbility toSet, Unit tUnit){
         theAbility = toSet;
         unit = tUnit;
     }

@@ -56,7 +56,12 @@ namespace TbsFramework.Units.Abilities
         }
 
         public override void OnAbilitySelected(CellGrid cellGrid) { 
-            DoAction(cellGrid);
+            //DoAction(cellGrid);
+        }
+
+        public override bool IsInstant()
+        {
+            return true;
         }
 
         

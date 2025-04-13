@@ -12,6 +12,7 @@ namespace TbsFramework.Units.Abilities
     public class SelectAbility : Ability
     {
         public List<Button> SelectButtons;
+        public List<SelectableAbility> SelectAbilities;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -28,6 +29,11 @@ namespace TbsFramework.Units.Abilities
                 }
                 Debug.Log(a);
             }*/
+            if(SelectButtons.Count!=3){
+                Debug.Log("Missing button!");
+            } else{
+               // Debug.Log("got all buttons");
+            }
         }
 
         public override void OnUnitClicked(Unit unit, CellGrid cellGrid)
@@ -44,23 +50,33 @@ namespace TbsFramework.Units.Abilities
 
         public void DisplayAbilities(){
 
-            List<Ability> SelectAbilities = new List<Ability>();
+            SelectAbilities = new List<SelectableAbility>();
 
-            Unit cG = GetComponent<Unit>();
-            //Debug.Log("unit has "+cG.Abilities.Count + "abilities: ");
+            Unit cG = GetComponent<SampleUnit>();
             foreach(Ability a in cG.Abilities){
                 if(a.IsSelectable()){
-                    SelectAbilities.Add(a);
+                   SelectAbilities.Add((SelectableAbility)a);
+                   //a.enabled = false;
                 }
                 //Debug.Log(a);
             }
+            //Debug.Log(SelectAbilities);
+
+            //Unit cG = GetComponent<Unit>();
+            //Debug.Log("unit has "+cG.Abilities.Count + "abilities: ");
+            /*foreach(SelectableAbility a in SelectAbilities){
+                    a.selected = false;
+                //Debug.Log(a);
+            }*/
 
             int check = 0;
             //Debug.Log("select abilities count: " + SelectAbilities.Count);
-            for(int a = 0; a < SelectAbilities.Count; a++){
+            //Debug.Log("list: "+ SelectAbilities.Count);
+                for(int a = 0; a < SelectAbilities.Count; a++){
+                   // Debug.Log(a + " ability name = " + SelectAbilities[a].GetAbilityName());
                 SelectButtons[a].gameObject.SetActive(true);
                 SelectButtons[a].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = SelectAbilities[a].GetAbilityName();
-                SelectButtons[a].gameObject.GetComponent<AbilityButtonScript>().SetAbility(SelectAbilities[a], cG);
+                SelectButtons[a].gameObject.GetComponent<AbilityButtonScript>().SetAbility((SelectableAbility)SelectAbilities[a], cG);
                 check++;
                 if(GetComponent<SampleUnit>().ActionPoints<1){
                     SelectButtons[a].GetComponent<Image>().color = Color.grey;
@@ -69,13 +85,19 @@ namespace TbsFramework.Units.Abilities
                 }
             }
 
+            //Debug.Log("sab = " + SelectAbilities.Count + " butttons = " + SelectButtons.Count);
             if(SelectAbilities.Count < 3){
                 while(check<3){
                     //Debug.Log("inactive "+check);
                     SelectButtons[check].gameObject.SetActive(false);
                     check++;
                 }
-            }  
+            }
+
+            /*foreach(SelectableAbility a in SelectAbilities){
+                    a.enabled = false;
+                //Debug.Log(a);
+            }*/  
         }
 
         public override bool CanPerform(CellGrid cellGrid)
