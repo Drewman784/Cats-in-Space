@@ -38,6 +38,11 @@ public class SampleUnit : TbsFramework.Units.Unit
     private AudioSource audioSource; // Audio source component
     //[SerializeField] GameObject deathPrefab;
 
+    public SampleUnit lastTarget;
+    public int totalDamageTaken;
+
+    private CatalystMonitor catMon;
+
     protected override int Defend(TbsFramework.Units.Unit other, int damage)
     {
         //other.GetComponent<SampleUnit>().anim.SetTrigger("Shoot");
@@ -79,6 +84,8 @@ public class SampleUnit : TbsFramework.Units.Unit
             hBar.color = Color.red; 
             actionMarker.SetActive(false);
         }
+
+        catMon = GameObject.Find("CellGrid").GetComponent<CatalystMonitor>();
     }
 
     public override void MarkAsFriendly()
@@ -173,6 +180,12 @@ public class SampleUnit : TbsFramework.Units.Unit
             selectionPanel.SetActive(false);
     }
 
+    public override void AttackHandler(TbsFramework.Units.Unit unitToAttack)
+    {
+        ///base.AttackHandler(unitToAttack);
+        NewAttackHandler(unitToAttack, "PHYSICAL", 0);
+    }
+
     public void NewAttackHandler(TbsFramework.Units.Unit unitToAttack, String attackType, int addedDamage)
     {
         AttackAction attackAction = NewDealDamage(unitToAttack, attackType, addedDamage);
@@ -184,7 +197,9 @@ public class SampleUnit : TbsFramework.Units.Unit
 
     public AttackAction NewDealDamage(TbsFramework.Units.Unit unitToAttack, String attackType, int addedDamage){
         anim.SetTrigger("Shoot");
+        //Debug.Log("here!");
         int TempAttackFactor = AttackFactor+addedDamage;
+        catMon.RegisterDamage(TempAttackFactor,this.PlayerNumber,this,(SampleUnit)unitToAttack);
         switch(attackType){
             case "PHYSICAL":
                 return new AttackAction(TempAttackFactor, 1f);
@@ -222,6 +237,7 @@ public class SampleUnit : TbsFramework.Units.Unit
         spriter.transform.position = new Vector3(0,0.16f,0);
         //spriter.transform.localScale = this.transform.localScale;
         anim.SetTrigger("Dead");
+        catMon.RegisterKill(this.PlayerNumber);
         Debug.Log(selectionPanel + "selection panel gone?");
         base.OnDestroyed();
     }

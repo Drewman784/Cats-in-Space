@@ -1354,6 +1354,7 @@ GameObject:
   - component: {fileID: 291248967}
   - component: {fileID: 291248970}
   - component: {fileID: 291248972}
+  - component: {fileID: 291248973}
   m_Layer: 0
   m_Name: CellGrid
   m_TagString: Untagged
@@ -1607,6 +1608,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &291248973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291248964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab45b756b9144485b527a45ebaaecf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &310116819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9755,7 +9768,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.70500004, y: 0.60732335}
   m_AnchorMax: {x: 0.97514695, y: 0.8756617}
-  m_AnchoredPosition: {x: -10.079987, y: -5}
+  m_AnchoredPosition: {x: -10.079956, y: -5}
   m_SizeDelta: {x: 20.159, y: 80.008}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1643609361

@@ -11,6 +11,7 @@ using TbsFramework.Units;
 using TbsFramework.Units.Abilities;
 using UnityEngine;
 using UnityEngine.UI;
+using TbsFramework.Grid;
 
 namespace TbsFramework.Grid
 {
@@ -321,6 +322,7 @@ namespace TbsFramework.Grid
                 enemyTurnAlert.SetActive(false);
             } else{
                 enemyTurnAlert.SetActive(true);
+                //GetComponent<CatalystMonitor>().RegisterTurnCount();
             }
             GameObject.Find("EndTurnButton").GetComponent<Image>().color = Color.white;
 
@@ -350,6 +352,7 @@ namespace TbsFramework.Grid
             }
             CurrentPlayer.Play(this);
         }
+
 
         public List<Unit> GetCurrentPlayerUnits()
         {
