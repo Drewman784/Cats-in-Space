@@ -75,7 +75,7 @@ namespace TbsFramework.Units.Abilities
                 for(int a = 0; a < SelectAbilities.Count; a++){
                    // Debug.Log(a + " ability name = " + SelectAbilities[a].GetAbilityName());
                 SelectButtons[a].gameObject.SetActive(true);
-                SelectButtons[a].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = SelectAbilities[a].GetAbilityName();
+                SelectButtons[a].transform.GetChild(0).GetComponent<Text>().text = SelectAbilities[a].GetAbilityName();
                 SelectButtons[a].gameObject.GetComponent<AbilityButtonScript>().SetAbility((SelectableAbility)SelectAbilities[a], cG);
                 check++;
                 if(GetComponent<SampleUnit>().ActionPoints<1){
