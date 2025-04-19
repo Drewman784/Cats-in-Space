@@ -14,6 +14,8 @@ public class CatalystMonitor : MonoBehaviour
     private int enemyDamage;
     private int allyDamage;
 
+    private GameObject ActivationWindow;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,7 +29,15 @@ public class CatalystMonitor : MonoBehaviour
         enemyFatalities = 0;
 
         turnCount = 0;
+
+        ActivationWindow = GameObject.Find("CatalystActivationScreen");
+        ActivationWindow.SetActive(false);
     }
+
+    public GameObject GetActivationWindow(){
+        return ActivationWindow;
+    }
+
 
     // Update is called once per frame
     void Update()
