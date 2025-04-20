@@ -246,7 +246,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 475324598015751120, guid: ff2ec95256a94474b9f3a41fd333932c,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1870744052178990702}
+      addedObject: {fileID: -8569340586250267551}
     - targetCorrespondingSourceObject: {fileID: 7436763768784213307, guid: ff2ec95256a94474b9f3a41fd333932c,
         type: 3}
       insertIndex: -1
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 5
---- !u!114 &1870744052178990702
+--- !u!114 &-8569340586250267551
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -527,12 +527,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1385160719831600959}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1b7a50db47e143f8b9f7fee79683d01, type: 3}
+  m_Script: {fileID: 11500000, guid: f938ca0f05ec54ee18f14850be2d6392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   catMon: {fileID: 0}
-  condition: 
-  effect: 
+  condition: All allies targeting the same unit
+  effect: this unit recieves attack buff of 3 for 2 turns.
+  buffToApply: {fileID: 11400000, guid: 5e745f42a4988418ebec745fb4a40b63, type: 2}
 --- !u!1 &8256527890430568916 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7436763768784213307, guid: ff2ec95256a94474b9f3a41fd333932c,

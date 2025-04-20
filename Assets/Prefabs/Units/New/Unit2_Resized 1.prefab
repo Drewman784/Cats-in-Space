@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 4868588116334296471}
   - component: {fileID: -1510275990929157220}
   - component: {fileID: -8939122416340305080}
-  - component: {fileID: -4400071450256421734}
+  - component: {fileID: 511492243865166378}
   m_Layer: 0
   m_Name: Unit2_Resized 1
   m_TagString: Untagged
@@ -692,7 +692,7 @@ MonoBehaviour:
   selected: 0
   buff: {fileID: 11400000, guid: f6c97c6c1dc8e427088ef9b861dc3054, type: 2}
   deBuff: {fileID: 11400000, guid: 129c03807756649e19c420c14cab8e97, type: 2}
---- !u!114 &-4400071450256421734
+--- !u!114 &511492243865166378
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -701,12 +701,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3025837557082116462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1b7a50db47e143f8b9f7fee79683d01, type: 3}
+  m_Script: {fileID: 11500000, guid: f938ca0f05ec54ee18f14850be2d6392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   catMon: {fileID: 0}
-  condition: 
-  effect: 
+  condition: All allies targeting the same unit
+  effect: this unit recieves attack buff of 3 for 2 turns.
+  buffToApply: {fileID: 11400000, guid: 5e745f42a4988418ebec745fb4a40b63, type: 2}
 --- !u!1 &4434797489263684878
 GameObject:
   m_ObjectHideFlags: 0
