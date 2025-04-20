@@ -33,8 +33,6 @@ public class DamageTakenCatalyst : BaseCatalyst
                     //Debug.Log("nah");
                     TriggerCatalystEffect();
                 }
-            } else{
-                //Debug.Log("baad");
             }
         }
         //base.CheckCatalyst();

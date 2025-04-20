@@ -199,7 +199,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2970399734334720518, guid: 00db46d3ba43b4a41973cd5dfb5f6dba, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -227,6 +228,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4136963023935343557}
+    - targetCorrespondingSourceObject: {fileID: 4692192244507501568, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1115484982591413738}
   m_SourcePrefab: {fileID: 100100000, guid: 00db46d3ba43b4a41973cd5dfb5f6dba, type: 3}
 --- !u!1 &1837280693723427024 stripped
 GameObject:
@@ -355,3 +360,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 20
+--- !u!114 &1115484982591413738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837280693723427024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c52d73ea046242d0971579c455f9815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catMon: {fileID: 0}
+  condition: All allies below half health
+  effect: Heal 5 in radius of 3.
+  threshold: 6
+  radius: 3
+  amountHealed: 5
