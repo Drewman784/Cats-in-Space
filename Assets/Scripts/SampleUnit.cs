@@ -121,6 +121,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     {
         GetComponentInChildren<Renderer>().material.color = Color.gray;
         actionMarker.SetActive(false);
+        GetComponent<BaseCatalyst>().CheckCatalyst();
         //anim.SetBool("Walking", false);
         GameObject.Find("CellGrid").GetComponent<CellGrid>().CheckUnitsFinished();
     }
@@ -193,6 +194,8 @@ public class SampleUnit : TbsFramework.Units.Unit
         //Debug.Log("reached new attack handler - "+(attackAction.Damage + addedDamage));
         unitToAttack.DefendHandler(this, attackAction.Damage);
         AttackActionPerformed(attackAction.ActionCost); 
+        GetComponent<BaseCatalyst>().CheckCatalyst();
+        unitToAttack.GetComponent<BaseCatalyst>().CheckCatalyst();
     }
 
     public AttackAction NewDealDamage(TbsFramework.Units.Unit unitToAttack, String attackType, int addedDamage){

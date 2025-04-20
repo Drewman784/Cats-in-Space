@@ -4,7 +4,7 @@ using UnityEngine;
 public class BaseCatalyst : MonoBehaviour
 {
     private GameObject ActivationCheck;
-    private CatalystMonitor catMon;
+    public CatalystMonitor catMon;
     [SerializeField] string condition;
     [SerializeField] string effect;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,7 +20,9 @@ public class BaseCatalyst : MonoBehaviour
     }
 
     public virtual void CheckCatalyst(){ //here, the script should check the conditions of the catalyst trigger
-
+        if(catMon == null){
+            catMon = GameObject.Find("CellGrid").GetComponent<CatalystMonitor>();
+        }
     }
 
     public virtual void TriggerCatalystEffect(){ //here, the script calls the effect of the catalyst
@@ -28,6 +30,7 @@ public class BaseCatalyst : MonoBehaviour
     }
 
     public void CheckActivation(){
+        Debug.Log("got to check activation");
         if(ActivationCheck == null){
             ActivationCheck = catMon.GetActivationWindow();
         }

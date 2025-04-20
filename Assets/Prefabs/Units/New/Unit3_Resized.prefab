@@ -578,6 +578,7 @@ GameObject:
   - component: {fileID: -6522960943153497951}
   - component: {fileID: 3775092575351886407}
   - component: {fileID: 6438081647594378570}
+  - component: {fileID: -776959115526961366}
   m_Layer: 0
   m_Name: Unit3_Resized
   m_TagString: Untagged
@@ -691,6 +692,8 @@ MonoBehaviour:
   isStructure: 0
   anim: {fileID: 0}
   AttackSound: {fileID: 8300000, guid: fed5c5e18bfc6cf4db08ffc0cab99d36, type: 3}
+  lastTarget: {fileID: 0}
+  totalDamageTaken: 0
 --- !u!82 &-183723756732048511
 AudioSource:
   m_ObjectHideFlags: 0
@@ -912,6 +915,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: 0
+--- !u!114 &-776959115526961366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692192244507501568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b7a50db47e143f8b9f7fee79683d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catMon: {fileID: 0}
+  condition: 
+  effect: 
 --- !u!1 &5987470499848512839
 GameObject:
   m_ObjectHideFlags: 0

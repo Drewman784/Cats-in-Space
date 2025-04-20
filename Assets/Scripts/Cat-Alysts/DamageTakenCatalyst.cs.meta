@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: addf40897d5d44eaabb473257b80a22f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - catMon: {instanceID: 0}
+  - buffToApply: {fileID: 11400000, guid: 412a1ed6dec7541cd9d0938d95e171ea, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

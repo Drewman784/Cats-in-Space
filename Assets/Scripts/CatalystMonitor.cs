@@ -71,6 +71,8 @@ public class CatalystMonitor : MonoBehaviour
         attacker.lastTarget = defender;
         defender.totalDamageTaken += dmg;
 
+        Debug.Log(defender +" : "+defender.totalDamageTaken + "<-totaldmg");
+
         Debug.Log("damage registered: " + dmg);
     }
 
@@ -92,6 +94,7 @@ public class CatalystMonitor : MonoBehaviour
     }
 
     public bool UnitTotalDamageHasReached(SampleUnit which, int threshold){ // return if unit has reached a total damage amount
+        Debug.Log("evaluating unit" + which + "total damage " + which.totalDamageTaken +" >= " + threshold);
         return which.totalDamageTaken >= threshold;
     }
     

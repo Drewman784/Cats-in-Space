@@ -99,6 +99,27 @@ PrefabInstance:
       propertyPath: LeadingColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2970399734334720518, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
+        type: 3}
+      propertyPath: effect
+      value: buff this unit's attack by 2 for 5 turns
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970399734334720518, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970399734334720518, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
+        type: 3}
+      propertyPath: threshold
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970399734334720518, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
+        type: 3}
+      propertyPath: buffToApply
+      value: 
+      objectReference: {fileID: 11400000, guid: 412a1ed6dec7541cd9d0938d95e171ea,
+        type: 2}
     - target: {fileID: 3207013275633585823, guid: 00db46d3ba43b4a41973cd5dfb5f6dba,
         type: 3}
       propertyPath: m_LocalPosition.x
