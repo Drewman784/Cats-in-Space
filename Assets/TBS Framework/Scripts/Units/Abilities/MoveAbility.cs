@@ -34,24 +34,36 @@ namespace TbsFramework.Units.Abilities
             }
         }
 
+        private Cell lastClickedCell;
+
         public override void OnUnitClicked(Unit unit, CellGrid cellGrid)
         {
             if (cellGrid.GetCurrentPlayerUnits().Contains(unit))
             {
-                cellGrid.cellGridState = new CellGridStateAbilitySelected(cellGrid, unit, unit.GetComponents<Ability>().ToList());
+            cellGrid.cellGridState = new CellGridStateAbilitySelected(cellGrid, unit, unit.GetComponents<Ability>().ToList());
             }
         }
+
         public override void OnCellClicked(Cell cell, CellGrid cellGrid)
         {
             if (availableDestinations.Contains(cell))
             {
+            if (lastClickedCell == cell)
+            {
                 Destination = cell;
                 currentPath = null;
+                lastClickedCell = null; // Reset after double-click
                 StartCoroutine(HumanExecute(cellGrid));
             }
             else
             {
-                cellGrid.cellGridState = new CellGridStateWaitingForInput(cellGrid);
+                lastClickedCell = cell;
+            }
+            }
+            else
+            {
+            lastClickedCell = null; // Reset if clicked on an invalid cell
+            cellGrid.cellGridState = new CellGridStateWaitingForInput(cellGrid);
             }
         }
         public override void OnCellSelected(Cell cell, CellGrid cellGrid)
