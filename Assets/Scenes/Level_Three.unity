@@ -2447,7 +2447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theCatalyst: {fileID: 0}
-  descText: {fileID: 0}
+  descText: {fileID: 1644045156}
 --- !u!114 &422116123
 MonoBehaviour:
   m_ObjectHideFlags: 0
