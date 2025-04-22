@@ -1,10 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CatalystActivationScreen : MonoBehaviour
 {
     public BaseCatalyst theCatalyst;
-    [SerializeField] TextMeshProUGUI descText;
+    [SerializeField] Text descText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
