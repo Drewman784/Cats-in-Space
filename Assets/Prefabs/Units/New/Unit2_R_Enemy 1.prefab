@@ -102,7 +102,7 @@ PrefabInstance:
     - target: {fileID: 3218343780508404139, guid: ff2ec95256a94474b9f3a41fd333932c,
         type: 3}
       propertyPath: UnitName
-      value: Medic
+      value: Psionic
       objectReference: {fileID: 0}
     - target: {fileID: 3218343780508404139, guid: ff2ec95256a94474b9f3a41fd333932c,
         type: 3}

@@ -478,7 +478,7 @@ MonoBehaviour:
   PlayerNumber: 0
   LeadingColor: {r: 1, g: 1, b: 1, a: 1}
   Offset: {x: 0, y: 0, z: -0.1}
-  UnitName: Medic
+  UnitName: Psionic
   isStructure: 0
   anim: {fileID: 0}
   AttackSound: {fileID: 8300000, guid: fed5c5e18bfc6cf4db08ffc0cab99d36, type: 3}
@@ -677,6 +677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectButtons: []
   SelectAbilities: []
+  selectPanel: {fileID: 0}
 --- !u!114 &-8939122416340305080
 MonoBehaviour:
   m_ObjectHideFlags: 0

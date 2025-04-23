@@ -12,6 +12,7 @@ using TbsFramework.Grid;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
+using TbsFramework.Units.Abilities;
 
 public class SampleUnit : TbsFramework.Units.Unit
 {
@@ -88,6 +89,10 @@ public class SampleUnit : TbsFramework.Units.Unit
         catMon = GameObject.Find("CellGrid").GetComponent<CatalystMonitor>();
     }
 
+    public void AddInfoPanel(GameObject what){
+        selectionPanel = what;
+    }
+
     public override void MarkAsFriendly()
     {
         //Debug.Log("Mark");
@@ -108,6 +113,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     {
         GetComponentInChildren<Renderer>().material.color = Color.green;
         selected = true;
+        selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected = true;
     }
 
     public override void OnUnitDeselected()
@@ -115,6 +121,8 @@ public class SampleUnit : TbsFramework.Units.Unit
         base.OnUnitDeselected();
         selectionPanel.SetActive(false);
         selected = false;
+        selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected = false;
+        Debug.Log(this.UnitName + " was deselected");
     }
 
     public override void MarkAsFinished()
@@ -156,20 +164,22 @@ public class SampleUnit : TbsFramework.Units.Unit
     private void OnMouseOver() { // show the details window
         if(this.HitPoints>0){
             selectionPanel.SetActive(true);
-
-            if(this.PlayerNumber!=0){ // change healthbar color based on unit status
-                selectionPanel.transform.GetChild(1).gameObject.SetActive(false);
-                selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = Color.red; 
+            if(selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected == false){
+                //Debug.Log(selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected + " no?");
+                if(this.PlayerNumber!=0){ // change healthbar color based on unit status
+                    selectionPanel.transform.GetChild(1).gameObject.SetActive(false);
+                    selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = Color.red; 
+                }
+                else{
+                    selectionPanel.transform.GetChild(1).gameObject.SetActive(true);
+                    selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = friendlyHealthColor; 
+                }
+                //modify health bar
+                selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints/(float)this.TotalHitPoints,1,1);
+                selectionPanel.transform.GetChild(2).transform.GetChild(0).GetComponent<Text>().text = this.UnitName;
+                selectionPanel.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = this.HitPoints +"/"+ this.TotalHitPoints;
+                selectionPanel.transform.GetChild(2).transform.GetChild(2).GetComponent<Text>().text = "Atk: " + this.AttackFactor + " | " + "Range: " + this.AttackRange;
             }
-            else{
-                selectionPanel.transform.GetChild(1).gameObject.SetActive(true);
-                selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = friendlyHealthColor; 
-            }
-            //modify health bar
-            selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints/(float)this.TotalHitPoints,1,1);
-
-            selectionPanel.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = this.HitPoints +"/"+ this.TotalHitPoints;
-            selectionPanel.transform.GetChild(2).transform.GetChild(2).GetComponent<Text>().text = "Atk: " + this.AttackFactor + " | " + "Range: " + this.AttackRange;
 
         }
     }
@@ -177,7 +187,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     public override void OnMouseExit()
     {
         base.OnMouseExit();
-        if(!selected)
+        if(!selected && selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected == false)
             selectionPanel.SetActive(false);
     }
 
@@ -280,7 +290,30 @@ public class SampleUnit : TbsFramework.Units.Unit
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+        if(selectionPanel.GetComponent<UnitInfoPanelScript>().lastUnit != null){
+            selectionPanel.GetComponent<UnitInfoPanelScript>().lastUnit.OnUnitDeselected();
+        }
+        selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected = true;
+        Debug.Log("selected unit " + this.UnitName);
+    
+        if(this.PlayerNumber!=0){ // change healthbar color based on unit status
+                    selectionPanel.transform.GetChild(1).gameObject.SetActive(false);
+                    selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = Color.red; 
+                }
+                else{
+                    //Debug.Log("call display abilities?");
+                    GetComponent<SelectAbility>().DisplayAbilities();
+                    selectionPanel.transform.GetChild(1).gameObject.SetActive(true);
+                    selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = friendlyHealthColor; 
+                }
+
+                //modify health bar
+                selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints/(float)this.TotalHitPoints,1,1);
+                selectionPanel.transform.GetChild(2).transform.GetChild(0).GetComponent<Text>().text = this.UnitName;
+                selectionPanel.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = this.HitPoints +"/"+ this.TotalHitPoints;
+                selectionPanel.transform.GetChild(2).transform.GetChild(2).GetComponent<Text>().text = "Atk: " + this.AttackFactor + " | " + "Range: " + this.AttackRange;
     }
+
 
     protected override void AttackActionPerformed(float actionCost)
     {

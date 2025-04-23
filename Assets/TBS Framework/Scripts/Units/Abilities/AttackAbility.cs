@@ -38,7 +38,7 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnUnitClicked(Unit unit, CellGrid cellGrid)
         {
-            Debug.Log("unit clicked");
+            //Debug.Log("unit clicked");
             if (UnitReference.IsUnitAttackable(unit, UnitReference.Cell))
             {
                 UnitToAttack = unit;

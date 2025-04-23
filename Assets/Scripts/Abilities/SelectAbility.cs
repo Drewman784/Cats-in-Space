@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TbsFramework.Cells;
 using TbsFramework.Grid;
 using TMPro;
 using UnityEditor;
@@ -13,9 +14,11 @@ namespace TbsFramework.Units.Abilities
     {
         public List<Button> SelectButtons;
         public List<SelectableAbility> SelectAbilities;
+        public UnitInfoPanelScript selectPanel;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
+            selectPanel = GameObject.Find("UnitSelected").GetComponent<UnitInfoPanelScript>();
             GameObject g = GameObject.Find("AbilityButtons");
             SelectButtons.Add(g.transform.GetChild(0).GetComponent<Button>());
             SelectButtons.Add(g.transform.GetChild(1).GetComponent<Button>());
@@ -38,17 +41,26 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnUnitClicked(Unit unit, CellGrid cellGrid)
         {
-            DisplayAbilities();
+            //DisplayAbilities();
 
             base.OnUnitClicked(unit, cellGrid);
         }
 
+        public override void OnCellClicked(Cell cell, CellGrid cellGrid)
+        {
+            //DisplayAbilities();
+            base.OnCellClicked(cell, cellGrid);
+        }
+
         void OnMouseEnter()
         {
-          DisplayAbilities();   
+            if(selectPanel.isSelected == false){
+                DisplayAbilities(); 
+            }  
         }
 
         public void DisplayAbilities(){
+            //Debug.Log(GetComponent<SampleUnit>().UnitName + " displaying?");
 
             SelectAbilities = new List<SelectableAbility>();
 
@@ -108,6 +120,8 @@ namespace TbsFramework.Units.Abilities
                 return false;
             }
         }
+
+        //public override onUnitSelected
 
 
     }

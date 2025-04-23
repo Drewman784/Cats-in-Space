@@ -688,7 +688,7 @@ MonoBehaviour:
   PlayerNumber: 0
   LeadingColor: {r: 0.6509434, g: 0.19344072, b: 0.46849486, a: 1}
   Offset: {x: 0, y: 0, z: -0.1}
-  UnitName: Psionic
+  UnitName: Healer
   isStructure: 0
   anim: {fileID: 0}
   AttackSound: {fileID: 8300000, guid: fed5c5e18bfc6cf4db08ffc0cab99d36, type: 3}
@@ -887,6 +887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectButtons: []
   SelectAbilities: []
+  selectPanel: {fileID: 0}
 --- !u!114 &3775092575351886407
 MonoBehaviour:
   m_ObjectHideFlags: 0

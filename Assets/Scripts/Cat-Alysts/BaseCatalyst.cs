@@ -30,7 +30,7 @@ public class BaseCatalyst : MonoBehaviour
     }
 
     public void CheckActivation(){
-        Debug.Log("got to check activation");
+        //Debug.Log("got to check activation");
         if(ActivationCheck == null){
             ActivationCheck = catMon.GetActivationWindow();
         }
