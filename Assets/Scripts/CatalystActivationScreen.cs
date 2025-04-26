@@ -20,9 +20,13 @@ public class CatalystActivationScreen : MonoBehaviour
     }
 
     public void DisplayDescription(string condition, string name, string effect){
-        string toDisplay = condition + " has triggered " + name +"'s Cat-Alyst ability: " + effect;
-        toDisplay += "\n Activate now?";
-        descText.text = toDisplay;
+        //if(theCatalyst!=null){
+            string toDisplay = condition + " has triggered " + name +"'s Cat-Alyst ability: " + effect;
+            toDisplay += "\n Activate now?";
+            descText.text = toDisplay;
+        /*} else{
+            CancelAbility();
+        }*/
     }
 
     public void CancelAbility(){ //window is set inactive, catalyst set null
@@ -31,7 +35,11 @@ public class CatalystActivationScreen : MonoBehaviour
     }
 
     public void ActivateAbility(){ //catalyst triggered, then window closed
-        theCatalyst.TriggerCatalystEffect();
-        CancelAbility();
+        //if(theCatalyst!= null){
+            theCatalyst.TriggerCatalystEffect();
+            CancelAbility();
+        /*} else{
+            CancelAbility();
+        }*/
     }
 }

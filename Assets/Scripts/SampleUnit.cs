@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Data.Common;
 using TbsFramework.Units.Abilities;
 
+
 public class SampleUnit : TbsFramework.Units.Unit
 {
     //this code is borrowed from the tutorial in the documentation
@@ -122,7 +123,7 @@ public class SampleUnit : TbsFramework.Units.Unit
         selectionPanel.SetActive(false);
         selected = false;
         selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected = false;
-        Debug.Log(this.UnitName + " was deselected");
+        //Debug.Log(this.UnitName + " was deselected");
     }
 
     public override void MarkAsFinished()
@@ -205,7 +206,10 @@ public class SampleUnit : TbsFramework.Units.Unit
         unitToAttack.DefendHandler(this, attackAction.Damage);
         AttackActionPerformed(attackAction.ActionCost); 
         GetComponent<BaseCatalyst>().CheckCatalyst();
-        unitToAttack.GetComponent<BaseCatalyst>().CheckCatalyst();
+
+        if(unitToAttack.HitPoints>0){
+            unitToAttack.GetComponent<BaseCatalyst>().CheckCatalyst();
+        }
     }
 
     public AttackAction NewDealDamage(TbsFramework.Units.Unit unitToAttack, String attackType, int addedDamage){
@@ -226,6 +230,15 @@ public class SampleUnit : TbsFramework.Units.Unit
                 return new AttackAction(TempAttackFactor, 1f);
         }
         //return new AttackAction(AttackFactor, 1f);
+    }
+
+    public void TakeEnvironmentalDamage(int damage){ // this unit is damaged by the environment
+        catMon.RegisterDamage(damage, this.PlayerNumber, this, this);
+        AttackAction attackAction = new AttackAction(damage, 1f);
+        DefendHandler(this, attackAction.Damage);
+        if(HitPoints>0){
+            GetComponent<BaseCatalyst>().CheckCatalyst();
+        }
     }
 
     public override bool IsCellTraversable(Cell cell)
@@ -294,7 +307,7 @@ public class SampleUnit : TbsFramework.Units.Unit
             selectionPanel.GetComponent<UnitInfoPanelScript>().lastUnit.OnUnitDeselected();
         }
         selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected = true;
-        Debug.Log("selected unit " + this.UnitName);
+        //Debug.Log("selected unit " + this.UnitName);
     
         if(this.PlayerNumber!=0){ // change healthbar color based on unit status
                     selectionPanel.transform.GetChild(1).gameObject.SetActive(false);
@@ -326,3 +339,4 @@ public class SampleUnit : TbsFramework.Units.Unit
 
 
 }
+

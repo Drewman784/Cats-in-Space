@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using TbsFramework.Units;
 
 namespace TbsFramework.Cells
 {
@@ -39,6 +40,15 @@ namespace TbsFramework.Cells
         public override void CopyFields(Cell newCell)
         {
             newCell.OffsetCoord = OffsetCoord;
+        }
+
+        //CAL EDIT
+        public virtual void CheckAsPathway(Unit unit){ //activates when unit walks over tile
+            Debug.Log("path?");
+        }
+
+        public virtual void CheckAsTargetPosition(Unit unit){ // activates when unit stands on tile
+            Debug.Log("target?");
         }
     }
 }

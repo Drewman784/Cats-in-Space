@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using TbsFramework.Cells;
 using TbsFramework.Grid;
 using TbsFramework.Grid.GridStates;
 using UnityEngine;
+using TbsFramework.Units;
+
 
 namespace TbsFramework.Units.Abilities
 {
@@ -20,6 +23,15 @@ namespace TbsFramework.Units.Abilities
             {
                 var path = UnitReference.FindPath(cellGrid.Cells, Destination);
                 yield return UnitReference.Move(Destination, path);
+
+                Debug.Log("here?");
+                foreach(var cell in path){//CAL EDIT
+                    Square c = (Square)cell;
+                    Debug.Log("list going: " + c);
+                    c.CheckAsPathway(this.GetComponent<Unit>());
+                }
+                Square d = (Square) Destination;
+                d.CheckAsTargetPosition(GetComponent<Unit>());
             }
             yield return base.Act(cellGrid, isNetworkInvoked);
         }

@@ -2,6 +2,8 @@ using TbsFramework.Cells;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+namespace TbsFramework.Cells
+{
 public class Tile_Script : Square
     {
     // How big is the tile (16x16 w/Pixel per unit set to 16)
@@ -36,4 +38,5 @@ public class Tile_Script : Square
         }
         
     }
+}
 

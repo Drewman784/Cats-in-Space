@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &908252365570990281
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2696706842619404702, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696706842619404702, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696706842619404702, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696706842619404702, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696706842619404702, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696706842619404702, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696706842619404702, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696706842619404702, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696706842619404702, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696706842619404702, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700251412822703316, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_Name
+      value: EnvHazardCenter_Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961301418163774186, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961301418163774186, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961301418163774186, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1688430849232547484, guid: 43cb0350c15e7d04784722d1eddca1bb, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5700251412822703316, guid: 43cb0350c15e7d04784722d1eddca1bb,
+        type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 5972121632848154324}
+  m_SourcePrefab: {fileID: 100100000, guid: 43cb0350c15e7d04784722d1eddca1bb, type: 3}
+--- !u!1 &4864343635307748381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5700251412822703316, guid: 43cb0350c15e7d04784722d1eddca1bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 908252365570990281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5972121632848154324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864343635307748381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc03e3d1d09bd4a1dba8fcad69738b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offsetCoord: {x: 0, y: 0}
+  MarkAsReachableFn: []
+  MarkAsPathFn: []
+  MarkAsHighlightedFn:
+  - {fileID: 6509448776079325011}
+  UnMarkFn: []
+  IsTaken: 0
+  MovementCost: 1
+  TileType: Oxygen Tear
+  DefenseBoost: 0
+  damageWhenStanding: 2
+  damageWhenWalking: 0
+--- !u!114 &6509448776079325011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6254646226487826330, guid: 43cb0350c15e7d04784722d1eddca1bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 908252365570990281}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864343635307748381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da0e217703e4844ba3563c170281194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
