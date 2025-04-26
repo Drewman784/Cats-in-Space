@@ -579,6 +579,7 @@ GameObject:
   - component: {fileID: 3775092575351886407}
   - component: {fileID: 6438081647594378570}
   - component: {fileID: -7624686940851726246}
+  - component: {fileID: -4512492538822372808}
   m_Layer: 0
   m_Name: Unit3_Resized
   m_TagString: Untagged
@@ -934,6 +935,19 @@ MonoBehaviour:
   threshold: 6
   radius: 3
   amountHealed: 5
+--- !u!114 &-4512492538822372808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692192244507501568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eee159d50db76c4f9658078622317da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HighlightColor: {r: 0.30678692, g: 0.8396226, b: 0.23366857, a: 1}
 --- !u!1 &5987470499848512839
 GameObject:
   m_ObjectHideFlags: 0

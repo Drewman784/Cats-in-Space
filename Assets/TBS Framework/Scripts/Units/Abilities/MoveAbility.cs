@@ -48,22 +48,32 @@ namespace TbsFramework.Units.Abilities
         {
             if (availableDestinations.Contains(cell))
             {
-            if (lastClickedCell == cell)
-            {
-                Destination = cell;
-                currentPath = null;
-                lastClickedCell = null; // Reset after double-click
-                StartCoroutine(HumanExecute(cellGrid));
+                if (lastClickedCell == cell)
+                {
+                    Destination = cell;
+                    currentPath = null;
+                    lastClickedCell = null; // Reset after double-click
+                    StartCoroutine(HumanExecute(cellGrid));
+                }
+                else
+                {
+                    if (lastClickedCell != null)
+                    {
+                        lastClickedCell.UnMark(); // Unmark the previously clicked cell
+                    }
+
+                    lastClickedCell = cell;
+                    lastClickedCell.MarkAsHighlighted(); // Highlight the newly clicked cell
+                }
             }
             else
             {
-                lastClickedCell = cell;
-            }
-            }
-            else
-            {
-            lastClickedCell = null; // Reset if clicked on an invalid cell
-            cellGrid.cellGridState = new CellGridStateWaitingForInput(cellGrid);
+                if (lastClickedCell != null)
+                {
+                    lastClickedCell.UnMark(); // Unmark the previously clicked cell if an invalid cell is clicked
+                }
+
+                lastClickedCell = null; // Reset if clicked on an invalid cell
             }
         }
         public override void OnCellSelected(Cell cell, CellGrid cellGrid)

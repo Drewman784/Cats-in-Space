@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: -1510275990929157220}
   - component: {fileID: -8939122416340305080}
   - component: {fileID: 511492243865166378}
+  - component: {fileID: -3121218774021410089}
   m_Layer: 0
   m_Name: Unit2_Resized 1
   m_TagString: Untagged
@@ -709,6 +710,19 @@ MonoBehaviour:
   condition: All allies targeting the same unit
   effect: this unit recieves attack buff of 3 for 2 turns.
   buffToApply: {fileID: 11400000, guid: 5e745f42a4988418ebec745fb4a40b63, type: 2}
+--- !u!114 &-3121218774021410089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3025837557082116462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eee159d50db76c4f9658078622317da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HighlightColor: {r: 0.30678692, g: 0.8396226, b: 0.23366857, a: 1}
 --- !u!1 &4434797489263684878
 GameObject:
   m_ObjectHideFlags: 0
