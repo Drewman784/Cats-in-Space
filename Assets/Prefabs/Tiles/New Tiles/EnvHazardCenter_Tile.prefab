@@ -116,8 +116,8 @@ MonoBehaviour:
   MovementCost: 1
   TileType: Oxygen Tear
   DefenseBoost: 0
-  damageWhenStanding: 2
-  damageWhenWalking: 0
+  damageWhenStanding: 5
+  damageWhenWalking: 2
 --- !u!114 &6509448776079325011 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6254646226487826330, guid: 43cb0350c15e7d04784722d1eddca1bb,

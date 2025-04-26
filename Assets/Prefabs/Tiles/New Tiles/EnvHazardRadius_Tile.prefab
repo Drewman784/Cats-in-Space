@@ -63,6 +63,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnvHazardRadius_Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 5972121632848154324, guid: 39bec56f212484f5384ab5430e9a0f7d,
+        type: 3}
+      propertyPath: TileType
+      value: Oxygen Leak
+      objectReference: {fileID: 0}
+    - target: {fileID: 5972121632848154324, guid: 39bec56f212484f5384ab5430e9a0f7d,
+        type: 3}
+      propertyPath: damageWhenWalking
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8126238239517262371, guid: 39bec56f212484f5384ab5430e9a0f7d,
         type: 3}
       propertyPath: m_Color.b
