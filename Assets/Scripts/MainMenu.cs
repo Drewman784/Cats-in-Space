@@ -17,8 +17,8 @@ namespace TbsFramework.Gui
         public Button OptionsButton;
         public Button CreditButton;
 
-        public Button TempLevelTwo;
-        public Button TempLevelThree;
+        //public Button TempLevelTwo;
+        //public Button TempLevelThree;
 
         public void Skirmish()
         {
@@ -28,14 +28,14 @@ namespace TbsFramework.Gui
         {
             SceneManager.LoadScene("Level_One");
         }
-        public void Temp_LevelTwo()
-        {
-            SceneManager.LoadScene("Level_Two");
-        }
-        public void Temp_LevelThree()
-        {
-            SceneManager.LoadScene("Level_Three");
-        }
+        //public void Temp_LevelTwo()
+        //{
+        //    SceneManager.LoadScene("Level_Two");
+        //}
+        //public void Temp_LevelThree()
+        //{
+        //    SceneManager.LoadScene("Level_Three");
+        //}
         public void ExitGame()
         {
             Application.Quit();

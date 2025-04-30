@@ -254,7 +254,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 9227094}
         m_TargetAssemblyTypeName: CatalystActivationScreen, Assembly-CSharp
         m_MethodName: CancelAbility
         m_Mode: 1
@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 9227094}
         m_TargetAssemblyTypeName: CatalystActivationScreen, Assembly-CSharp
         m_MethodName: ActivateAbility
         m_Mode: 1
@@ -10232,13 +10232,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1952124115}
-  - {fileID: 1283038899}
-  - {fileID: 45949021}
   - {fileID: 1529195327}
   - {fileID: 1645118578}
   - {fileID: 1596251621}
-  - {fileID: 1783850601}
   - {fileID: 18070279}
+  - {fileID: 45949021}
+  - {fileID: 1283038899}
+  - {fileID: 1783850601}
   - {fileID: 9227093}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11273,7 +11273,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783850600}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
