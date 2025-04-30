@@ -1,6 +1,6 @@
 using TbsFramework.Grid;
 using TbsFramework.Units;
-using UnityEditor.PackageManager.UI;
+//using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 public class UnitInfoPanelScript : MonoBehaviour
