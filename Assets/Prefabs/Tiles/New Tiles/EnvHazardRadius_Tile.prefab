@@ -73,6 +73,11 @@ PrefabInstance:
       propertyPath: damageWhenWalking
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5972121632848154324, guid: 39bec56f212484f5384ab5430e9a0f7d,
+        type: 3}
+      propertyPath: damageWhenStanding
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8126238239517262371, guid: 39bec56f212484f5384ab5430e9a0f7d,
         type: 3}
       propertyPath: m_Color.b

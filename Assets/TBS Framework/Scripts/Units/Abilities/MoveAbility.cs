@@ -7,6 +7,7 @@ using TbsFramework.Grid;
 using TbsFramework.Grid.GridStates;
 using UnityEngine;
 using TbsFramework.Units;
+using System.IO;
 
 
 namespace TbsFramework.Units.Abilities
@@ -24,10 +25,10 @@ namespace TbsFramework.Units.Abilities
                 var path = UnitReference.FindPath(cellGrid.Cells, Destination);
                 yield return UnitReference.Move(Destination, path);
 
-                Debug.Log("here?");
+                //Debug.Log("here?");
                 foreach(var cell in path){//CAL EDIT
                     Square c = (Square)cell;
-                    Debug.Log("list going: " + c);
+                    //Debug.Log("list going: " + c);
                     c.CheckAsPathway(this.GetComponent<Unit>());
                 }
                 Square d = (Square) Destination;
@@ -43,6 +44,14 @@ namespace TbsFramework.Units.Abilities
                 {
                     cell.MarkAsReachable();
                 }
+                if(lastClickedCell!=null){
+                    IList<Cell> tempPath = UnitReference.FindPath(cellGrid.Cells, lastClickedCell);
+                    foreach (var c in tempPath)
+                    {
+                        c.MarkAsPath();
+                    }
+                }
+                //foreach (var cell in currentPath)
             }
         }
 
@@ -58,16 +67,17 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnCellClicked(Cell cell, CellGrid cellGrid)
         {
+            //Debug.Log("clicked: " + cell);
             if (availableDestinations.Contains(cell))
             {
-                if (lastClickedCell == cell)
+                if (lastClickedCell == cell) //confirm destination
                 {
                     Destination = cell;
                     currentPath = null;
                     lastClickedCell = null; // Reset after double-click
                     StartCoroutine(HumanExecute(cellGrid));
                 }
-                else
+                else //change destination
                 {
                     if (lastClickedCell != null)
                     {
@@ -76,9 +86,16 @@ namespace TbsFramework.Units.Abilities
 
                     lastClickedCell = cell;
                     lastClickedCell.MarkAsHighlighted(); // Highlight the newly clicked cell
+
+                    //Keep unit from deselecting
+                    GetComponent<Unit>().OnMouseDown();
+                    GetComponent<Unit>().MarkAsSelected();
+                    GetComponent<Unit>().OnUnitSelected();
+                    OnAbilitySelected(cellGrid);
+                    Display(cellGrid);
                 }
             }
-            else
+            else //not available destination
             {
                 if (lastClickedCell != null)
                 {
@@ -90,6 +107,7 @@ namespace TbsFramework.Units.Abilities
         }
         public override void OnCellSelected(Cell cell, CellGrid cellGrid)
         {
+            //Debug.Log("cell selected: "+ cell);
             if (UnitReference.ActionPoints > 0 && availableDestinations.Contains(cell))
             {
                 currentPath = UnitReference.FindPath(cellGrid.Cells, cell);
@@ -101,6 +119,7 @@ namespace TbsFramework.Units.Abilities
         }
         public override void OnCellDeselected(Cell cell, CellGrid cellGrid)
         {
+            //Debug.Log("cell deselected: "+ cell);
             if (UnitReference.ActionPoints > 0 && availableDestinations.Contains(cell))
             {
                 if(currentPath == null)
@@ -122,6 +141,7 @@ namespace TbsFramework.Units.Abilities
 
         public override void CleanUp(CellGrid cellGrid)
         {
+           // Debug.Log("cleanup");
             foreach (var cell in availableDestinations)
             {
                 cell.UnMark();

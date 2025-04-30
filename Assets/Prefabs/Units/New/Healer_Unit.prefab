@@ -89,7 +89,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Healer_Unit
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4512492538822372808, guid: ffe2414ac6277c046885b01a04f66452, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

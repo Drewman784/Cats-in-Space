@@ -114,6 +114,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     {
         GetComponentInChildren<Renderer>().material.color = Color.green;
         selected = true;
+        selectionPanel.SetActive(true);
         selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected = true;
     }
 
