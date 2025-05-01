@@ -17,7 +17,8 @@ namespace TbsFramework.Grid.GameResolvers
             if (playerUnits.Count == 0)
             {
                 // Player has lost all units, restart the current level
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                cellGrid.LoseScren();
                 return new GameResult(true, null, null);
             }
             else if (enemyUnits.Count == 0)
@@ -25,7 +26,8 @@ namespace TbsFramework.Grid.GameResolvers
                 // All enemy units are gone, load the next scene
                 if (!string.IsNullOrEmpty(NextScene))
                 {
-                    SceneManager.LoadScene(NextScene);
+                    //SceneManager.LoadScene(NextScene);
+                    cellGrid.WinScreen(NextScene);
                 }
                 else
                 {

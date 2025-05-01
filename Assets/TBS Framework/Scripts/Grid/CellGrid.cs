@@ -12,6 +12,8 @@ using TbsFramework.Units.Abilities;
 using UnityEngine;
 using UnityEngine.UI;
 using TbsFramework.Grid;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 namespace TbsFramework.Grid
 {
@@ -107,6 +109,8 @@ namespace TbsFramework.Grid
             //CAL EDIT
             enemyTurnAlert = GameObject.Find("EnemyTurnAlert");
             enemyTurnAlert.SetActive(false);
+            EndScreen.transform.GetChild(0).gameObject.SetActive(false);
+            EndScreen.transform.GetChild(1).gameObject.SetActive(false);
         }
 
         public void InitializeAndStart()
@@ -403,6 +407,26 @@ namespace TbsFramework.Grid
             if(allFinished){
                 GameObject.Find("EndTurnButton").GetComponent<Image>().color = new Color32(252, 237, 139,255);
             }
+        }
+
+        private string nextScene;
+        [SerializeField] GameObject EndScreen;
+        [SerializeField] GameObject UIHolder;
+        public void WinScreen(string scene){
+            nextScene = scene;
+            EndScreen.transform.GetChild(0).gameObject.SetActive(true);
+            UIHolder.SetActive(false);
+        }
+
+        public void LoseScren(){
+            EndScreen.transform.GetChild(1).gameObject.SetActive(true);
+            UIHolder.SetActive(false);
+        }
+
+        public void ToScene()
+        {
+            if(nextScene != null)
+            SceneManager.LoadScene(nextScene);   
         }
     }
 }
