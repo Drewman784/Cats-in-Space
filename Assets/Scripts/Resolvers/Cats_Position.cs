@@ -35,21 +35,28 @@ namespace TbsFramework.Grid.GameResolvers
 
                 // Change the scene to the one listed in the inspector
                 //SceneManager.LoadScene(NextScene);
-                
+
                 if (cellGrid.Units.All(u => u.PlayerNumber == AppliesToPlayerNo && u.HitPoints <= 0))
                 {
                     // Reload the current scene if the player loses all their units
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+                    cellGrid.LoseScren();
+                    return new GameResult(true, null, null);
                 }
                 else
                 {
                     // Advance to the next scene if the player reaches the DestinationCell
-                    SceneManager.LoadScene(NextScene);
+                    //SceneManager.LoadScene(NextScene);
+
+                    if (!string.IsNullOrEmpty(NextScene))
+                    {
+                        //SceneManager.LoadScene(NextScene);
+                        cellGrid.WinScreen(NextScene);
+                    }
+                    return new GameResult(true, null, null);
                 }
-
-                return new GameResult(true, winningPlayers, loosingPlayers);
             }
-
             return new GameResult(false, null, null);
         }
     }
