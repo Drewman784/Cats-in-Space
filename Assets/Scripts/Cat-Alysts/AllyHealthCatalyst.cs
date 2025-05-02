@@ -23,7 +23,7 @@ public class AllyHealthCatalyst : BaseCatalyst
 
     public override void CheckCatalyst()
     {
-        if(!hasBeenUsed){
+        if(!hasBeenUsed && GetComponent<SampleUnit>().HitPoints>0){
             //Debug.Log("evaluation?" + catMon);
             base.CheckCatalyst();
             if(this.catMon.AllUnitsSideHealthBelow(GetComponent<SampleUnit>().PlayerNumber, threshold)){

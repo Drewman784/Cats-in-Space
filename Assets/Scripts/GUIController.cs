@@ -73,7 +73,7 @@ namespace TbsFramework.Gui
 
         private void OnGameEnded(object sender, GameEndedArgs e)
         {
-            Debug.Log(string.Format("Player{0} wins!", e.gameResult.WinningPlayers[0]));
+            //Debug.Log(string.Format("Player{0} wins!", e.gameResult.WinningPlayers[0]));
             /*if (EndTurnButton != null)
             {
                 EndTurnButton.interactable = false;

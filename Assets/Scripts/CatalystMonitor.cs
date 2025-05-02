@@ -71,25 +71,35 @@ public class CatalystMonitor : MonoBehaviour
         attacker.lastTarget = defender;
         defender.totalDamageTaken += dmg;
 
-        //Debug.Log(defender +" : "+defender.totalDamageTaken + "<-totaldmg");
+        Debug.Log(defender +" : "+defender.totalDamageTaken + "<-totaldmg");
 
        //Debug.Log("damage registered: " + dmg);
     }
 
     public bool AllAttackingSameUnit(int whichPlayer){ //check if all units of a side are attacking the same target
         bool samePlayerTargeted = true;
-        SampleUnit thebase = null;
+        List<SampleUnit> theTargets = new List<SampleUnit>();
         foreach(SampleUnit sU in GetComponent<CellGrid>().Units){
             if(sU.PlayerNumber == whichPlayer){
-                if(thebase == null){
+                theTargets.Add(sU.lastTarget);
+                /*if(thebase == null){ //for first loop, set thebase as the last target of current unit
                     thebase = sU.lastTarget;
                 } else{
-                    if(thebase != sU.lastTarget){
+                    if(thebase != sU.lastTarget){ //comparisons after first loop
                         samePlayerTargeted = false;
                     }
-                }
+                }*/
             }
         }
+
+        SampleUnit thebase = theTargets[0];
+        foreach(SampleUnit t in theTargets){
+            Debug.Log(t);
+            if(t!= thebase || t==null){ //false if null or mismatched
+                samePlayerTargeted = false;
+            } 
+        }
+        Debug.Log(samePlayerTargeted);
         return samePlayerTargeted;
     }
 

@@ -35,6 +35,9 @@ namespace TbsFramework.Units.Abilities
                 d.CheckAsTargetPosition(GetComponent<Unit>());
             }
             yield return base.Act(cellGrid, isNetworkInvoked);
+            GetComponent<Unit>().MarkAsFriendly();
+            GetComponent<Unit>().OnUnitDeselected();
+            CleanUp(cellGrid);
         }
         public override void Display(CellGrid cellGrid)
         {
