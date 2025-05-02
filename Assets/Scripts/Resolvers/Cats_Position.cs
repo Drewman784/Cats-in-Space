@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using TbsFramework.Cells;
+using TbsFramework.Units;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,7 @@ using UnityEngine.SceneManagement;
 namespace TbsFramework.Grid.GameResolvers
 {
 
-    public class PositionCondition : GameEndCondition
+    public class Cats_Position : GameEndCondition
     {
 
         //public SceneAsset NextLevel;
@@ -46,6 +47,7 @@ namespace TbsFramework.Grid.GameResolvers
                 }
                 else
                 {
+                    
                     // Advance to the next scene if the player reaches the DestinationCell
                     //SceneManager.LoadScene(NextScene);
 
@@ -55,7 +57,16 @@ namespace TbsFramework.Grid.GameResolvers
                         cellGrid.WinScreen(NextScene);
                     }
                     return new GameResult(true, null, null);
+
+                    
                 }
+            } else{
+                List<Unit> pUnits = cellGrid.GetPlayerUnits(cellGrid.Players[0]);
+                    Debug.Log("player units: " + pUnits.Count);
+                    if(pUnits.Count==0){
+                         cellGrid.LoseScren();
+                        return new GameResult(true, null, null);
+                    }
             }
             return new GameResult(false, null, null);
         }
