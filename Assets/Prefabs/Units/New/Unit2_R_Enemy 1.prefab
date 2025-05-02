@@ -102,8 +102,14 @@ PrefabInstance:
     - target: {fileID: 3218343780508404139, guid: ff2ec95256a94474b9f3a41fd333932c,
         type: 3}
       propertyPath: UnitName
-      value: Psionic
+      value: Infantry
       objectReference: {fileID: 0}
+    - target: {fileID: 3218343780508404139, guid: ff2ec95256a94474b9f3a41fd333932c,
+        type: 3}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: e1aff01aeb88d440089fe7eb7e175be7,
+        type: 3}
     - target: {fileID: 3218343780508404139, guid: ff2ec95256a94474b9f3a41fd333932c,
         type: 3}
       propertyPath: AttackSound

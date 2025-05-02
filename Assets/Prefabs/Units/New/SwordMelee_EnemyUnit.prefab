@@ -64,6 +64,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1840984840, guid: fdd4bac301f6b4546a3f26550274bdb7,
         type: 3}
+    - target: {fileID: 4598447735153806888, guid: 49b40d94deb3d44fdb898d095ab6f7b3,
+        type: 3}
+      propertyPath: UnitName
+      value: Melee
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598447735153806888, guid: 49b40d94deb3d44fdb898d095ab6f7b3,
+        type: 3}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 279b70371a9da409c9feb6bfa37c4dad,
+        type: 3}
     - target: {fileID: 4607406013056220734, guid: 49b40d94deb3d44fdb898d095ab6f7b3,
         type: 3}
       propertyPath: m_Controller

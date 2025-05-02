@@ -44,6 +44,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     public int totalDamageTaken;
 
     private CatalystMonitor catMon;
+    [SerializeField] Sprite portrait;
 
     protected override int Defend(TbsFramework.Units.Unit other, int damage)
     {
@@ -177,6 +178,7 @@ public class SampleUnit : TbsFramework.Units.Unit
                     selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = friendlyHealthColor; 
                 }
                 //modify health bar
+                selectionPanel.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = portrait;
                 selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints/(float)this.TotalHitPoints,1,1);
                 selectionPanel.transform.GetChild(2).transform.GetChild(0).GetComponent<Text>().text = this.UnitName;
                 selectionPanel.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = this.HitPoints +"/"+ this.TotalHitPoints;
@@ -326,6 +328,7 @@ public class SampleUnit : TbsFramework.Units.Unit
                 selectionPanel.transform.GetChild(2).transform.GetChild(0).GetComponent<Text>().text = this.UnitName;
                 selectionPanel.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = this.HitPoints +"/"+ this.TotalHitPoints;
                 selectionPanel.transform.GetChild(2).transform.GetChild(2).GetComponent<Text>().text = "Atk: " + this.AttackFactor + " | " + "Range: " + this.AttackRange;
+                selectionPanel.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = portrait;
     }
 
 
