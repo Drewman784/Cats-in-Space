@@ -21,7 +21,7 @@ public class AllyHealthCatalyst : BaseCatalyst
         
     }
 
-    public override void CheckCatalyst()
+    public override bool CheckCatalyst()
     {
         if(!hasBeenUsed && GetComponent<SampleUnit>().HitPoints>0){
             //Debug.Log("evaluation?" + catMon);
@@ -34,8 +34,10 @@ public class AllyHealthCatalyst : BaseCatalyst
                     //Debug.Log("nah");
                     TriggerCatalystEffect();
                 }
+                return true;
             }
         }
+        return false;
     }
 
     public override void TriggerCatalystEffect()

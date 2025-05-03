@@ -14,6 +14,7 @@ using UnityEngine.UI;
 using TbsFramework.Grid;
 //using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
+using System.Linq.Expressions;
 
 namespace TbsFramework.Grid
 {
@@ -111,6 +112,8 @@ namespace TbsFramework.Grid
             enemyTurnAlert.SetActive(false);
             EndScreen.transform.GetChild(0).gameObject.SetActive(false);
             EndScreen.transform.GetChild(1).gameObject.SetActive(false);
+
+            checkingCatalysts = false;
         }
 
         public void InitializeAndStart()
@@ -323,7 +326,8 @@ namespace TbsFramework.Grid
 
             //CAL EDIT - TURN CLARITY UI
             if(CurrentPlayerNumber == 0){
-                enemyTurnAlert.SetActive(false);
+                enemyTurnAlert.SetActive(false); //check catalysts at end of enemy turn
+                CheckCatalysts();
             } else{
                 enemyTurnAlert.SetActive(true);
                 //GetComponent<CatalystMonitor>().RegisterTurnCount();
@@ -427,6 +431,43 @@ namespace TbsFramework.Grid
         {
             if(nextScene != null)
             SceneManager.LoadScene(nextScene);   
+        }
+
+        private List<Unit> PlayerUnits;
+        private int catIndex;
+        private bool checkingCatalysts;
+        public void CheckCatalysts(){ //cycle through player unit's catalysts and check each
+            //Debug.Log("checking catalysts");
+            PlayerUnits = new List<Unit>();
+            catIndex = 0;
+            checkingCatalysts = true;
+            foreach(Unit u in Units){ //get all the player units (updates b/c dead ones)
+                if(u.PlayerNumber == 0){
+                    PlayerUnits.Add(u);
+                }
+            }
+            if(PlayerUnits.Count >0){ //check that there are player units
+                bool activated = false;
+                int index = 0;
+                while(!activated && index < PlayerUnits.Count){ //go through until you find one that activates or run out
+                    activated = CheckSingleCatalyst();
+                    index++;
+                }
+            }
+        }
+
+        public bool CheckSingleCatalyst(){//also called by catalyst screen
+            //Debug.Log("checking catalyst: " + catIndex);
+            if(checkingCatalysts){ //<- boolean to keep from repeating endlessly/did we finish already
+                if(PlayerUnits.Count >catIndex){
+                    catIndex+=1;
+                    //Debug.Log("index is now: " + catIndex);
+                    return PlayerUnits[catIndex- 1].CatalystRelay();
+                } else{
+                    checkingCatalysts = false;
+                }
+            }
+            return false;
         }
     }
 }

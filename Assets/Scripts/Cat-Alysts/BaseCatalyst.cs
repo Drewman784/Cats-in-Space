@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,10 +20,11 @@ public class BaseCatalyst : MonoBehaviour
         
     }
 
-    public virtual void CheckCatalyst(){ //here, the script should check the conditions of the catalyst trigger
+    public virtual bool CheckCatalyst(){ //here, the script should check the conditions of the catalyst trigger
         if(catMon == null){
             catMon = GameObject.Find("CellGrid").GetComponent<CatalystMonitor>();
         }
+        return false;
     }
 
     public virtual void TriggerCatalystEffect(){ //here, the script calls the effect of the catalyst

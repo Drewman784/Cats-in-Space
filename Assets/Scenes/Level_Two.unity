@@ -345,6 +345,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 605999304}
+        m_TargetAssemblyTypeName: TbsFramework.Grid.CellGrid, com.crookedhead.tbsf
+        m_MethodName: CheckCatalysts
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8170990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1243,6 +1255,18 @@ MonoBehaviour:
       - m_Target: {fileID: 9227094}
         m_TargetAssemblyTypeName: CatalystActivationScreen, Assembly-CSharp
         m_MethodName: ActivateAbility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 605999304}
+        m_TargetAssemblyTypeName: TbsFramework.Grid.CellGrid, com.crookedhead.tbsf
+        m_MethodName: CheckCatalysts
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12080,6 +12104,11 @@ PrefabInstance:
       propertyPath: cell
       value: 
       objectReference: {fileID: 1188425131}
+    - target: {fileID: 2458608537997653698, guid: bdd260abfe2ba4e3a97bc4e1e063dc4f,
+        type: 3}
+      propertyPath: threshold
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2857490220480344667, guid: bdd260abfe2ba4e3a97bc4e1e063dc4f,
         type: 3}
       propertyPath: m_LocalPosition.x

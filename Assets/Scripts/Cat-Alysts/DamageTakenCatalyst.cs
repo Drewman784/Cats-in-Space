@@ -19,7 +19,7 @@ public class DamageTakenCatalyst : BaseCatalyst
         
     }
 
-    public override void CheckCatalyst()
+    public override bool CheckCatalyst()
     {
         if(!hasBeenUsed){
             //Debug.Log("evaluation?" + catMon);
@@ -33,8 +33,10 @@ public class DamageTakenCatalyst : BaseCatalyst
                     //Debug.Log("nah");
                     TriggerCatalystEffect();
                 }
+                return true;
             }
         }
+        return false;
         //base.CheckCatalyst();
     }
 

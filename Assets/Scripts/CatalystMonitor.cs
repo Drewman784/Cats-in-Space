@@ -94,12 +94,12 @@ public class CatalystMonitor : MonoBehaviour
 
         SampleUnit thebase = theTargets[0];
         foreach(SampleUnit t in theTargets){
-            Debug.Log(t);
+            //Debug.Log(t);
             if(t!= thebase || t==null){ //false if null or mismatched
                 samePlayerTargeted = false;
             } 
         }
-        Debug.Log(samePlayerTargeted);
+        //Debug.Log(samePlayerTargeted);
         return samePlayerTargeted;
     }
 

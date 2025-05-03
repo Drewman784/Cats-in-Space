@@ -18,7 +18,7 @@ public class AllTargetingCatalyst : BaseCatalyst
         
     }
 
-    public override void CheckCatalyst()
+    public override bool CheckCatalyst()
     {
         if(!hasBeenUsed){
             //Debug.Log("evaluation?" + catMon);
@@ -32,8 +32,10 @@ public class AllTargetingCatalyst : BaseCatalyst
                     //Debug.Log("nah");
                     TriggerCatalystEffect();
                 }
+                return true;
             }
         }
+        return false;
         //base.CheckCatalyst();
     }
 

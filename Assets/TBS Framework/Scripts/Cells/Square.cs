@@ -44,11 +44,11 @@ namespace TbsFramework.Cells
 
         //CAL EDIT
         public virtual void CheckAsPathway(Unit unit){ //activates when unit walks over tile
-            Debug.Log("path?");
+            //Debug.Log("path?");
         }
 
         public virtual void CheckAsTargetPosition(Unit unit){ // activates when unit stands on tile
-            Debug.Log("target?");
+            //Debug.Log("target?");
         }
     }
 }

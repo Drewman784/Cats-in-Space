@@ -29,6 +29,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     private GameObject actionMarker;
     private GameObject selectionPanel;
     private bool selected;
+    private CellGrid cellGrid;
 
     private GameObject hitDisplay;
     private bool hitDisplayed;
@@ -88,6 +89,8 @@ public class SampleUnit : TbsFramework.Units.Unit
             actionMarker.SetActive(false);
         }
 
+        cellGrid = GameObject.Find("CellGrid").GetComponent<CellGrid>();
+
         catMon = GameObject.Find("CellGrid").GetComponent<CatalystMonitor>();
     }
 
@@ -132,9 +135,13 @@ public class SampleUnit : TbsFramework.Units.Unit
     {
         GetComponentInChildren<Renderer>().material.color = Color.gray;
         actionMarker.SetActive(false);
-        GetComponent<BaseCatalyst>().CheckCatalyst();
+        //GetComponent<BaseCatalyst>().CheckCatalyst();
         //anim.SetBool("Walking", false);
         GameObject.Find("CellGrid").GetComponent<CellGrid>().CheckUnitsFinished();
+
+        if(this.PlayerNumber == 0){ //check the catalysts
+            cellGrid.CheckCatalysts();
+        }
     }
 
     public override void UnMark()
@@ -210,9 +217,9 @@ public class SampleUnit : TbsFramework.Units.Unit
         AttackActionPerformed(attackAction.ActionCost); 
         GetComponent<BaseCatalyst>().CheckCatalyst();
 
-        if(unitToAttack.HitPoints>0){
+        /*if(unitToAttack.HitPoints>0){
             unitToAttack.GetComponent<BaseCatalyst>().CheckCatalyst();
-        }
+        }*/
     }
 
     public AttackAction NewDealDamage(TbsFramework.Units.Unit unitToAttack, String attackType, int addedDamage){
@@ -239,7 +246,8 @@ public class SampleUnit : TbsFramework.Units.Unit
         catMon.RegisterDamage(damage, this.PlayerNumber, this, this);
         AttackAction attackAction = new AttackAction(damage, 1f);
         DefendHandler(this, attackAction.Damage);
-        if(HitPoints>0){
+
+        if(HitPoints>0){ //if still alive, check the catalyst
             GetComponent<BaseCatalyst>().CheckCatalyst();
         }
     }
@@ -339,6 +347,11 @@ public class SampleUnit : TbsFramework.Units.Unit
         {
             audioSource.PlayOneShot(AttackSound);
         }
+    }
+
+    public override bool CatalystRelay() //called by cellgrid -> unit -> sample unit -> catalyst script
+    {
+        return GetComponent<BaseCatalyst>().CheckCatalyst();
     }
 
 

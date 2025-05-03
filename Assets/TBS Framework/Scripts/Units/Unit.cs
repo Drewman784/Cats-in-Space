@@ -670,6 +670,10 @@ namespace TbsFramework.Units
             brain.AddComponent<DamageCellEvaluator>();
             brain.AddComponent<DamageUnitEvaluator>();
         }
+
+        public virtual bool CatalystRelay(){ //CAL EDIT
+            return false; //empty, for overriding purposes
+        }
     }
 
     public class AttackAction
