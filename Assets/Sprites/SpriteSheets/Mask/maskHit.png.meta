@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 22a10b0a1f109244fbaad284df01f240
+guid: 9ed96c35dcdadcb4f8d4b6c71295705d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_0
+      name: maskHit_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,14 +125,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec1acac26cf6f40428e0a48b2a37b36a
-      internalID: -446470552
+      spriteID: a7a36f96ebd66c442b6671934d58f7e4
+      internalID: -1377772798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_1
+      name: maskHit_1
       rect:
         serializedVersion: 2
         x: 24
@@ -147,14 +147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f76918bff6166648818ee96012b1cc2
-      internalID: -883088198
+      spriteID: 6e254fa6666ec7f49a5b723194dceb9b
+      internalID: 1252678212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_2
+      name: maskHit_2
       rect:
         serializedVersion: 2
         x: 48
@@ -169,14 +169,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02ebebfe8f5684f4b9d1120ab81ffa99
-      internalID: -644099444
+      spriteID: 6edc33e7759a69f45b9c16ef8b4ac4a9
+      internalID: -1476913432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_3
+      name: maskHit_3
       rect:
         serializedVersion: 2
         x: 72
@@ -191,74 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8891f8e3f34609f4387b1b0d58e32cf2
-      internalID: -1071882163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_4
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec44d3ac1e286bd48b98da433c397398
-      internalID: -1785927116
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_5
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c458cfe341c1abf46bce5e4259088c67
-      internalID: 695343507
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_6
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29635d2f1230b434c9ef817923485e17
-      internalID: -1515959291
+      spriteID: fdb09d9a7a3699a48a026e0be3ba1815
+      internalID: -1928706846
       vertices: []
       indices: 
       edges: []
@@ -267,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9d501e65579a7ca43b0af346f544b410
+    spriteID: 8e9d9e69736bcc342bf9f704a3124863
     internalID: 0
     vertices: []
     indices: 
@@ -277,13 +211,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      catAnimationTestingEliminatedBow_0: -446470552
-      catAnimationTestingEliminatedBow_1: -883088198
-      catAnimationTestingEliminatedBow_2: -644099444
-      catAnimationTestingEliminatedBow_3: -1071882163
-      catAnimationTestingEliminatedBow_4: -1785927116
-      catAnimationTestingEliminatedBow_5: 695343507
-      catAnimationTestingEliminatedBow_6: -1515959291
+      maskHit_0: -1377772798
+      maskHit_1: 1252678212
+      maskHit_2: -1476913432
+      maskHit_3: -1928706846
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

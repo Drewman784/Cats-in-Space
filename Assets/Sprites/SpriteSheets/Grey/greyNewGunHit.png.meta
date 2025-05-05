@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 22a10b0a1f109244fbaad284df01f240
+guid: a50613fa4da71df45889578e1d2dbb32
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_0
+      name: greyNewGunHit_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,14 +125,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec1acac26cf6f40428e0a48b2a37b36a
-      internalID: -446470552
+      spriteID: 58a292c81b7eac946b5b179d0a6432e6
+      internalID: -699713682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_1
+      name: greyNewGunHit_1
       rect:
         serializedVersion: 2
         x: 24
@@ -147,14 +147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f76918bff6166648818ee96012b1cc2
-      internalID: -883088198
+      spriteID: b1c8fd6fb6a414847b937cf0b1bdce0c
+      internalID: 1311027692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_2
+      name: greyNewGunHit_2
       rect:
         serializedVersion: 2
         x: 48
@@ -169,14 +169,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02ebebfe8f5684f4b9d1120ab81ffa99
-      internalID: -644099444
+      spriteID: e6f0c5650a80f1b40a553fb3888d0e62
+      internalID: 77562638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_3
+      name: greyNewGunHit_3
       rect:
         serializedVersion: 2
         x: 72
@@ -191,74 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8891f8e3f34609f4387b1b0d58e32cf2
-      internalID: -1071882163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_4
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec44d3ac1e286bd48b98da433c397398
-      internalID: -1785927116
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_5
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c458cfe341c1abf46bce5e4259088c67
-      internalID: 695343507
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: catAnimationTestingEliminatedBow_6
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29635d2f1230b434c9ef817923485e17
-      internalID: -1515959291
+      spriteID: f4c6f265d9a68b343939492555411e48
+      internalID: -595754556
       vertices: []
       indices: 
       edges: []
@@ -267,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9d501e65579a7ca43b0af346f544b410
+    spriteID: aec929012019147409a9b1585f3bdc5c
     internalID: 0
     vertices: []
     indices: 
@@ -277,13 +211,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      catAnimationTestingEliminatedBow_0: -446470552
-      catAnimationTestingEliminatedBow_1: -883088198
-      catAnimationTestingEliminatedBow_2: -644099444
-      catAnimationTestingEliminatedBow_3: -1071882163
-      catAnimationTestingEliminatedBow_4: -1785927116
-      catAnimationTestingEliminatedBow_5: 695343507
-      catAnimationTestingEliminatedBow_6: -1515959291
+      greyNewGunHit_0: -699713682
+      greyNewGunHit_1: 1311027692
+      greyNewGunHit_2: 77562638
+      greyNewGunHit_3: -595754556
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
