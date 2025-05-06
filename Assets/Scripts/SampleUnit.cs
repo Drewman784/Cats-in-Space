@@ -354,6 +354,12 @@ public class SampleUnit : TbsFramework.Units.Unit
         return GetComponent<BaseCatalyst>().CheckCatalyst();
     }
 
+    public override void DefendHandler(TbsFramework.Units.Unit aggressor, int damage)
+    {
+        base.DefendHandler(aggressor, damage);
+        anim.SetTrigger("TakeDamage");
+    }
+
 
 }
 
