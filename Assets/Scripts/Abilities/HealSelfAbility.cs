@@ -27,6 +27,11 @@ namespace TbsFramework.Units.Abilities
             return "Self Heal";
         }
 
+        public override string GetAbilityDescription()
+        {
+            return "Heal self for 4 HP";
+        }
+
         public override IEnumerator Apply(CellGrid cellGrid, IDictionary<string, string> actionParams, bool isNetworkInvoked)
         {
             yield return StartCoroutine(RemoteExecute(cellGrid));

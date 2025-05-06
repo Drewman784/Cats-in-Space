@@ -10,6 +10,7 @@ namespace TbsFramework.Units.Abilities
         private string AbilityName;
         public bool selected = false;
 
+
         public override bool IsSelectable()
         {
             return true;
@@ -22,6 +23,10 @@ namespace TbsFramework.Units.Abilities
         public override string GetAbilityName(){
             //return AbilityName;
             return "Unnamed Ability";
+        }
+
+        public virtual string GetAbilityDescription(){
+            return "description error";
         }
 
         public override bool CanPerform(CellGrid cellGrid)

@@ -64,6 +64,11 @@ namespace TbsFramework.Units.Abilities
             return true;
         }
 
+        public override string GetAbilityDescription()
+        {
+            return "Buff Attack by 3 for 2 turns, then debuff by 2 for 2 turns";
+        }
+
         
     }
 }

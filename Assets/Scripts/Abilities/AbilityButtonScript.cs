@@ -4,13 +4,17 @@ using TbsFramework.Grid.GridStates;
 using TbsFramework.Units;
 using TbsFramework.Units.Abilities;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class AbilityButtonScript : MonoBehaviour
+public class AbilityButtonScript : MonoBehaviour, IPointerEnterHandler,  IPointerExitHandler
 {
     private SelectableAbility theAbility;
     CellGrid cG;
-    Unit unit;
+    TbsFramework.Units.Unit unit;
+    [SerializeField] GameObject AbilityDescriptionPanel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,8 +43,31 @@ public class AbilityButtonScript : MonoBehaviour
 
     }
 
-    public void SetAbility(SelectableAbility toSet, Unit tUnit){
+    public void SetAbility(SelectableAbility toSet, TbsFramework.Units.Unit tUnit){
         theAbility = toSet;
         unit = tUnit;
+    }
+
+    void OnMouseOver()
+    {
+        AbilityDescriptionPanel.SetActive(true);
+        AbilityDescriptionPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = theAbility.GetAbilityName();
+        AbilityDescriptionPanel.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = theAbility.GetAbilityDescription();
+    }
+
+    void OnMouseExit()
+    {
+        AbilityDescriptionPanel.SetActive(false);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        AbilityDescriptionPanel.SetActive(true);
+        AbilityDescriptionPanel.transform.GetChild(0).GetComponent<Text>().text = theAbility.GetAbilityName();
+        AbilityDescriptionPanel.transform.GetChild(1).GetComponent<Text>().text = theAbility.GetAbilityDescription();
+    }
+
+    public void OnPointerExit(PointerEventData eventData){
+         AbilityDescriptionPanel.SetActive(false);
     }
 }

@@ -186,5 +186,10 @@ namespace TbsFramework.Units.Abilities
         {
             return "Heal Other";
         }
+
+        public override string GetAbilityDescription()
+        {
+            return "Heal ally unit for 3 HP";
+        }
     }
 }
