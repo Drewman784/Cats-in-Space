@@ -17,6 +17,8 @@ namespace TbsFramework.Gui
         public Button OptionsButton;
         public Button CreditButton;
 
+        [SerializeField] GameObject CreditsPage;
+
         //public Button TempLevelTwo;
         //public Button TempLevelThree;
 
@@ -44,6 +46,14 @@ namespace TbsFramework.Gui
         void Awake()
         {
             
+        }
+
+        public void OpenCredits(){
+            CreditsPage.SetActive(true);
+        }
+
+        public void CloseCredits(){
+            CreditsPage.SetActive(false);
         }
 
         //private void OnLevelLoading(object sender, EventArgs e)
