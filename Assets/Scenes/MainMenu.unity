@@ -1017,7 +1017,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Music from []'
+  m_Text: 'Music: Uppercut by Panda Beats'
 --- !u!222 &701697257
 CanvasRenderer:
   m_ObjectHideFlags: 0
