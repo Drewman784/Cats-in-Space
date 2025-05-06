@@ -159,5 +159,11 @@ namespace TbsFramework.Cells
             IsTaken = false;
             Debug.Log("cell should be empty");
         }
+
+        public void MarkAsDestination(Color color){
+            Debug.Log("showing color?");
+            UnMark();
+            GetComponent<Renderer>().material.color = color;
+        }
     }
 }

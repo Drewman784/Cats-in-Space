@@ -17,6 +17,8 @@ namespace TbsFramework.Units.Abilities
         public Cell Destination { get; set; }
         private IList<Cell> currentPath;
         public HashSet<Cell> availableDestinations;
+        //Color destinationColor = new Color(112, 245, 86,255);
+        Color destinationColor = new Color(.204f, 0.53f, .212f);
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
@@ -53,6 +55,7 @@ namespace TbsFramework.Units.Abilities
                     {
                         c.MarkAsPath();
                     }
+                    lastClickedCell.MarkAsDestination(destinationColor);
                 }
                 //foreach (var cell in currentPath)
             }
@@ -88,8 +91,9 @@ namespace TbsFramework.Units.Abilities
                     }
 
                     lastClickedCell = cell;
-                    lastClickedCell.MarkAsHighlighted(); // Highlight the newly clicked cell
-
+                    //lastClickedCell.MarkAsHighlighted(); // Highlight the newly clicked cell
+                    lastClickedCell.MarkAsDestination(destinationColor);
+                    //lastClickedCell.MarkAsHighlighted();
                     //Keep unit from deselecting
                     GetComponent<Unit>().OnMouseDown();
                     GetComponent<Unit>().MarkAsSelected();
@@ -118,6 +122,10 @@ namespace TbsFramework.Units.Abilities
                 {
                     c.MarkAsPath();
                 }
+                if (lastClickedCell != null)
+                {
+                    lastClickedCell.MarkAsDestination(destinationColor);
+                }
             }
         }
         public override void OnCellDeselected(Cell cell, CellGrid cellGrid)
@@ -132,6 +140,10 @@ namespace TbsFramework.Units.Abilities
                 foreach(var c in currentPath)
                 {
                     c.MarkAsReachable();
+                }
+                if (lastClickedCell != null)
+                {
+                    lastClickedCell.MarkAsDestination(destinationColor);
                 }
             }
         }
