@@ -16,6 +16,7 @@ namespace TbsFramework.Units.Abilities
         public List<SelectableAbility> SelectAbilities;
         public UnitInfoPanelScript selectPanel;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
+
         void Start()
         {
             selectPanel = GameObject.Find("UnitSelected").GetComponent<UnitInfoPanelScript>();
