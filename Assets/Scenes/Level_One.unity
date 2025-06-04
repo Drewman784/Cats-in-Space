@@ -6983,6 +6983,8 @@ MonoBehaviour:
   - '2: second line'
   portraitImage1: {fileID: 21300000, guid: 279b70371a9da409c9feb6bfa37c4dad, type: 3}
   portraitImage2: {fileID: 21300000, guid: e1aff01aeb88d440089fe7eb7e175be7, type: 3}
+  preCreatedScriptable: {fileID: 11400000, guid: 973882feeea59417080f5248db5516e6,
+    type: 2}
   uiToHide: {fileID: 164631142}
 --- !u!114 &716717011
 MonoBehaviour:

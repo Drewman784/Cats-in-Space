@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acd695e3b5c21460ba066012e682e310, type: 3}
+  m_Name: sampleDialogue
+  m_EditorClassIdentifier: 
+  Character1Name: Swordscat
+  Character2Name: Bowcat
+  Character1Sprite: {fileID: 21300000, guid: 279b70371a9da409c9feb6bfa37c4dad, type: 3}
+  Character2Sprite: {fileID: 21300000, guid: b07dcad11547b4292b2907fcc338e51a, type: 3}
+  theLines:
+  - '2: My portrait was actually drawn facing the other way!'
+  - '2: But there''s no playable unit made yet so I''m in this army.'
+  - '1: You got kicked out of the player team?'
+  - '2: They kicked me-owt.'

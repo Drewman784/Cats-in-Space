@@ -1,5 +1,6 @@
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor.Compilation;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class DialogueReader : MonoBehaviour
 
     [SerializeField] private Sprite portraitImage1; //portrait images to be displayed
     [SerializeField] private Sprite portraitImage2;
+
+    [SerializeField] private DialogueScriptableObject preCreatedScriptable;
 
     private GameObject portrait1; //portraits to be set active/inactive
     private GameObject portrait2;
@@ -30,6 +33,14 @@ public class DialogueReader : MonoBehaviour
      portrait2 = transform.GetChild(1).gameObject;
      lineText = transform.GetChild(2).transform.GetChild(0).GetComponent<Text>();
 
+     if(preCreatedScriptable!= null){ //if there's an associated scriptable, import info from there
+        name1 = preCreatedScriptable.Character1Name;
+        name2 = preCreatedScriptable.Character2Name;
+        portraitImage1 = preCreatedScriptable.Character1Sprite;
+        portraitImage2 = preCreatedScriptable.Character2Sprite;
+        Lines = preCreatedScriptable.theLines;
+     }
+     
      portrait1.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = name1; //put in names and sprites
      portrait2.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = name2;
      portrait1.GetComponent<Image>().sprite = portraitImage1;
