@@ -34660,7 +34660,6 @@ MonoBehaviour:
   portraitImage2: {fileID: 21300000, guid: e1aff01aeb88d440089fe7eb7e175be7, type: 3}
   preCreatedScriptable: {fileID: 11400000, guid: 973882feeea59417080f5248db5516e6,
     type: 2}
-  uiToHide: {fileID: 0}
 --- !u!114 &1144474146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34714,12 +34713,12 @@ RectTransform:
   - {fileID: 1182991442}
   - {fileID: 1917336224}
   - {fileID: 187822925}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1644305037}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 960, y: 540}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1148335604
 GameObject:
@@ -38438,6 +38437,7 @@ RectTransform:
   m_Children:
   - {fileID: 1796698546}
   - {fileID: 1661453442}
+  - {fileID: 1144474148}
   - {fileID: 1529195327}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42689,6 +42689,5 @@ SceneRoots:
   - {fileID: 185886146}
   - {fileID: 482181366}
   - {fileID: 1644305037}
-  - {fileID: 1144474148}
   - {fileID: 1197373}
   - {fileID: 1617042968}

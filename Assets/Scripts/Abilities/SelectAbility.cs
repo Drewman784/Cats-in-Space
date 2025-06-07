@@ -39,10 +39,7 @@ namespace TbsFramework.Units.Abilities
                 }
                 Debug.Log(a);
             }*/
-            else
-            {
-                // Debug.Log("got all buttons");
-            }
+
         }
 
         public override void OnUnitClicked(Unit unit, CellGrid cellGrid)
@@ -65,15 +62,21 @@ namespace TbsFramework.Units.Abilities
                 if (firstclick) //import necessary variables first time
                 {
                     selectPanel = gameObject.GetComponent<SampleUnit>().GetSelectionPanel().GetComponent<UnitInfoPanelScript>();
+                    selectPanel.gameObject.SetActive(true);
                     GameObject g = selectPanel.gameObject.transform.GetChild(1).gameObject;
                     SelectButtons.Add(g.transform.GetChild(0).GetComponent<Button>());
                     SelectButtons.Add(g.transform.GetChild(1).GetComponent<Button>());
                     SelectButtons.Add(g.transform.GetChild(2).GetComponent<Button>());
+                    selectPanel.gameObject.SetActive(false);
 
-                if (SelectButtons.Count != 3)
-                {
-                Debug.Log("Missing button!");
-                }
+                    if (SelectButtons.Count != 3)
+                    {
+                        Debug.Log("Missing button!");
+                    }
+                    else
+                    {
+                        Debug.Log(SelectButtons.Count);
+                    }
                     firstclick = false;
                 }
                 Debug.Log(selectPanel);
