@@ -27,7 +27,7 @@ public class DialogueReader : MonoBehaviour
 
     private int lineIndex;
 
-    [SerializeField] GameObject uiToHide;
+    //[SerializeField] GameObject uiToHide;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -54,11 +54,18 @@ public class DialogueReader : MonoBehaviour
         UpdateLineDisplayed();
 
         CellGrid cG = GameObject.Find("CellGrid").GetComponent<CellGrid>(); // ensure no unit popups during dialogue
+        cG.Initialize();
+        Debug.Log(cG.Units+ " count: " + cG.Units.Count);
         foreach (TbsFramework.Units.Unit u in cG.Units)
         {
             SampleUnit su = (SampleUnit)u;
             su.DialogueOngoing = true;
         }
+        /*foreach (TbsFramework.Units.Unit u in cG.GetEnemyUnits())
+        {
+            SampleUnit su = (SampleUnit)u;
+            su.DialogueOngoing = true;
+        }*/
     }
 
     // Update is called once per frame
@@ -90,7 +97,7 @@ public class DialogueReader : MonoBehaviour
         string fullLine = Lines[lineIndex];
 
         string charNum = fullLine.Substring(0,1); //figure out who is speaking
-        Debug.Log(charNum);
+        //Debug.Log(charNum);
         int charInt = int.Parse(charNum);
 
         if(charInt == 1){ //display correct portrait
@@ -106,7 +113,7 @@ public class DialogueReader : MonoBehaviour
     }
 
     public void OnMouseDown(){
-        Debug.Log("CLICK");
+        //Debug.Log("CLICK");
         NextLine();
     }
 

@@ -39,10 +39,6 @@ namespace TbsFramework.Units.Abilities
                 }
                 Debug.Log(a);
             }*/
-            if (SelectButtons.Count != 3)
-            {
-                Debug.Log("Missing button!");
-            }
             else
             {
                 // Debug.Log("got all buttons");
@@ -74,6 +70,10 @@ namespace TbsFramework.Units.Abilities
                     SelectButtons.Add(g.transform.GetChild(1).GetComponent<Button>());
                     SelectButtons.Add(g.transform.GetChild(2).GetComponent<Button>());
 
+                if (SelectButtons.Count != 3)
+                {
+                Debug.Log("Missing button!");
+                }
                     firstclick = false;
                 }
                 Debug.Log(selectPanel);

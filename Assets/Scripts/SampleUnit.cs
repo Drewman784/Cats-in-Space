@@ -3,7 +3,7 @@ using System;
 using TbsFramework.Units;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
+//using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using TbsFramework.Cells;
@@ -213,7 +213,7 @@ public class SampleUnit : TbsFramework.Units.Unit
         }
         else
         {
-            Debug.Log("nah: " + DialogueOngoing);
+            //Debug.Log("nah: " + DialogueOngoing);
         }
     }
 

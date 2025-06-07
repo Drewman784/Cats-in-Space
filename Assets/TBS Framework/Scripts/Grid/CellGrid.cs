@@ -125,6 +125,7 @@ namespace TbsFramework.Grid
 
         public void InitializeAndStart()
         {
+            //Debug.Log("Units: " + Units);
             Initialize();
             StartGame();
         }
