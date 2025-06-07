@@ -114,6 +114,13 @@ namespace TbsFramework.Grid
             EndScreen.transform.GetChild(1).gameObject.SetActive(false);
 
             checkingCatalysts = false;
+
+            GameObject sPanel = GameObject.Find("UnitSelected"); //assign and deactivate unit info panel
+            foreach (Unit u in Units)
+            {
+                u.AddInfoPanel(sPanel);
+            }
+            sPanel.SetActive(false);
         }
 
         public void InitializeAndStart()

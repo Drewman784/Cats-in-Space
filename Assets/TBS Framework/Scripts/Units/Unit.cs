@@ -327,6 +327,11 @@ namespace TbsFramework.Units
         //    AttackActionPerformed(attackAction.ActionCost); 
         //}
 
+        //CAL EDIT
+        public virtual void AddInfoPanel(GameObject what) //empty method to be overridden
+        {
+        }
+
         /// <summary>
         /// Method for calculating damage and action points cost of attacking given unit
         /// </summary>

@@ -17,13 +17,19 @@ namespace TbsFramework.Units.Abilities
         public UnitInfoPanelScript selectPanel;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+        private bool firstclick;
+
         void Start()
         {
-            selectPanel = GameObject.Find("UnitSelected").GetComponent<UnitInfoPanelScript>();
-            GameObject g = GameObject.Find("AbilityButtons");
+            firstclick = true;
+            /*firstclick = false;
+            selectPanel = gameObject.GetComponent<SampleUnit>().GetSelectionPanel().GetComponent<UnitInfoPanelScript>();
+            //selectPanel = GameObject.Find("UnitSelected").GetComponent<UnitInfoPanelScript>();
+            // GameObject g = GameObject.Find("AbilityButtons");
+            GameObject g = selectPanel.gameObject.transform.GetChild(1).gameObject;
             SelectButtons.Add(g.transform.GetChild(0).GetComponent<Button>());
             SelectButtons.Add(g.transform.GetChild(1).GetComponent<Button>());
-            SelectButtons.Add(g.transform.GetChild(2).GetComponent<Button>());
+            SelectButtons.Add(g.transform.GetChild(2).GetComponent<Button>()); */
 
             /*Unit cG = gameObject.GetComponent<Unit>();
             Debug.Log("unit has "+cG.Abilities.Count + "abilities: ");
@@ -33,10 +39,13 @@ namespace TbsFramework.Units.Abilities
                 }
                 Debug.Log(a);
             }*/
-            if(SelectButtons.Count!=3){
+            if (SelectButtons.Count != 3)
+            {
                 Debug.Log("Missing button!");
-            } else{
-               // Debug.Log("got all buttons");
+            }
+            else
+            {
+                // Debug.Log("got all buttons");
             }
         }
 
@@ -55,8 +64,23 @@ namespace TbsFramework.Units.Abilities
 
         void OnMouseEnter()
         {
-            if(selectPanel.isSelected == false){
-                DisplayAbilities(); 
+            if (!gameObject.GetComponent<SampleUnit>().DialogueOngoing)
+            {
+                if (firstclick) //import necessary variables first time
+                {
+                    selectPanel = gameObject.GetComponent<SampleUnit>().GetSelectionPanel().GetComponent<UnitInfoPanelScript>();
+                    GameObject g = selectPanel.gameObject.transform.GetChild(1).gameObject;
+                    SelectButtons.Add(g.transform.GetChild(0).GetComponent<Button>());
+                    SelectButtons.Add(g.transform.GetChild(1).GetComponent<Button>());
+                    SelectButtons.Add(g.transform.GetChild(2).GetComponent<Button>());
+
+                    firstclick = false;
+                }
+                Debug.Log(selectPanel);
+                if (selectPanel.isSelected == false)
+                {
+                    DisplayAbilities();
+                }
             }  
         }
 

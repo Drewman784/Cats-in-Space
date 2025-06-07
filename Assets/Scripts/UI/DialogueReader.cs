@@ -1,4 +1,8 @@
+using System.Collections.Generic;
 using System.Linq;
+using TbsFramework.Cells;
+using TbsFramework.Grid;
+using TbsFramework.Units;
 using Unity.VisualScripting;
 using UnityEditor.Compilation;
 using UnityEngine;
@@ -27,26 +31,34 @@ public class DialogueReader : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-     lineIndex = 0;  
+        lineIndex = 0;
 
-     portrait1 = transform.GetChild(0).gameObject; //define gameobjects and text to be manipulated
-     portrait2 = transform.GetChild(1).gameObject;
-     lineText = transform.GetChild(2).transform.GetChild(0).GetComponent<Text>();
+        portrait1 = transform.GetChild(0).gameObject; //define gameobjects and text to be manipulated
+        portrait2 = transform.GetChild(1).gameObject;
+        lineText = transform.GetChild(2).transform.GetChild(0).GetComponent<Text>();
 
-     if(preCreatedScriptable!= null){ //if there's an associated scriptable, import info from there
-        name1 = preCreatedScriptable.Character1Name;
-        name2 = preCreatedScriptable.Character2Name;
-        portraitImage1 = preCreatedScriptable.Character1Sprite;
-        portraitImage2 = preCreatedScriptable.Character2Sprite;
-        Lines = preCreatedScriptable.theLines;
-     }
-     
-     portrait1.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = name1; //put in names and sprites
-     portrait2.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = name2;
-     portrait1.GetComponent<Image>().sprite = portraitImage1;
-     portrait2.GetComponent<Image>().sprite = portraitImage2;
+        if (preCreatedScriptable != null)
+        { //if there's an associated scriptable, import info from there
+            name1 = preCreatedScriptable.Character1Name;
+            name2 = preCreatedScriptable.Character2Name;
+            portraitImage1 = preCreatedScriptable.Character1Sprite;
+            portraitImage2 = preCreatedScriptable.Character2Sprite;
+            Lines = preCreatedScriptable.theLines;
+        }
 
-     UpdateLineDisplayed(); 
+        portrait1.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = name1; //put in names and sprites
+        portrait2.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = name2;
+        portrait1.GetComponent<Image>().sprite = portraitImage1;
+        portrait2.GetComponent<Image>().sprite = portraitImage2;
+
+        UpdateLineDisplayed();
+
+        CellGrid cG = GameObject.Find("CellGrid").GetComponent<CellGrid>(); // ensure no unit popups during dialogue
+        foreach (TbsFramework.Units.Unit u in cG.Units)
+        {
+            SampleUnit su = (SampleUnit)u;
+            su.DialogueOngoing = true;
+        }
     }
 
     // Update is called once per frame
@@ -55,11 +67,21 @@ public class DialogueReader : MonoBehaviour
         
     }
     void NextLine(){ //check for next line, move to it or exit dialogue
-        if (lineIndex < Lines.Length-1){
+        if (lineIndex < Lines.Length - 1)
+        {
             lineIndex++;
             UpdateLineDisplayed();
-        } else{
-            uiToHide.SetActive(false);
+        }
+        else
+        {
+            //uiToHide.SetActive(false);
+            CellGrid cG = GameObject.Find("CellGrid").GetComponent<CellGrid>(); // allow no unit popups after dialogue
+            foreach (TbsFramework.Units.Unit u in cG.Units)
+            {
+                SampleUnit su = (SampleUnit)u;
+                su.DialogueOngoing = false;
+            }
+
             gameObject.SetActive(false);
         }
     }

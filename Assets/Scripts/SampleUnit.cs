@@ -23,7 +23,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     public string UnitName;
     public bool isStructure;
     Color friendlyCustomColor;
-    Color friendlyHealthColor = new Color32(13,133,32,255); 
+    Color friendlyHealthColor = new Color32(13, 133, 32, 255);
 
     private GameObject healthBar;
     private GameObject actionMarker;
@@ -47,6 +47,8 @@ public class SampleUnit : TbsFramework.Units.Unit
     private CatalystMonitor catMon;
     [SerializeField] Sprite portrait;
 
+    public bool DialogueOngoing = false; // tracks whether dialogue is ongoing
+
     protected override int Defend(TbsFramework.Units.Unit other, int damage)
     {
         //other.GetComponent<SampleUnit>().anim.SetTrigger("Shoot");
@@ -55,9 +57,11 @@ public class SampleUnit : TbsFramework.Units.Unit
 
     public void Update()
     {
-        if(hitDisplayed){
-            hitct+=Time.deltaTime;
-            if(hitct>2){
+        if (hitDisplayed)
+        {
+            hitct += Time.deltaTime;
+            if (hitct > 2)
+            {
                 hitDisplayed = false;
                 hitDisplay.SetActive(false);
             }
@@ -70,10 +74,10 @@ public class SampleUnit : TbsFramework.Units.Unit
         base.Initialize();
         GetComponentInChildren<Renderer>().material.color = LeadingColor;
         transform.localPosition += Offset;
-        friendlyCustomColor = LeadingColor + new Color(0f,0f,0f,0.5f);
+        friendlyCustomColor = LeadingColor + new Color(0f, 0f, 0f, 0.5f);
         healthBar = transform.GetChild(2).transform.GetChild(0).transform.GetChild(1).gameObject;
         actionMarker = transform.GetChild(2).transform.GetChild(1).gameObject;
-        selectionPanel = GameObject.Find("UnitSelected");
+        //selectionPanel = GameObject.Find("UnitSelected");
         //Debug.Log(selectionPanel);
         selected = false;
 
@@ -83,9 +87,10 @@ public class SampleUnit : TbsFramework.Units.Unit
 
         anim = gameObject.transform.GetChild(1).GetComponent<Animator>();
 
-        if(this.PlayerNumber!=0){
+        if (this.PlayerNumber != 0)
+        {
             UnityEngine.UI.Image hBar = healthBar.GetComponent<UnityEngine.UI.Image>();
-            hBar.color = Color.red; 
+            hBar.color = Color.red;
             actionMarker.SetActive(false);
         }
 
@@ -94,14 +99,15 @@ public class SampleUnit : TbsFramework.Units.Unit
         catMon = GameObject.Find("CellGrid").GetComponent<CatalystMonitor>();
     }
 
-    public void AddInfoPanel(GameObject what){
+    public override void AddInfoPanel(GameObject what)
+    {
         selectionPanel = what;
     }
 
     public override void MarkAsFriendly()
     {
         //Debug.Log("Mark");
-        GetComponentInChildren<Renderer>().material.color  = friendlyCustomColor;
+        GetComponentInChildren<Renderer>().material.color = friendlyCustomColor;
     }
 
     public override void MarkAsReachableEnemy()
@@ -110,8 +116,9 @@ public class SampleUnit : TbsFramework.Units.Unit
         this.Cell.GetComponent<Renderer>().material.color = Color.red;
     }
 
-    public void MarkAsReachableAlly(){
-         this.Cell.GetComponent<Renderer>().material.color = Color.blue;
+    public void MarkAsReachableAlly()
+    {
+        this.Cell.GetComponent<Renderer>().material.color = Color.blue;
     }
 
     public override void MarkAsSelected()
@@ -139,7 +146,8 @@ public class SampleUnit : TbsFramework.Units.Unit
         //anim.SetBool("Walking", false);
         GameObject.Find("CellGrid").GetComponent<CellGrid>().CheckUnitsFinished();
 
-        if(this.PlayerNumber == 0){ //check the catalysts
+        if (this.PlayerNumber == 0)
+        { //check the catalysts
             cellGrid.CheckCatalysts();
         }
     }
@@ -147,58 +155,80 @@ public class SampleUnit : TbsFramework.Units.Unit
     public override void UnMark()
     {
         //Debug.Log("Unmark");
-        if(this.HitPoints>0){
+        if (this.HitPoints > 0)
+        {
             GetComponentInChildren<Renderer>().material.color = LeadingColor;
-            if(this.PlayerNumber==0){
+            if (this.PlayerNumber == 0)
+            {
                 actionMarker.SetActive(true);
             }
         }
         this.Cell.GetComponent<Renderer>().material.color = Color.white;
     }
 
-    public void ShowHealth(){ //updates healthbar
-        float barHealth = (float)this.HitPoints/(float)this.TotalHitPoints;
-        healthBar.GetComponent<Transform>().localScale = new Vector3(barHealth,1,1);
+    public void ShowHealth()
+    { //updates healthbar
+        float barHealth = (float)this.HitPoints / (float)this.TotalHitPoints;
+        healthBar.GetComponent<Transform>().localScale = new Vector3(barHealth, 1, 1);
         //Debug.Log("hp:" + this.HitPoints + "%"+ this.TotalHitPoints+ " -> "+(barHealth));
 
-        if(selected){ //if selected, also update stats
+        if (selected)
+        { //if selected, also update stats
             OnMouseOver();
         }
     }
 
 
-    protected override void DefenceActionPerformed(){ //runs after unit has been attacked
+    protected override void DefenceActionPerformed()
+    { //runs after unit has been attacked
         ShowHealth();
     }
 
-    private void OnMouseOver() { // show the details window
-        if(this.HitPoints>0){
+    private void OnMouseOver()
+    { // show the details window
+        if (this.HitPoints > 0 && !DialogueOngoing)
+        { //if unit is alive and no dialogue
             selectionPanel.SetActive(true);
-            if(selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected == false){
+            if (selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected == false)
+            { // if no other unit is selected already
                 //Debug.Log(selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected + " no?");
-                if(this.PlayerNumber!=0){ // change healthbar color based on unit status
+                if (this.PlayerNumber != 0)
+                { // change healthbar color based on unit status
                     selectionPanel.transform.GetChild(1).gameObject.SetActive(false);
-                    selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = Color.red; 
+                    selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = Color.red;
                 }
-                else{
+                else
+                {
                     selectionPanel.transform.GetChild(1).gameObject.SetActive(true);
-                    selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = friendlyHealthColor; 
+                    selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = friendlyHealthColor;
                 }
                 //modify health bar
                 selectionPanel.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = portrait;
-                selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints/(float)this.TotalHitPoints,1,1);
+                selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints / (float)this.TotalHitPoints, 1, 1);
                 selectionPanel.transform.GetChild(2).transform.GetChild(0).GetComponent<Text>().text = this.UnitName;
-                selectionPanel.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = this.HitPoints +"/"+ this.TotalHitPoints;
+                selectionPanel.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = this.HitPoints + "/" + this.TotalHitPoints;
                 selectionPanel.transform.GetChild(2).transform.GetChild(2).GetComponent<Text>().text = "Atk: " + this.AttackFactor + " | " + "Range: " + this.AttackRange;
             }
 
+        }
+        else
+        {
+            Debug.Log("nah: " + DialogueOngoing);
+        }
+    }
+
+    public override void OnMouseDown()
+    {
+        if (!DialogueOngoing)
+        {
+            base.OnMouseDown();
         }
     }
 
     public override void OnMouseExit()
     {
         base.OnMouseExit();
-        if(!selected && selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected == false)
+        if (!selected && selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected == false)
             selectionPanel.SetActive(false);
     }
 
@@ -214,7 +244,7 @@ public class SampleUnit : TbsFramework.Units.Unit
         MarkAsAttacking(unitToAttack);
         //Debug.Log("reached new attack handler - "+(attackAction.Damage + addedDamage));
         unitToAttack.DefendHandler(this, attackAction.Damage);
-        AttackActionPerformed(attackAction.ActionCost); 
+        AttackActionPerformed(attackAction.ActionCost);
         GetComponent<BaseCatalyst>().CheckCatalyst();
 
         /*if(unitToAttack.HitPoints>0){
@@ -222,17 +252,20 @@ public class SampleUnit : TbsFramework.Units.Unit
         }*/
     }
 
-    public AttackAction NewDealDamage(TbsFramework.Units.Unit unitToAttack, String attackType, int addedDamage){
+    public AttackAction NewDealDamage(TbsFramework.Units.Unit unitToAttack, String attackType, int addedDamage)
+    {
         anim.SetTrigger("Shoot");
         //Debug.Log("here!");
-        int TempAttackFactor = AttackFactor+addedDamage;
-        catMon.RegisterDamage(TempAttackFactor,this.PlayerNumber,this,(SampleUnit)unitToAttack);
-        switch(attackType){
+        int TempAttackFactor = AttackFactor + addedDamage;
+        catMon.RegisterDamage(TempAttackFactor, this.PlayerNumber, this, (SampleUnit)unitToAttack);
+        switch (attackType)
+        {
             case "PHYSICAL":
                 return new AttackAction(TempAttackFactor, 1f);
             case "PSIONIC":
                 int dmg = unitToAttack.Morale - this.Morale;
-                if((float)unitToAttack.Morale/(float)this.Morale >= 2){
+                if ((float)unitToAttack.Morale / (float)this.Morale >= 2)
+                {
                     dmg = dmg * 3;
                 }
                 return new AttackAction(dmg, 1f);
@@ -242,20 +275,22 @@ public class SampleUnit : TbsFramework.Units.Unit
         //return new AttackAction(AttackFactor, 1f);
     }
 
-    public void TakeEnvironmentalDamage(int damage){ // this unit is damaged by the environment
+    public void TakeEnvironmentalDamage(int damage)
+    { // this unit is damaged by the environment
         catMon.RegisterDamage(damage, this.PlayerNumber, this, this);
         AttackAction attackAction = new AttackAction(damage, 1f);
         DefendHandler(this, attackAction.Damage);
 
-        if(HitPoints>0){ //if still alive, check the catalyst
+        if (HitPoints > 0)
+        { //if still alive, check the catalyst
             GetComponent<BaseCatalyst>().CheckCatalyst();
         }
     }
 
     public override bool IsCellTraversable(Cell cell)
-        {
-            return base.IsCellTraversable(cell) || (cell.CurrentUnits.Count > 0 && !cell.CurrentUnits.Exists(u => !(u as SampleUnit).isStructure && u.PlayerNumber != PlayerNumber));
-        }
+    {
+        return base.IsCellTraversable(cell) || (cell.CurrentUnits.Count > 0 && !cell.CurrentUnits.Exists(u => !(u as SampleUnit).isStructure && u.PlayerNumber != PlayerNumber));
+    }
 
     protected override void OnDestroyed()
     {
@@ -271,7 +306,7 @@ public class SampleUnit : TbsFramework.Units.Unit
         Debug.Log(dPrefab);*/
         GameObject spriter = transform.GetChild(1).gameObject;
         spriter.transform.parent = this.Cell.transform;
-        spriter.transform.position = new Vector3(0,0.16f,0);
+        spriter.transform.position = new Vector3(0, 0.16f, 0);
         //spriter.transform.localScale = this.transform.localScale;
         anim.SetTrigger("Dead");
         catMon.RegisterKill(this.PlayerNumber);
@@ -279,10 +314,12 @@ public class SampleUnit : TbsFramework.Units.Unit
         base.OnDestroyed();
     }
 
-    public void HealUnit(int amount){
+    public void HealUnit(int amount)
+    {
         Debug.Log("heal for: " + amount);
         this.HitPoints += amount;
-        if(this.HitPoints>this.TotalHitPoints){
+        if (this.HitPoints > this.TotalHitPoints)
+        {
             this.HitPoints = this.TotalHitPoints;
         }
         ShowHealth();
@@ -309,34 +346,42 @@ public class SampleUnit : TbsFramework.Units.Unit
     // Attack sounds and such
     public override void OnUnitSelected()
     {
-        base.OnUnitSelected();
-        if (audioSource == null)
+        if (!DialogueOngoing) //only select if dialogue not ongoing
         {
-            audioSource = gameObject.AddComponent<AudioSource>();
-        }
-        if(selectionPanel.GetComponent<UnitInfoPanelScript>().lastUnit != null){
-            selectionPanel.GetComponent<UnitInfoPanelScript>().lastUnit.OnUnitDeselected();
-        }
-        selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected = true;
-        //Debug.Log("selected unit " + this.UnitName);
-    
-        if(this.PlayerNumber!=0){ // change healthbar color based on unit status
-                    selectionPanel.transform.GetChild(1).gameObject.SetActive(false);
-                    selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = Color.red; 
-                }
-                else{
-                    //Debug.Log("call display abilities?");
-                    GetComponent<SelectAbility>().DisplayAbilities();
-                    selectionPanel.transform.GetChild(1).gameObject.SetActive(true);
-                    selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = friendlyHealthColor; 
-                }
+            base.OnUnitSelected();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+            if (selectionPanel.GetComponent<UnitInfoPanelScript>().lastUnit != null)
+            {
+                selectionPanel.GetComponent<UnitInfoPanelScript>().lastUnit.OnUnitDeselected();
+            }
+            selectionPanel.GetComponent<UnitInfoPanelScript>().isSelected = true;
+            //Debug.Log("selected unit " + this.UnitName);
 
-                //modify health bar
-                selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints/(float)this.TotalHitPoints,1,1);
-                selectionPanel.transform.GetChild(2).transform.GetChild(0).GetComponent<Text>().text = this.UnitName;
-                selectionPanel.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = this.HitPoints +"/"+ this.TotalHitPoints;
-                selectionPanel.transform.GetChild(2).transform.GetChild(2).GetComponent<Text>().text = "Atk: " + this.AttackFactor + " | " + "Range: " + this.AttackRange;
-                selectionPanel.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = portrait;
+            if (this.PlayerNumber != 0)
+            { // change healthbar color based on unit status
+                selectionPanel.transform.GetChild(1).gameObject.SetActive(false);
+                selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = Color.red;
+            }
+            else
+            {
+                //Debug.Log("call display abilities?");
+                GetComponent<SelectAbility>().DisplayAbilities();
+                selectionPanel.transform.GetChild(1).gameObject.SetActive(true);
+                selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = friendlyHealthColor;
+            }
+
+            //modify health bar
+            selectionPanel.transform.GetChild(2).transform.GetChild(3).transform.GetChild(1).gameObject.GetComponent<Transform>().localScale = new Vector3((float)this.HitPoints / (float)this.TotalHitPoints, 1, 1);
+            selectionPanel.transform.GetChild(2).transform.GetChild(0).GetComponent<Text>().text = this.UnitName;
+            selectionPanel.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = this.HitPoints + "/" + this.TotalHitPoints;
+            selectionPanel.transform.GetChild(2).transform.GetChild(2).GetComponent<Text>().text = "Atk: " + this.AttackFactor + " | " + "Range: " + this.AttackRange;
+            selectionPanel.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().sprite = portrait;
+
+
+        }
     }
 
 
@@ -358,6 +403,11 @@ public class SampleUnit : TbsFramework.Units.Unit
     {
         base.DefendHandler(aggressor, damage);
         anim.SetTrigger("TakeDamage");
+    }
+
+    public GameObject GetSelectionPanel() //passes selection panel
+    {
+        return selectionPanel;
     }
 
 
