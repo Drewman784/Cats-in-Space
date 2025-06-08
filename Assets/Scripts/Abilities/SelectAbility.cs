@@ -64,6 +64,9 @@ namespace TbsFramework.Units.Abilities
                     selectPanel = gameObject.GetComponent<SampleUnit>().GetSelectionPanel().GetComponent<UnitInfoPanelScript>();
                     selectPanel.gameObject.SetActive(true);
                     GameObject g = selectPanel.gameObject.transform.GetChild(1).gameObject;
+                    g.transform.GetChild(0).gameObject.SetActive(true);
+                    g.transform.GetChild(1).gameObject.SetActive(true);
+                    g.transform.GetChild(2).gameObject.SetActive(true);
                     SelectButtons.Add(g.transform.GetChild(0).GetComponent<Button>());
                     SelectButtons.Add(g.transform.GetChild(1).GetComponent<Button>());
                     SelectButtons.Add(g.transform.GetChild(2).GetComponent<Button>());
@@ -94,12 +97,13 @@ namespace TbsFramework.Units.Abilities
 
             Unit cG = GetComponent<SampleUnit>();
             foreach(Ability a in cG.Abilities){
-                if(a.IsSelectable()){
+                if(a.IsSelectable() && !SelectAbilities.Contains((SelectableAbility)a)){
                    SelectAbilities.Add((SelectableAbility)a);
                    //a.enabled = false;
                 }
                 //Debug.Log(a);
             }
+
             //Debug.Log(SelectAbilities);
 
             //Unit cG = GetComponent<Unit>();
@@ -113,7 +117,7 @@ namespace TbsFramework.Units.Abilities
             //Debug.Log("select abilities count: " + SelectAbilities.Count);
             //Debug.Log("list: "+ SelectAbilities.Count);
                 for(int a = 0; a < SelectAbilities.Count; a++){
-                   // Debug.Log(a + " ability name = " + SelectAbilities[a].GetAbilityName());
+                    //Debug.Log(a + " ability name = " + SelectAbilities[a].GetAbilityName());
                 SelectButtons[a].gameObject.SetActive(true);
                 SelectButtons[a].transform.GetChild(0).GetComponent<Text>().text = SelectAbilities[a].GetAbilityName();
                 SelectButtons[a].gameObject.GetComponent<AbilityButtonScript>().SetAbility((SelectableAbility)SelectAbilities[a], cG);
