@@ -104,6 +104,11 @@ public class SampleUnit : TbsFramework.Units.Unit
         selectionPanel = what;
     }
 
+    public GameObject GetInfoPanel()
+    {
+        return selectionPanel;
+    }
+
     public override void MarkAsFriendly()
     {
         //Debug.Log("Mark");

@@ -18,6 +18,8 @@ namespace TbsFramework.Units.Abilities
         List<Cell> inRange;
         public Cell SelectedCell { get; set; }
         [SerializeField] private SampleUnit UnitToSpawn;
+
+        Color okLocationColor = new Color(.52f, 0.201f, .235f);
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -41,6 +43,7 @@ namespace TbsFramework.Units.Abilities
 
                 SampleUnit newUnit = Instantiate(UnitToSpawn);
                 newUnit.PlayerNumber = this.GetComponent<Unit>().PlayerNumber;
+                newUnit.AddInfoPanel(this.GetComponent<SampleUnit>().GetInfoPanel());
 
                 cellGrid.AddUnit(newUnit.transform, SelectedCell);
                 /*Unit tempUnit = null;
@@ -66,17 +69,19 @@ namespace TbsFramework.Units.Abilities
             ActionCost();
             yield return base.Act(cellGrid, false);
             selected = false;
+            inRange = null;
 
         }
 
         public override void OnCellSelected(Cell cell, CellGrid cellGrid)
         {
+
             //Debug.Log("cell selected called");
-            if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as  SampleUnit).PlayerNumber == 1 || !selected)
+            /*if (cell == null || cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as  SampleUnit).PlayerNumber == 1 || !selected)
             {
                 return;
             }
-
+            
             inRange = cellGrid.Cells.FindAll(c => c.GetDistance(cell) <= Range);
             inRange.ForEach(c =>
             {
@@ -86,7 +91,24 @@ namespace TbsFramework.Units.Abilities
                     c.CurrentUnits[0].GetComponent<SampleUnit>().MarkAsReachableAlly();
                     //c.CurrentUnits[0].MarkAsReachableEnemy();
                 }
+            });*/
+
+            if (selected)
+            {
+                if (inRange == null)
+                {
+                    inRange = cellGrid.Cells.FindAll(c => c.GetDistance(this.GetComponent<SampleUnit>().Cell) <= Range);
+                }
+            inRange.ForEach(c =>
+            {
+                c.MarkAsHighlighted();
+                if (c.CurrentUnits.Count == 0)
+                {
+                    //Debug.Log("marking: " + c);
+                    c.MarkAsDestination(okLocationColor);
+                }
             });
+            }
         }
         public override void OnCellDeselected(Cell cell, CellGrid cellGrid)
         {
@@ -134,7 +156,17 @@ namespace TbsFramework.Units.Abilities
             {
                 return;
             }
-            SelectedCell = cell;
+
+            inRange = cellGrid.Cells.FindAll(c => c.GetDistance(this.GetComponent<SampleUnit>().Cell) <= Range);
+            if (inRange.Contains(cell))
+            {
+                SelectedCell = cell;
+            }
+            else
+            {
+                return;
+            }
+
 
             StartCoroutine(Execute(cellGrid,
                 _ => cellGrid.cellGridState = new CellGridStateBlockInput(cellGrid),
@@ -190,6 +222,7 @@ namespace TbsFramework.Units.Abilities
 
             return actionParams;
         }
+
 
         public override string GetAbilityName()
         {
