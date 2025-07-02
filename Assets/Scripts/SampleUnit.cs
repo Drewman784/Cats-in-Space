@@ -46,6 +46,7 @@ public class SampleUnit : TbsFramework.Units.Unit
 
     private CatalystMonitor catMon;
     [SerializeField] Sprite portrait;
+    [SerializeField]public bool hackable;
 
     public bool DialogueOngoing = false; // tracks whether dialogue is ongoing
 
@@ -151,6 +152,7 @@ public class SampleUnit : TbsFramework.Units.Unit
         //anim.SetBool("Walking", false);
         GameObject.Find("CellGrid").GetComponent<CellGrid>().CheckUnitsFinished();
 
+        OnUnitDeselected();
         if (this.PlayerNumber == 0)
         { //check the catalysts
             cellGrid.CheckCatalysts();

@@ -65,6 +65,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2582135148479637361, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
+      propertyPath: UnitName
+      value: Hackable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2582135148479637361, guid: ef5c3be5c100346589c399404ed0f609,
+        type: 3}
+      propertyPath: hackable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2582135148479637361, guid: ef5c3be5c100346589c399404ed0f609,
+        type: 3}
       propertyPath: HitPoints
       value: 5
       objectReference: {fileID: 0}

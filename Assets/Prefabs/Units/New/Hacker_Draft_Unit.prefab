@@ -71,22 +71,22 @@ PrefabInstance:
     - target: {fileID: 4204259275702419751, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4204259275702419751, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.5678592
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4204259275702419751, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.026666403
       objectReference: {fileID: 0}
     - target: {fileID: 9214783490375785395, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
       propertyPath: m_Name
-      value: Spawner_Draft_Unit
+      value: Hacker_Draft_Unit 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2941084343431653353, guid: ef5c3be5c100346589c399404ed0f609, type: 3}
@@ -102,7 +102,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9214783490375785395, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3712201982173718983}
+      addedObject: {fileID: 1160072397978526485}
   m_SourcePrefab: {fileID: 100100000, guid: ef5c3be5c100346589c399404ed0f609, type: 3}
 --- !u!1 &2885652333130658418 stripped
 GameObject:
@@ -125,7 +125,7 @@ MonoBehaviour:
   catMon: {fileID: 0}
   condition: 
   effect: 
---- !u!114 &3712201982173718983
+--- !u!114 &1160072397978526485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,11 +134,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2885652333130658418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 518fde420eaf542b0a41ef22097dada8, type: 3}
+  m_Script: {fileID: 11500000, guid: fcbebf9d7455d4df997d44dfb7833079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selected: 0
-  Range: 1
-  Damage: 0
-  UnitToSpawn: {fileID: 8376430864620441264, guid: 2ce46e9127e5f494189a661a93daa2da,
-    type: 3}
+  addedDamage: 0

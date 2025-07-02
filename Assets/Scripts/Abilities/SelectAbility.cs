@@ -18,6 +18,7 @@ namespace TbsFramework.Units.Abilities
         // Start is called once before the first execution of Update after the MonoBehaviour is created
 
         private bool firstclick;
+        CellGrid cg;
 
         void Start()
         {
@@ -78,7 +79,7 @@ namespace TbsFramework.Units.Abilities
                     }
                     else
                     {
-                        Debug.Log(SelectButtons.Count);
+                        //Debug.Log(SelectButtons.Count);
                     }
                     firstclick = false;
                 }
@@ -122,10 +123,16 @@ namespace TbsFramework.Units.Abilities
                 SelectButtons[a].transform.GetChild(0).GetComponent<Text>().text = SelectAbilities[a].GetAbilityName();
                 SelectButtons[a].gameObject.GetComponent<AbilityButtonScript>().SetAbility((SelectableAbility)SelectAbilities[a], cG);
                 check++;
-                if(GetComponent<SampleUnit>().ActionPoints<1){
+                if (GetComponent<SampleUnit>().ActionPoints < 1 && !SelectAbilities[a].CanPerform(cg))
+                {
                     SelectButtons[a].GetComponent<Image>().color = Color.grey;
-                } else{
+                    SelectButtons[a].interactable = false;
+                    Debug.Log("uninteractable?");
+                }
+                else
+                {
                     SelectButtons[a].GetComponent<Image>().color = Color.white;
+                    SelectButtons[a].interactable = true;
                 }
             }
 
@@ -146,9 +153,13 @@ namespace TbsFramework.Units.Abilities
 
         public override bool CanPerform(CellGrid cellGrid)
         {
-            if(UnitReference.ActionPoints>0){
+            cg = cellGrid;
+            if (UnitReference.ActionPoints > 0)
+            {
                 return true;
-            } else{
+            }
+            else
+            {
                 return false;
             }
         }

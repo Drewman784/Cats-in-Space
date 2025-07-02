@@ -161,7 +161,7 @@ namespace TbsFramework.Cells
         }
 
         public void MarkAsDestination(Color color){
-            Debug.Log("showing color?");
+            //Debug.Log("showing color?");
             UnMark();
             GetComponent<Renderer>().material.color = color;
         }
