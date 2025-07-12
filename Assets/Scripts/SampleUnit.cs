@@ -47,6 +47,7 @@ public class SampleUnit : TbsFramework.Units.Unit
     private CatalystMonitor catMon;
     [SerializeField] Sprite portrait;
     [SerializeField]public bool hackable;
+    private bool hacked;
 
     public bool DialogueOngoing = false; // tracks whether dialogue is ongoing
 
@@ -98,6 +99,7 @@ public class SampleUnit : TbsFramework.Units.Unit
         cellGrid = GameObject.Find("CellGrid").GetComponent<CellGrid>();
 
         catMon = GameObject.Find("CellGrid").GetComponent<CatalystMonitor>();
+        hacked = false;
     }
 
     public override void AddInfoPanel(GameObject what)
@@ -276,6 +278,8 @@ public class SampleUnit : TbsFramework.Units.Unit
                     dmg = dmg * 3;
                 }
                 return new AttackAction(dmg, 1f);
+            case "HACKING":
+                return new AttackAction(1000, 1f);
             default:
                 return new AttackAction(TempAttackFactor, 1f);
         }
@@ -311,11 +315,16 @@ public class SampleUnit : TbsFramework.Units.Unit
         }
         dPrefab.GetComponent<Animator>().SetTrigger("Dead");
         Debug.Log(dPrefab);*/
-        GameObject spriter = transform.GetChild(1).gameObject;
-        spriter.transform.parent = this.Cell.transform;
-        spriter.transform.position = new Vector3(0, 0.16f, 0);
-        //spriter.transform.localScale = this.transform.localScale;
-        anim.SetTrigger("Dead");
+        if (!hacked) //except where unit is replaced by hacked equivalent
+        {
+            Debug.Log("hacked status: " + hacked);
+            GameObject spriter = transform.GetChild(1).gameObject;
+            spriter.transform.parent = this.Cell.transform;
+            spriter.transform.position = new Vector3(0, 0.16f, 0);
+        
+            anim.SetTrigger("Dead");   
+        }
+        
         catMon.RegisterKill(this.PlayerNumber);
         Debug.Log(selectionPanel + "selection panel gone?");
         base.OnDestroyed();
@@ -332,16 +341,17 @@ public class SampleUnit : TbsFramework.Units.Unit
         ShowHealth();
     }
 
-    /**public override void DefendHandler(TbsFramework.Units.Unit aggressor, int damage)
+    public CellGrid GetCellGrid() //returns cellGrid reference
     {
-        base.DefendHandler(aggressor, damage);
+        return cellGrid;
+    }
 
-        Debug.Log("marking!");
-        hitDisplayed = true;
-        hitDisplay.SetActive(true);
-        hitDisplay.GetComponent<TextMeshProUGUI>().text = "-" + damage;
-        hitct = 0;
-    }**/
+    public void SetHacked()
+    {
+        Debug.Log("set hacked");
+        hacked = true;
+    }
+
 
     protected override IEnumerator MovementAnimation(IList<Cell> path)
     {

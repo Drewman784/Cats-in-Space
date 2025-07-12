@@ -73,6 +73,8 @@ namespace TbsFramework.Units.Abilities
                     SelectButtons.Add(g.transform.GetChild(2).GetComponent<Button>());
                     selectPanel.gameObject.SetActive(false);
 
+                    cg = gameObject.GetComponent<SampleUnit>().GetCellGrid();
+
                     if (SelectButtons.Count != 3)
                     {
                         Debug.Log("Missing button!");
@@ -123,7 +125,7 @@ namespace TbsFramework.Units.Abilities
                 SelectButtons[a].transform.GetChild(0).GetComponent<Text>().text = SelectAbilities[a].GetAbilityName();
                 SelectButtons[a].gameObject.GetComponent<AbilityButtonScript>().SetAbility((SelectableAbility)SelectAbilities[a], cG);
                 check++;
-                if (GetComponent<SampleUnit>().ActionPoints < 1 && !SelectAbilities[a].CanPerform(cg))
+                if (GetComponent<SampleUnit>().ActionPoints < 1 || !SelectAbilities[a].CanPerform(cg))
                 {
                     SelectButtons[a].GetComponent<Image>().color = Color.grey;
                     SelectButtons[a].interactable = false;

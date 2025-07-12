@@ -38,19 +38,26 @@ namespace TbsFramework.Units.Abilities
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
             Debug.Log("act called");
+            GetComponent<SampleUnit>().AttackRange = 1;
             if (CanPerform(cellGrid) && this.selected && UnitReference.IsUnitAttackable(UnitToAttack, UnitReference.Cell))
             {
-                Debug.Log("NewMeleeAttack");
+                Debug.Log("Hack!");
                 //UnitReference.AttackHandler(UnitToAttack);
                 //Debug.Log()
-                UnitReference.GetComponent<SampleUnit>().NewAttackHandler(UnitToAttack.GetComponent<SampleUnit>(), "PHYSICAL", addedDamage);
-                gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Shoot");
+                //UnitReference.GetComponent<SampleUnit>().NewAttackHandler(UnitToAttack.GetComponent<SampleUnit>(), "PHYSICAL", addedDamage);
+                //gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Shoot");
+
+                UnitToAttack.GetComponent<HackTriggeredCatalyst>().TriggerCatalystEffect();
+                UnitToAttack.GetComponent<SampleUnit>().SetHacked();
+                UnitReference.GetComponent<SampleUnit>().NewAttackHandler(UnitToAttack.GetComponent<SampleUnit>(), "HACKING", addedDamage);
                 yield return new WaitForSeconds(0.5f);
+                ActionCost();
 
             }
-            ActionCost();
+
             yield return base.Act(cellGrid, false);
             selected = false;
+            GetComponent<SampleUnit>().AttackRange = 2;
             //SampleUnit.
 
         }
@@ -91,24 +98,26 @@ namespace TbsFramework.Units.Abilities
                     su.Cell.MarkAsDestination(droneHighlightColor);
                 }
             }
+            GetComponent<SampleUnit>().AttackRange = 1;
             inRange = enemyUnits.Where(u => UnitReference.IsUnitAttackable(u, UnitReference.Cell)).ToList();
             List<Unit> tempRange = new List<Unit>();
             foreach (var unit in inRange)
             {
                 SampleUnit su = unit as SampleUnit;
-                if (su.hackable == false)
+                if (su.hackable == true)
                 {
                     tempRange.Add(su);
                 }
             }
             inRange = tempRange;
-            inRange.ForEach(u =>  u.Cell.MarkAsDestination(okHackColor));
+            inRange.ForEach(u => u.Cell.MarkAsDestination(okHackColor));
+            GetComponent<SampleUnit>().AttackRange = 2;
                
         }
 
         public override void OnCellClicked(Cell cell, CellGrid cellGrid)
         {
-            if (cell == null || cell.CurrentUnits== null ||cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as SampleUnit).PlayerNumber ==0 || !selected)
+            if ((cell == null) || (cell.CurrentUnits== null) ||(cell.CurrentUnits.Count > 0 && (cell.CurrentUnits[0] as SampleUnit).PlayerNumber ==0) || (!selected) || (cell.CurrentUnits.Count == 0))
             {
                 return;
             }
@@ -170,14 +179,14 @@ namespace TbsFramework.Units.Abilities
                 selected = false;
                 return false;
             }
-
+            GetComponent<SampleUnit>().AttackRange = 1;
             var enemyUnits = cellGrid.GetEnemyUnits(cellGrid.CurrentPlayer);
             inRange = enemyUnits.Where(u => UnitReference.IsUnitAttackable(u, UnitReference.Cell)).ToList();
             List<Unit> tempRange = new List<Unit>();
             foreach (var unit in inRange)
             {
                 SampleUnit su = unit as SampleUnit;
-                if (su.hackable == false)
+                if (su.hackable == true)
                 {
                     tempRange.Add(su);
                 }
@@ -185,8 +194,12 @@ namespace TbsFramework.Units.Abilities
             inRange = tempRange;
 
             Debug.Log(inRange.Count + " in range");
-            if (inRange.Count == 0){
-                selected = false; }
+            /*if (inRange.Count < 1)
+            {
+                selected = false;
+                OnAbilityDeselected(cellGrid);
+            }*/
+            GetComponent<SampleUnit>().AttackRange = 2;
             return inRange.Count > 0;
         }
         public override IEnumerator Apply(CellGrid cellGrid, IDictionary<string, string> actionParams, bool isNetworkInvoked)
