@@ -17,17 +17,7 @@ namespace TbsFramework.Units.Abilities
         public int Damage;
         List<Cell> inRange;
         public Cell SelectedCell { get; set; }
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
             Debug.Log("act called");

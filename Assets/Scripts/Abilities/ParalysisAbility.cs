@@ -12,7 +12,7 @@ namespace TbsFramework.Units.Abilities
 {
     //this ability should heal allow the unit to attack an adjacent unit
     //this script heavily references FireballSpell 
-    public class HackAbility : SelectableAbility
+    public class ParalysisAbility : SelectableAbility
     {
         //public int Range;
         public int addedDamage;
@@ -22,25 +22,23 @@ namespace TbsFramework.Units.Abilities
         public int UnitToAttackID { get; set; }
         public Cell SelectedCell { get; set; }
 
-        Color okHackColor = new Color(.52f, 0.201f, .235f);
-        Color droneHighlightColor = new Color(.30f, .30f, 0.5f);
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        Color canParalyzeColor = new Color(.245f, 0.161f, .066f); //245, 161, 66
+                                                                  // Start is called once before the first execution of Update after the MonoBehaviour is created
+        [SerializeField] Buff ParalysisBuff;
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
             Debug.Log("act called");
-            GetComponent<SampleUnit>().AttackRange = 1;
             if (CanPerform(cellGrid) && this.selected && UnitReference.IsUnitAttackable(UnitToAttack, UnitReference.Cell))
             {
-                Debug.Log("Hack!");
+                Debug.Log("Paralyze!");
                 //UnitReference.AttackHandler(UnitToAttack);
                 //Debug.Log()
                 //UnitReference.GetComponent<SampleUnit>().NewAttackHandler(UnitToAttack.GetComponent<SampleUnit>(), "PHYSICAL", addedDamage);
                 //gameObject.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Shoot");
 
-                UnitToAttack.GetComponent<HackTriggeredCatalyst>().TriggerCatalystEffect();
-                UnitToAttack.GetComponent<SampleUnit>().SetHacked();
-                UnitReference.GetComponent<SampleUnit>().NewAttackHandler(UnitToAttack.GetComponent<SampleUnit>(), "HACKING", addedDamage);
+                //UnitReference.GetComponent<SampleUnit>().NewAttackHandler(UnitToAttack.GetComponent<SampleUnit>(), "PSIONIC", addedDamage);
+                UnitToAttack.GetComponent<SampleUnit>().AddBuff(ParalysisBuff);
                 yield return new WaitForSeconds(0.5f);
                 ActionCost();
 
@@ -48,7 +46,6 @@ namespace TbsFramework.Units.Abilities
 
             yield return base.Act(cellGrid, false);
             selected = false;
-            GetComponent<SampleUnit>().AttackRange = 2;
             //SampleUnit.
 
         }
@@ -81,28 +78,10 @@ namespace TbsFramework.Units.Abilities
         {
             var enemyUnits = cellGrid.GetEnemyUnits(cellGrid.CurrentPlayer);
             CleanUp(cellGrid);
-            foreach (var unit in enemyUnits)
-            {
-                SampleUnit su = unit as SampleUnit;
-                if (su.hackable == true)
-                {
-                    su.Cell.MarkAsDestination(droneHighlightColor);
-                }
-            }
-            GetComponent<SampleUnit>().AttackRange = 1;
+ 
             inRange = enemyUnits.Where(u => UnitReference.IsUnitAttackable(u, UnitReference.Cell)).ToList();
-            List<Unit> tempRange = new List<Unit>();
-            foreach (var unit in inRange)
-            {
-                SampleUnit su = unit as SampleUnit;
-                if (su.hackable == true)
-                {
-                    tempRange.Add(su);
-                }
-            }
-            inRange = tempRange;
-            inRange.ForEach(u => u.Cell.MarkAsDestination(okHackColor));
-            GetComponent<SampleUnit>().AttackRange = 2;
+
+            inRange.ForEach(u => u.Cell.MarkAsDestination(canParalyzeColor));
 
         }
 
@@ -121,16 +100,9 @@ namespace TbsFramework.Units.Abilities
             if (UnitReference.IsUnitAttackable(cell.CurrentUnits[0], UnitReference.Cell))
             {
                 SampleUnit su = (SampleUnit)cell.CurrentUnits[0];
-                if (su.hackable == true)
-                {
-                    UnitToAttack = cell.CurrentUnits[0];
-                    UnitToAttackID = UnitToAttack.UnitID;
-                    StartCoroutine(HumanExecute(cellGrid));
-                }
-                else
-                {
-                    Debug.Log("failed here");
-                }
+                UnitToAttack = cell.CurrentUnits[0];
+                UnitToAttackID = UnitToAttack.UnitID;
+                StartCoroutine(HumanExecute(cellGrid));
 
             }
         }
@@ -171,27 +143,12 @@ namespace TbsFramework.Units.Abilities
                 selected = false;
                 return false;
             }
-            GetComponent<SampleUnit>().AttackRange = 1;
+
             var enemyUnits = cellGrid.GetEnemyUnits(cellGrid.CurrentPlayer);
             inRange = enemyUnits.Where(u => UnitReference.IsUnitAttackable(u, UnitReference.Cell)).ToList();
-            List<Unit> tempRange = new List<Unit>();
-            foreach (var unit in inRange)
-            {
-                SampleUnit su = unit as SampleUnit;
-                if (su.hackable == true)
-                {
-                    tempRange.Add(su);
-                }
-            }
-            inRange = tempRange;
 
             Debug.Log(inRange.Count + " in range");
-            /*if (inRange.Count < 1)
-            {
-                selected = false;
-                OnAbilityDeselected(cellGrid);
-            }*/
-            GetComponent<SampleUnit>().AttackRange = 2;
+
             return inRange.Count > 0;
         }
         public override IEnumerator Apply(CellGrid cellGrid, IDictionary<string, string> actionParams, bool isNetworkInvoked)
@@ -215,12 +172,12 @@ namespace TbsFramework.Units.Abilities
 
         public override string GetAbilityName()
         {
-            return "Hack";
+            return "Paralyze";
         }
         
         public override string GetAbilityDescription()
         {
-            return "Hack an opposing drone unit";
+            return "Paralyze an opposing unit for 1 turn";
         }
     }
 }
