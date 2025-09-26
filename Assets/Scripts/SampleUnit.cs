@@ -409,6 +409,7 @@ public class SampleUnit : TbsFramework.Units.Unit
         {
             audioSource.PlayOneShot(AttackSound);
         }
+        Debug.Log("action points: " + ActionPoints);
     }
 
     public override bool CatalystRelay() //called by cellgrid -> unit -> sample unit -> catalyst script

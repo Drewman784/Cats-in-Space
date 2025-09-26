@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 2582135148479637361, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
       propertyPath: UnitName
-      value: Spawner
+      value: Hacker
       objectReference: {fileID: 0}
     - target: {fileID: 4204259275702419751, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: 9214783490375785395, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
       propertyPath: m_Name
-      value: Hacker_Draft_Unit 1
+      value: Hacker_Draft_Unit
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2941084343431653353, guid: ef5c3be5c100346589c399404ed0f609, type: 3}

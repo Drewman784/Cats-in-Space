@@ -40,6 +40,8 @@ namespace TbsFramework.Players
                     }
                 }
 
+                while (unit.ActionPoints > 0) //cal edit (while loop)
+                {
                 var AIActions = unit.GetComponentsInChildren<AIAction>();
                 foreach (var aiAction in AIActions)
                 {
@@ -59,18 +61,21 @@ namespace TbsFramework.Players
                         yield return null;
                     }
 
-                    if (shouldExecuteAction)
-                    {
-                        if (!DebugMode)
+                        if (shouldExecuteAction)
                         {
-                            yield return null;
-                            aiAction.Precalculate(this, unit, cellGrid);
-                        }
+                            if (!DebugMode)
+                            {
 
-                        yield return (aiAction.Execute(this, unit, cellGrid));
+                                aiAction.Precalculate(this, unit, cellGrid);
+                            }
+
+                            yield return (aiAction.Execute(this, unit, cellGrid));
+                            yield return new WaitForSeconds(0.5f); //cal edit (pause)
                     }
                     aiAction.CleanUp(this, unit, cellGrid);
                 }
+                }
+
                 unit.MarkAsFriendly();
             }
 

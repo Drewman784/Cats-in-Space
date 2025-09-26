@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2143396430258039680, guid: fcc578b88c615554d943476632b13a7d,
+        type: 3}
+      propertyPath: UnitName
+      value: Psionic
+      objectReference: {fileID: 0}
     - target: {fileID: 3025837557082116462, guid: fcc578b88c615554d943476632b13a7d,
         type: 3}
       propertyPath: m_Name
