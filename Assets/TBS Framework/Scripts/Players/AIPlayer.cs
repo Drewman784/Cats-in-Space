@@ -71,6 +71,10 @@ namespace TbsFramework.Players
 
                             yield return (aiAction.Execute(this, unit, cellGrid));
                             yield return new WaitForSeconds(0.5f); //cal edit (pause)
+                            if (cellGrid.GetEnemyUnits(this).Count == 1) //Cal edit  - keeps from getting stuck at end
+                            {
+                                unit.ActionPoints = 0;
+                            }
                     }
                     aiAction.CleanUp(this, unit, cellGrid);
                 }
