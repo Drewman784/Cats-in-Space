@@ -63,6 +63,17 @@ PrefabInstance:
       propertyPath: UnitName
       value: Hacker
       objectReference: {fileID: 0}
+    - target: {fileID: 2591164897854347111, guid: ef5c3be5c100346589c399404ed0f609,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 24d3fdf28c4a58345af96a42e81c7012, type: 2}
+    - target: {fileID: 4204259275702419751, guid: ef5c3be5c100346589c399404ed0f609,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1191211141, guid: 8ca1b6cce4ca39743ac5b47a0a308cc1,
+        type: 3}
     - target: {fileID: 4204259275702419751, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
       propertyPath: m_Color.a
@@ -71,7 +82,7 @@ PrefabInstance:
     - target: {fileID: 4204259275702419751, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4204259275702419751, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
@@ -81,7 +92,7 @@ PrefabInstance:
     - target: {fileID: 4204259275702419751, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.026666403
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9214783490375785395, guid: ef5c3be5c100346589c399404ed0f609,
         type: 3}
